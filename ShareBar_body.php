@@ -24,7 +24,7 @@ class ExtShareBar {
     }
 
     static function makeModalContainer( $name, $title ) {
-        $output .= <<<HTML
+        $output = <<<HTML
 <div id="wr-sharebar-modal-{$name}" class="modal fade wr-sharebar-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--
     --><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--
