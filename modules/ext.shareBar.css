@@ -1,0 +1,123 @@
+/* Fix jQuery UI Dialog priority over Bootstrap elements */
+.wr-sharebar-dialog {
+    z-index: 1100;
+}
+
+.wr-sharebar-modal .modal-content {
+    min-height: 500px;
+}
+
+.nav > li > a.sidebar-btn {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wr-sharebar {
+    margin-bottom: 30px;
+    padding: 10px 0;
+    border-color: #478a83;
+    border-style: dashed;
+    border-width: 1px 0;
+
+    /* border-image, where supported (e.g., IE11+) */
+    /* @embed */
+    border-image: url("images/sharebar-border.png") 1 1 1 0 repeat;
+}
+
+.wr-sharebar > ul {
+    margin: 0;
+    display: inline-block;
+}
+
+.wr-sharebar-changerequest .btn {
+    padding: 0 10px;
+}
+
+@media (min-width: 992px) {
+    .wr-sharebar > ul.section-localshare > li {
+        margin-right: 30px;
+    }
+
+    .wr-sharebar > ul.section-cloudshare > li {
+        margin-right: 20px;
+    }
+
+    .wr-sharebar-changerequest .btn {
+        padding: 0 20px;
+    }
+}
+
+
+.wr-sharebar > ul > li > a {
+    background-repeat: no-repeat;
+}
+
+
+/* Print only works with JS */
+.client-nojs .wr-sharebar-print {
+    display: none;
+}
+
+.wr-sharebar-print > a {
+    background-image: url("images/temp_print.png");
+    background-position: left;
+    padding-left: 26px; /* 21px for image + 5px margin */
+}
+
+.wr-sharebar-send > a {
+    background-image: url("images/temp_send.png");
+    background-position: left;
+    padding-left: 26px; /* 21px for image + 5px margin */
+}
+
+.wr-sharebar-facebook > a {
+    background-image: url("images/temp_facebook.png");
+    background-position: right;
+    padding-right: 21px; /* 21px for image + 5px margin */
+}
+
+.wr-sharebar-twitter > a {
+    background-image: url("images/temp_twitter.png");
+    background-position: right;
+    padding-right: 21px; /* 21px for image + 5px margin */
+}
+
+.wr-sharebar-gplus > a {
+    background-image: url("images/temp_gplus.png");
+    background-position: right;
+    padding-right: 21px; /* 21px for image + 5px margin */
+}
+
+
+.wr-sharebar .section-changerequest {
+    float: right;
+}
+
+.wr-sharebar .btn {
+    background-color: #608835;
+    border-color: #608835;
+    color: #FFFFFF;
+}
+.wr-sharebar .btn:hover,
+.wr-sharebar .btn:focus,
+.wr-sharebar .btn:active,
+.wr-sharebar .btn.active {
+    background-color: #53762e;
+    border-color: #466327;
+    color: #FFFFFF;
+}
+.wr-sharebar .btn.disabled:hover,
+.wr-sharebar .btn.disabled:focus,
+.wr-sharebar .btn.disabled:active,
+.wr-sharebar .btn.disabled.active,
+.wr-sharebar .btn[disabled]:hover,
+.wr-sharebar .btn[disabled]:focus,
+.wr-sharebar .btn[disabled]:active,
+.wr-sharebar .btn[disabled].active,
+fieldset[disabled] .wr-sharebar .btn:hover,
+fieldset[disabled] .wr-sharebar .btn:focus,
+fieldset[disabled] .wr-sharebar .btn:active,
+fieldset[disabled] .wr-sharebar .btn.active {
+    background-color: #608835;
+    border-color: #608835;
+}
