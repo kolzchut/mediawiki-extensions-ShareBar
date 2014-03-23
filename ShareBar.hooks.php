@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dror
- * Date: 3/20/14
- * Time: 12:38 AM
- */
 
 class ExtShareBarHooks {
 
@@ -30,17 +24,8 @@ class ExtShareBarHooks {
      * @return true
      */
     public static function onResourceLoaderGetConfigVars( &$vars ) {
-        global $egShareBarEnabledServices, $egShareBarServices;
+        global $egShareBarDisabledServices, $egShareBarServices;
         //ExtShareBar::registerJsConfigVars( &vars );
-
-        foreach( $egShareBarEnabledServices as $service ) {
-            $properties = $egShareBarServices[$service];
-            if( is_array( $properties ) && !empty( $properties['link'] ) ) {
-                //$url = Skin::makeInternalOrExternalUrl( $properties['link'] );
-                $url = $properties['link'];
-                $vars['egShareBar'][$service]['url'] = $url;
-            }
-        }
 
         return true;
     }
@@ -57,12 +42,6 @@ class ExtShareBarHooks {
      * @return true
      */
     public static function onBeforePageDisplay( OutputPage $out, $skin ) {
-        global $egShareBarEnabledServices;
-        /*
-        foreach( $egShareBarEnabledServices as $service ) {
-            $out->addModules( 'ext.wr.ShareBar.' . $service );
-        }
-        */
         $out->addModuleStyles( 'ext.wr.ShareBar' );
         $out->addModules( 'ext.wr.ShareBar.js' );
 

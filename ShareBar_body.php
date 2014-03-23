@@ -9,8 +9,8 @@ class ExtShareBar {
         $props = $egShareBarServices[$type];
         if( is_array( $props ) && !empty( $props['link'] ) ) {
             $text = wfMessage( 'ext-sharebar-btn-' . $type )->text();
-            $linkModalWidth = isset( $props['width'] ) ? $props['width'] : 750;
-            $linkModalHeight = isset( $props['height'] ) ? $props['height'] : 600;
+            $linkModalWidth = isset( $props['width'] ) ? $props['width'] : 800;
+            $linkModalHeight = isset( $props['height'] ) ? $props['height'] : 700;
 
             $output = "<a href=\"{$props['link']}\" target=\"_blank\" class=\"sidebar-btn wr-sidebar-btn-$type\""
                 . " data-open-as=\"modal\" data-target=\"#wr-sharebar-modal-$type\""
@@ -44,23 +44,16 @@ HTML;
     static function setServicesDefaults( Title $title ) {
         global $egShareBarServices;
 
-        $egShareBarServices['send'] += array(
-            'link' => self::buildEmailShareUrl(),
-            'openAs' => 'modal'
-        );
-        $egShareBarServices['changerequest']['openAs'] = 'modal';
-        $egShareBarServices['print']['openAs'] = 'print';
-
-        $url = wfExpandUrl( $title->getLocalURL() );
-
-        foreach( array( 'facebook', 'twitter', 'gplus') as $service ) {
-            $egShareBarServices[$service] += array(
-                'openAs' => 'window',
-                'link' => self::buildShareUrl( $service, $url, 'title???' )
-            );
+		foreach( array( 'facebook', 'twitter', 'gplus', 'send', 'changerequest') as $service ) {
+            $egShareBarServices[$service]['openAs'] = 'window';
+			$egShareBarServices[$service]['link'] = self::buildShareUrl( $service, $title );
         }
 
-    }
+		$egShareBarServices['send']['openAs'] = 'modal';
+		$egShareBarServices['changerequest']['openAs'] = 'modal';
+		$egShareBarServices['print']['openAs'] = 'print';
+
+	}
 
     /**
      * @param $parser Parser
@@ -122,8 +115,8 @@ HTML;
                 $text = wfMessage( 'ext-sharebar-' . $item )->text();
                 $linkOpenAs = htmlspecialchars( isset( $props['openAs'] ) ? $props['openAs'] : 'none' );
                 $linkClass = ( $item === 'changerequest' ? 'btn' : '' );
-                $linkModalWidth = isset( $props['width'] ) ? $props['width'] : 600;
-                $linkModalHeight = isset( $props['height'] ) ? $props['height'] : 600;
+                $linkModalWidth = isset( $props['width'] ) ? $props['width'] : 800;
+                $linkModalHeight = isset( $props['height'] ) ? $props['height'] : 700;
                 $link = "<a class=\"$linkClass\" href=\"$link\" target=\"_blank\""
                     . "data-target=\"#wr-sharebar-modal-$item\" data-open-as=\"$linkOpenAs\""
                     . "data-width=\"$linkModalWidth\" data-height=\"$linkModalHeight\">$text</a>";
@@ -146,29 +139,49 @@ HTML;
     }
 
 
-    private function buildShareUrl( $service, $url, $title ) {
-        $vars = array( '{url}', '{title}', '{text}' );
-        $msg = wfMessage( "ext-sharebar-$service-msg");
-        $text = $msg->exists() ? $msg->text() : '';
-        $data = array( rawurlencode( $url ), rawurlencode( $title ), rawurlencode( $text ) );
+    private function buildShareUrl( $service, Title $title ) {
+		/** Legit globals */
+		global $egShareBarServices, $wgSitename;
+		/** Evil globals */
+		global $wgUser, $wgLanguageCode, $wgContLang;
+
+
+		/// Data gathering
+		$pageName = $title->getPrefixedText();
+		$url = wfExpandUrl( $title->getLocalURL() );
+		$msg = wfMessage( "ext-sharebar-$service-msg");
+        $text = $msg->exists() ? $msg->params( $pageName, $wgSitename, $url )->text() : '';
+		$categories = implode( ',', array_keys( $title->getParentCategories() ) );
+		$categories = str_replace( $wgContLang->getNsText( NS_CATEGORY ) . ':', '', $categories );
+		$categories = str_replace( '_', ' ', $categories);
+
+		// Array of placeholder keys to replace with actual values
+		$placeholders = array(
+			'{url}' => rawurlencode( $url ),
+			'{title}' => rawurlencode( $pageName ),
+			'{text}' => rawurlencode( $text ),
+			'{user_name}' => rawurlencode( $wgUser->getName() ?: '' ),
+			'{user_email}' => rawurlencode( $wgUser->getEmail() ?: '' ),
+			'{language}' => $wgLanguageCode,
+			'{categories}' => rawurlencode( $categories  )
+		);
 
         $serviceUrl = array(
-            'facebook' => 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]={URL}&p[images][0]={IMAGE}&p[title]={TITLE}&p[summary]={TEXT}',
+            'facebook' => 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]={URL}&p[title]={TITLE}&p[summary]={TEXT}',	//Optional: &p[images][0]={IMAGE}
             'twitter' => 'https://twitter.com/intent/tweet?url={URL}&text={TEXT}',  //More optional params: &text, &hashtags
-            'gplus' => 'https://plus.google.com/share?url={URL}'
-        );
+            'gplus' => 'https://plus.google.com/share?url={URL}',
+			'send' => $egShareBarServices['send']['link']
+				. '?page={TITLE}&pageUrl={URL}&senderName={USER_NAME}&senderEmail={USER_EMAIL}',
+			'changerequest' => $egShareBarServices['changerequest']['link']
+				. '?page={TITLE}&name={USER_NAME}&email={USER_EMAIL}&lang={language}&categories={categories}'
 
-        $url = str_ireplace( $vars, $data, $serviceUrl[$service] );
+		);
 
-        return $url;
+		$url = str_ireplace( array_keys( $placeholders ), array_values( $placeholders ), $serviceUrl[$service] );
 
-
+		return $url;
     }
 
-    function buildEmailShareUrl() {
-        $link = '/forms/mailArticle/?page={TITLE}&pageUrl={URL}&senderEmail={USER_EMAIL}&senderName={USER_NAME}';
-        return $link;
-    }
 }
 
 

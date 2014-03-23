@@ -23,46 +23,8 @@ $wgExtensionCredits['parserhook'][] = array(
 );
 
 // @todo add a "valid services" const to evaluate $egShareBarEnabledServices against
-// Settings
-$egShareBarDisabledServices = null;
-$egShareBarServices['feedback'] = array(
-    //'link' => '',
-);
-$egShareBarServices['donate'] = array(
-    //'link' => '',
-    'width' => 1000,
-    'height' => 750
-);
 
-$egShareBarServices['changerequest'] = array(
-    'link' => '/forms/ChangeRequest/',
-    'width' => 750,
-    'height' => 650,
-);
-
-$egShareBarServices['send'] = array(
-    'width' => 700,
-    'height' => 500,
-);
-
-$egShareBarServices['facebook'] = array(
-    'width' => 520,
-    'height' => 350,
-);
-
-$egShareBarServices['twitter'] = array(
-    'width' => 550,
-    'height' => 450,
-);
-
-$egShareBarServices['gplus'] = array(
-    'width' => 575,
-    'height' => 400,
-);
-
-
-$egShareBarServices['send']['link'] = '/forms/mailArticle/';
-
+require_once( 'ShareBar.settings.php' );
 
 $wgAutoloadClasses['ExtShareBarHooks'] = __DIR__ . '/ShareBar.hooks.php';
 $wgAutoloadClasses['ExtShareBar'] = __DIR__ . '/ShareBar_body.php';
@@ -73,8 +35,6 @@ $wgHooks['ParserFirstCallInit'][] = 'ExtShareBarHooks::onParserFirstCallInit';
 $wgHooks['ResourceLoaderGetConfigVars'][] = 'ExtShareBarHooks::onResourceLoaderGetConfigVars';
 $wgHooks['BeforePageDisplay'][] = 'ExtShareBarHooks::onBeforePageDisplay';
 $wgHooks['SkinHelenaSidebarButtons'][] = 'ExtShareBarHooks::onSkinHelenaSidebarButtons';
-
-
 
 
 $wrShareBarResourceTemplate = array(

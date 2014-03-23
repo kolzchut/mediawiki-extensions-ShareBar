@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'ext-sharebar'            => 'Kol-Zchut Sharing Tools',
+	'ext-sharebar'            => 'Kol-Zchut ShareBar',
     'ext-sharebar-desc' => 'ShareBar for for the Kol-Zchut website',
     'ext-sharebar-loading' => 'Loading...',
     'ext-sharebar-feedback-form-title' => 'משוב על שימוש באתר',
@@ -28,7 +28,9 @@ $messages['en'] = array(
 	'ext-sharebar-twitter'	     => '{{int:ext-sharebar-share-on}}',
     'ext-sharebar-gplus'	     => '{{int:ext-sharebar-share-on}}',
 
-    'ext-sharebar-twitter-msg'	 => '$1 at #$2 | $3 (@kolzchut)',
+    'ext-sharebar-twitter-msg'	 => '$1 ב-#$2 | $3 (@kolzchut)',
+	'ext-sharebar-facebook-msg'	 => 'מידע על $1 בכל-זכות - דעו מה מגיע לכם!',
+
 
 );
 
