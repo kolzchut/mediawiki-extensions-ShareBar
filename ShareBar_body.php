@@ -95,7 +95,7 @@ HTML;
         );
 
 
-        $output = '<div class="wr-sharebar noprint">';
+        $output = '<div class="wr-sharebar hidden-xs .hidden-print noprint">';
 
         foreach( $sharebarButtons as $section => $sectionItems ) {
             $output .= '<ul class="list-inline sharebar-section section-' . $section . '">';
