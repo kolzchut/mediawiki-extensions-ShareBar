@@ -160,8 +160,8 @@ HTML;
 			'{url}' => rawurlencode( $url ),
 			'{title}' => rawurlencode( $pageName ),
 			'{text}' => rawurlencode( $text ),
-			'{user_name}' => rawurlencode( $wgUser->getName() ?: '' ),
-			'{user_email}' => rawurlencode( $wgUser->getEmail() ?: '' ),
+			'{user_name}' => rawurlencode( $wgUser->isLoggedIn() ? $wgUser->getName() : '' ),
+			'{user_email}' => rawurlencode( $wgUser->isLoggedIn() ? $wgUser->getEmail() : '' ),
 			'{language}' => $wgLanguageCode,
 			'{categories}' => rawurlencode( $categories  )
 		);
