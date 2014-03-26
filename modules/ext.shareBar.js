@@ -38,13 +38,14 @@
     }
 
 
+    var $sharebarModal = $( '#wr-sharebar-modal' );
+    var $frame = $sharebarModal.find('iframe');
+
     function openModal( url, $anchor, width, height ) {
         /* Sanity check for screen size */
         if( width > window.screen.width ) { width = window.screen.width; }
         if( height > window.screen.height ) { height = window.screen.height; }
 
-        var $sharebarModal = $( $anchor.data( 'target' ) );
-        var $frame = $sharebarModal.find('iframe');
         // Was the iframe already loaded? Do not reload
         //if( $frame.attr( 'src' ) === '' ) {
             $frame.attr({
@@ -59,6 +60,13 @@
         }).find( '.modal-dialog').css({
             //height: height,
             width: width
+        });
+
+        $sharebarModal.on( 'hide.bs.modal', function() {
+            // Remove iframe source to prevent flash of previous content on next load
+            $frame.attr({
+                src: ''
+            });
         });
 
     }

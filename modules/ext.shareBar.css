@@ -24,13 +24,32 @@
     border-image: url("images/sharebar-border.png") 1 1 1 0 repeat;
 }
 
-.wr-sharebar > ul {
+.sharebar-section {
     margin: 0;
     display: inline-block;
 }
 
+.sharebar-section a {
+    color: #464646;
+}
+
+.sharebar-section a:hover,
+.sharebar-section a:focus,
+.sharebar-section a:active {
+    text-decoration: none;
+    color: #131313;
+    position: relative;
+    top: -1px;
+    right: -1px;
+}
+
 .wr-sharebar-changerequest .btn {
     padding: 0 10px;
+}
+.wr-sharebar-changerequest .btn:hover,
+.wr-sharebar-changerequest .btn:focus,
+.wr-sharebar-changerequest .btn:active {
+    position: static; /* Undo the damage I do above */
 }
 
 @media (min-width: 992px) {
@@ -50,6 +69,8 @@
 
 .wr-sharebar > ul > li > a {
     background-repeat: no-repeat;
+    display: inline-block;
+    min-height: 21px;
 }
 
 
@@ -58,34 +79,39 @@
     display: none;
 }
 
-.wr-sharebar-print > a {
-    background-image: url("images/temp_print.png");
+.sharebar-section.section-localshare > li > a {
     background-position: left;
     padding-left: 26px; /* 21px for image + 5px margin */
+}
+
+.wr-sharebar-print > a {
+    /* @embed */
+    background-image: url("images/print.png");
 }
 
 .wr-sharebar-send > a {
-    background-image: url("images/temp_send.png");
-    background-position: left;
-    padding-left: 26px; /* 21px for image + 5px margin */
+    /* @embed */
+    background-image: url("images/send.png");
+}
+
+.sharebar-section.section-cloudshare > li > a {
+    background-position: right;
+    padding-right: 23px; /* 21px for image + 2px margin */
 }
 
 .wr-sharebar-facebook > a {
-    background-image: url("images/temp_facebook.png");
-    background-position: right;
-    padding-right: 21px; /* 21px for image + 5px margin */
+    /* @embed */
+    background-image: url("images/facebook.png");
 }
 
 .wr-sharebar-twitter > a {
-    background-image: url("images/temp_twitter.png");
-    background-position: right;
-    padding-right: 21px; /* 21px for image + 5px margin */
+    /* @embed */
+    background-image: url("images/twitter.png");
 }
 
 .wr-sharebar-gplus > a {
-    background-image: url("images/temp_gplus.png");
-    background-position: right;
-    padding-right: 21px; /* 21px for image + 5px margin */
+    /* @embed */
+    background-image: url("images/gplus.png");
 }
 
 
