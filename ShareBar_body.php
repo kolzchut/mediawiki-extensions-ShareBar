@@ -17,7 +17,7 @@ class ExtShareBar {
             $output = "<a href=\"{$props['link']}\" target=\"_blank\" class=\"sidebar-btn wr-sidebar-btn-$type\""
                 . " data-open-as=\"modal\""
                 . "data-width=\"$linkModalWidth\" data-height=\"$linkModalHeight\"><button class=\"btn col-sm-12\">"
-                . "$text</button></a>";
+                . "<span class=\"img-icon pull-left\"></span>$text</button></a>";
 
         }
 
