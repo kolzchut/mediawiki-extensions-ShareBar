@@ -132,9 +132,11 @@ HTML;
 
                 $output .= $li;
 
+				/*
                 if ( $linkOpenAs === 'modal' && !self::$isModalContainerCreated ) {
                     $output .= self::makeModalContainer();
                 }
+				*/
             }
 
             $output .= '</ul>';
