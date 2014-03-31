@@ -24,9 +24,7 @@ class ExtShareBarHooks {
      * @return true
      */
     public static function onResourceLoaderGetConfigVars( &$vars ) {
-        global $egShareBarDisabledServices, $egShareBarServices;
-        //ExtShareBar::registerJsConfigVars( &vars );
-
+        ExtShareBar::registerJsConfigVars( $vars );
         return true;
     }
 

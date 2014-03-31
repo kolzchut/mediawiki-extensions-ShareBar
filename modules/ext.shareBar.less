@@ -1,3 +1,7 @@
+@import "mediawiki.mixins";
+
+@btn-background: #608835;
+
 /* Fix jQuery UI Dialog priority over Bootstrap elements */
 .wr-sharebar-dialog {
     z-index: 1100;
@@ -85,13 +89,11 @@
 }
 
 .wr-sharebar-print > a {
-    /* @embed */
-    background-image: url("images/print.png");
+    .background-image("images/print.png");
 }
 
 .wr-sharebar-send > a {
-    /* @embed */
-    background-image: url("images/send.png");
+    .background-image("images/send.png");
 }
 
 .sharebar-section.section-cloudshare > li > a {
@@ -100,18 +102,15 @@
 }
 
 .wr-sharebar-facebook > a {
-    /* @embed */
-    background-image: url("images/facebook.png");
+    .background-image("images/facebook.png");
 }
 
 .wr-sharebar-twitter > a {
-    /* @embed */
-    background-image: url("images/twitter.png");
+    .background-image("images/twitter.png");
 }
 
 .wr-sharebar-gplus > a {
-    /* @embed */
-    background-image: url("images/gplus.png");
+    .background-image("images/gplus.png");
 }
 
 
@@ -120,8 +119,8 @@
 }
 
 .wr-sharebar .btn {
-    background-color: #608835;
-    border-color: #608835;
+    background-color: @btn-background;
+    border-color: @btn-background;
     color: #FFFFFF;
 }
 .wr-sharebar .btn:hover,
@@ -144,6 +143,6 @@ fieldset[disabled] .wr-sharebar .btn:hover,
 fieldset[disabled] .wr-sharebar .btn:focus,
 fieldset[disabled] .wr-sharebar .btn:active,
 fieldset[disabled] .wr-sharebar .btn.active {
-    background-color: #608835;
-    border-color: #608835;
+    background-color: @btn-background;
+    border-color: @btn-background;
 }

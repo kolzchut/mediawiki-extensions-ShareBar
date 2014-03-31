@@ -9,15 +9,13 @@ class ExtShareBar {
         $output = null;
 
         $props = $egShareBarServices[$type];
-        if( is_array( $props ) && !empty( $props['link'] ) ) {
+        if( is_array( $props ) && !empty( $props['url'] ) ) {
             $text = wfMessage( 'ext-sharebar-btn-' . $type )->text();
-            $linkModalWidth = isset( $props['width'] ) ? $props['width'] : 800;
-            $linkModalHeight = isset( $props['height'] ) ? $props['height'] : 700;
 
-            $output = "<a href=\"{$props['link']}\" target=\"_blank\" class=\"sidebar-btn wr-sidebar-btn-$type\""
-                . " data-open-as=\"modal\""
-                . "data-width=\"$linkModalWidth\" data-height=\"$linkModalHeight\"><button class=\"btn col-sm-12\">"
-                . "<span class=\"img-icon pull-left\"></span>$text</button></a>";
+            $output = "<a href=\"{$props['url']}\" target=\"_blank\" data-share-type=\"{$type}\""
+				. "class=\"wr-share-link sidebar-btn wr-sidebar-btn-{$type}\">"
+                . "<button class=\"btn col-sm-12\">"
+                . "<span class=\"img-icon pull-left\"></span>{$text}</button></a>";
 
         }
 
@@ -42,6 +40,14 @@ HTML;
         return $output;
     }
 
+
+	static function registerJsConfigVars( &$vars ) {
+		global $egShareBarServices;
+		$vars['egShareBar'] = $egShareBarServices;
+
+		return true;
+	}
+
     /**
      * @param Title $title
      * @return void
@@ -52,7 +58,7 @@ HTML;
 
 		foreach( array( 'facebook', 'twitter', 'gplus', 'send', 'changerequest') as $service ) {
             $egShareBarServices[$service]['openAs'] = 'window';
-			$egShareBarServices[$service]['link'] = self::buildShareUrl( $service, $title );
+			$egShareBarServices[$service]['url'] = self::buildShareUrl( $service, $title );
         }
 
 		$egShareBarServices['send']['openAs'] = 'modal';
@@ -114,29 +120,17 @@ HTML;
                     continue;
                 }
                 $props = $egShareBarServices[$item];
-                if( is_array( $props ) && !empty( $props['link'] ) ) {
-                    $link = htmlspecialchars( $props['link'] );
+                if( is_array( $props ) && !empty( $props['url'] ) ) {
+                    $link = htmlspecialchars( $props['url'] );
                 } else {
                     $link = '#';
                 }
                 $text = wfMessage( 'ext-sharebar-' . $item )->text();
-                $linkOpenAs = htmlspecialchars( isset( $props['openAs'] ) ? $props['openAs'] : 'none' );
-                $linkClass = ( $item === 'changerequest' ? 'btn' : '' );
-                $linkModalWidth = isset( $props['width'] ) ? $props['width'] : 800;
-                $linkModalHeight = isset( $props['height'] ) ? $props['height'] : 700;
-                $link = "<a class=\"$linkClass\" href=\"$link\" target=\"_blank\""
-                    . "data-open-as=\"$linkOpenAs\""
-                    . "data-width=\"$linkModalWidth\" data-height=\"$linkModalHeight\">$text</a>";
-
-                $li = "<li class=\"wr-sharebar-$item\">$link</li>";
+                $linkClass = 'wr-share-link' . ( $item === 'changerequest' ? ' btn' : '' );
+                $link = "<a class=\"{$linkClass}\" data-share-type=\"{$item}\" href=\"{$link}\" target=\"_blank\">{$text}</a>";
+                $li = "<li class=\"wr-sharebar-{$item}\">{$link}</li>";
 
                 $output .= $li;
-
-				/*
-                if ( $linkOpenAs === 'modal' && !self::$isModalContainerCreated ) {
-                    $output .= self::makeModalContainer();
-                }
-				*/
             }
 
             $output .= '</ul>';
@@ -154,7 +148,6 @@ HTML;
 		global $egShareBarServices, $wgSitename;
 		/** Evil globals */
 		global $wgUser, $wgLanguageCode, $wgContLang;
-
 
 		/// Data gathering
 		$pageName = $title->getPrefixedText();
@@ -180,9 +173,9 @@ HTML;
             'facebook' => 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]={URL}&p[title]={TITLE}&p[summary]={TEXT}',	//Optional: &p[images][0]={IMAGE}
             'twitter' => 'https://twitter.com/intent/tweet?url={URL}&text={TEXT}',  //More optional params: &text, &hashtags
             'gplus' => 'https://plus.google.com/share?url={URL}',
-			'send' => $egShareBarServices['send']['link']
+			'send' => $egShareBarServices['send']['url']
 				. '?page={TITLE}&pageUrl={URL}&senderName={USER_NAME}&senderEmail={USER_EMAIL}',
-			'changerequest' => $egShareBarServices['changerequest']['link']
+			'changerequest' => $egShareBarServices['changerequest']['url']
 				. '?page={TITLE}&name={USER_NAME}&email={USER_EMAIL}&lang={language}&categories={categories}'
 
 		);

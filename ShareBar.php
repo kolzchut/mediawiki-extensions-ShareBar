@@ -57,7 +57,7 @@ $wgResourceModules['ext.wrSharing.addThis'] = $wrSharingResourceTemplate + array
 );
 */
 $wgResourceModules['ext.wr.ShareBar'] = $wrShareBarResourceTemplate + array(
-    'styles' => 'ext.shareBar.css',
+    'styles' => 'ext.shareBar.less',
     'position' => 'top',
     'dependencies' => array( 'skins.helena.bootstrap', 'skins.helena.bootstrapOverride' ),
 );

@@ -28,8 +28,8 @@ $messages['en'] = array(
 	'ext-sharebar-twitter'	     => '{{int:ext-sharebar-share-on}}',
     'ext-sharebar-gplus'	     => '{{int:ext-sharebar-share-on}}',
 
-    'ext-sharebar-twitter-msg'	 => '$1 ב-#$2 | $3 (@kolzchut)',
-	'ext-sharebar-facebook-msg'	 => 'מידע על $1 בכל-זכות - דעו מה מגיע לכם!',
+    'ext-sharebar-twitter-msg'	 => '$1 ב#$2 - דעו מה מגיע לכם!',
+	'ext-sharebar-facebook-msg'	 => 'מידע על $1 ב$2 - דעו מה מגיע לכם!',
 
 
 );
