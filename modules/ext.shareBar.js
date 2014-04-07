@@ -8,16 +8,20 @@
 	var $frame = $sharebarModal.find('iframe');
 
 
-	$('.sidebar-btn, .wr-share-link, .kz-nav-donation > a, .kz-footer-donation > a').on( 'click', function( event ) {
+	$('.sidebar-btn, .wr-share-link, .kz-nav-donation > a, .kz-footer-donation > a, .kz-footer-feedback > a').on( 'click', function( event ) {
 		var shareType = $(this).data( 'share-type') || null;
 		if( $(this).parent().hasClass( 'kz-nav-donation' ) || $(this).parent().hasClass( 'kz-footer-donation' ) ) {
 			shareType = 'donate';
+		}
+		if( $(this).parent().hasClass( 'kz-nav-feedback' ) || $(this).parent().hasClass( 'kz-footer-feedback' ) ) {
+			shareType = 'feedback';
 		}
 
 		if ( shareType === null ) { return; }
 
 		var props = egShareBar[shareType];
-        var url = ( shareType === 'donate' && props.url !== undefined ) ? props.url : $(this).attr('href');
+        var url = $.inArray(shareType, ['donate', 'feedback'] ) && props.url !== undefined ?
+			props.url : $(this).attr('href');
 
 
 		/* Sanity check for screen size */
