@@ -20,7 +20,7 @@
 		if ( shareType === null ) { return; }
 
 		var props = egShareBar[shareType];
-        var url = $.inArray(shareType, ['donate', 'feedback'] ) && props.url !== undefined ?
+        var url = $.inArray(shareType, ['donate', 'feedback'] ) !== -1 && props.url !== undefined ?
 			props.url : $(this).attr('href');
 
 
