@@ -20,7 +20,7 @@ $messages['en'] = array(
 	'ext-sharebar-btn-changerequest' => 'Change request',
 	'ext-sharebar-btn-feedback' => 'Feedback',
 	# bar
-	'ext-sharebar-share-on' => 'Share on ',
+	'ext-sharebar-share-on' => 'Share on&nbsp;&nbsp;',
 	'ext-sharebar-send' => 'Send article',
 	'ext-sharebar-print' => 'Print',
 	'ext-sharebar-changerequest' => '{{int:ext-sharebar-btn-changerequest}}',
