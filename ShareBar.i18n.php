@@ -13,11 +13,11 @@ $messages['en'] = array(
 	# forms
 	'ext-sharebar-loading' => 'Loading...',
 	'ext-sharebar-feedback-form-title' => 'Give us feedback',
-	'ext-sharebar-cr-form-title' => 'Submit a change request',
+	'ext-sharebar-cr-form-title' => 'Submit a change proposal',
 	'ext-sharebar-donate-form-title' => 'Donate to {{SITENAME}}',
 	# buttons
 	'ext-sharebar-btn-donate' => 'Donate',
-	'ext-sharebar-btn-changerequest' => 'Change request',
+	'ext-sharebar-btn-changerequest' => 'Change Proposal',
 	'ext-sharebar-btn-feedback' => 'Feedback',
 	# bar
 	'ext-sharebar-share-on' => 'Share on&nbsp;&nbsp;',
@@ -29,7 +29,7 @@ $messages['en'] = array(
 	'ext-sharebar-gplus' => '{{int:ext-sharebar-share-on}}',
 	# sharing texts
 	'ext-sharebar-twitter-msg' => '$1 at #$2 - know your rights!',
-	'ext-sharebar-facebook-msg' => 'Lean about $1 at $2 - know your rights!',
+	'ext-sharebar-facebook-msg' => 'Learn about $1 at $2 - know your rights!',
 
 
 );
