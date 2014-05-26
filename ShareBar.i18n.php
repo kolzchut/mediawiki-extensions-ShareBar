@@ -1,37 +1,67 @@
 <?php
 /**
- * Internationalisation file for the WikiRights Customizations Extension.
+ * Internationalisation file for the WikiRights ShareBar Extension.
  *
  * @addtogroup Extensions
  */
 
 $messages = array();
 
-$messages['en'] = array(
-	'ext-sharebar' => 'Kol-Zchut ShareBar',
-	'ext-sharebar-desc' => 'ShareBar for for the Kol-Zchut website',
+/**
+/* Arabic (العربية)
+ * @author Jalal Hassan
+ * @author Suheir Daksa-Halabi
+ */
+$messages['ar'] = array(
+	'ext-sharebar' => 'Kol-Zchut ShareBar',	// Name of this extension, only shows in credits
+	'ext-sharebar-desc' => 'ShareBar for for the Kol-Zchut website', // Description of this extension, only shows in credits
 	# forms
-	'ext-sharebar-loading' => 'Loading...',
-	'ext-sharebar-feedback-form-title' => 'Give us feedback',
-	'ext-sharebar-cr-form-title' => 'Submit a change proposal',
-	'ext-sharebar-donate-form-title' => 'Donate to {{SITENAME}}',
+	'ext-sharebar-loading' => 'تحميل...',	// Text to show while loading sharing forms
+	'ext-sharebar-feedback-form-title' => 'Give us feedback',	// Title for the feedback form
+	'ext-sharebar-cr-form-title' => 'Submit a change proposal',	// Tooltip for change proposal button
+	'ext-sharebar-donate-form-title' => 'Donate to {{SITENAME}}',	// Title for the donation form
 	# buttons
-	'ext-sharebar-btn-donate' => 'Donate',
-	'ext-sharebar-btn-changerequest' => 'Change Proposal',
-	'ext-sharebar-btn-feedback' => 'Feedback',
+	'ext-sharebar-btn-donate' => 'Donate',	// Donation button
+	'ext-sharebar-btn-changerequest' => 'اقتراح تغيير',	// Button
+	'ext-sharebar-btn-feedback' => 'تقييم الموقع',	// Button which loads a feedback form
 	# bar
+	// The following is a prefix to sharing buttons, which show the logo for each service, so it looks like this:
+	// "Share on [facebook logo]"
 	'ext-sharebar-share-on' => 'Share on&nbsp;&nbsp;',
-	'ext-sharebar-send' => 'Send article',
-	'ext-sharebar-print' => 'Print',
-	'ext-sharebar-changerequest' => '{{int:ext-sharebar-btn-changerequest}}',
-	'ext-sharebar-facebook'	 => '{{int:ext-sharebar-share-on}}',
-	'ext-sharebar-twitter' => '{{int:ext-sharebar-share-on}}',
-	'ext-sharebar-gplus' => '{{int:ext-sharebar-share-on}}',
+	'ext-sharebar-send' => 'Send article',	// Share an article with a friend, through email at the moment
+	'ext-sharebar-print' => 'للطباعة',	// Print button
+
 	# sharing texts
-	'ext-sharebar-twitter-msg' => '$1 at #$2 - know your rights!',
-	'ext-sharebar-facebook-msg' => 'Learn about $1 at $2 - know your rights!',
+	'ext-sharebar-twitter-msg' => '$1 at #$2 - know your rights!',	// Template text for sharing on Twitter
+	'ext-sharebar-facebook-msg' => 'Learn about $1 at $2 - know your rights!', // Template text for sharing on Facebook
+);
 
 
+$messages['en'] = array(
+	'ext-sharebar' => 'Kol-Zchut ShareBar',	// Name of this extension, only shows in credits
+	'ext-sharebar-desc' => 'ShareBar for for the Kol-Zchut website', // Description of this extension, only shows in credits
+	# forms
+	'ext-sharebar-loading' => 'Loading...',	// Text to show while loading sharing forms
+	'ext-sharebar-feedback-form-title' => 'Give us feedback',	// Title for the feedback form
+	'ext-sharebar-cr-form-title' => 'Submit a change proposal',	// Tooltip for change proposal button
+	'ext-sharebar-donate-form-title' => 'Donate to {{SITENAME}}',	// Title for the donation form
+	# buttons
+	'ext-sharebar-btn-donate' => 'Donate',	// Donation button
+	'ext-sharebar-btn-changerequest' => 'Change Proposal',	// Button
+	'ext-sharebar-btn-feedback' => 'Feedback',	// Button which loads a feedback form
+	# bar
+	// The following is a prefix to sharing buttons, which show the logo for each service, so it looks like this:
+	// "Share on [facebook logo]"
+	'ext-sharebar-share-on' => 'Share on&nbsp;&nbsp;',
+	'ext-sharebar-send' => 'Send article',	// Share an article with a friend, through email at the moment
+	'ext-sharebar-print' => 'Print',	// Print button
+	'ext-sharebar-changerequest' => '{{int:ext-sharebar-btn-changerequest}}',	// Do not translate
+	'ext-sharebar-facebook'	 => '{{int:ext-sharebar-share-on}}', // Do not translate
+	'ext-sharebar-twitter' => '{{int:ext-sharebar-share-on}}', // Do not translate
+	'ext-sharebar-gplus' => '{{int:ext-sharebar-share-on}}', // Do not translate
+	# sharing texts
+	'ext-sharebar-twitter-msg' => '$1 at #$2 - know your rights!',	// Template text for sharing on Twitter
+	'ext-sharebar-facebook-msg' => 'Learn about $1 at $2 - know your rights!', // Template text for sharing on Facebook
 );
 
 /** Message documentation (Message documentation)
@@ -59,27 +89,8 @@ $messages['he'] = array(
 	'ext-sharebar-share-on' => 'שתפו ב-',
 	'ext-sharebar-send' => 'שלחו כתבה',
 	'ext-sharebar-print' => 'הדפסה',
-	'ext-sharebar-changerequest' => '{{int:ext-sharebar-btn-changerequest}}',
-	'ext-sharebar-facebook'	 => '{{int:ext-sharebar-share-on}}',
-	'ext-sharebar-twitter' => '{{int:ext-sharebar-share-on}}',
-	'ext-sharebar-gplus' => '{{int:ext-sharebar-share-on}}',
+
 	# sharing texts
 	'ext-sharebar-twitter-msg' => '$1 ב#$2 - דעו מה מגיע לכם!',
 	'ext-sharebar-facebook-msg' => 'מידע על $1 ב$2 - דעו מה מגיע לכם!',
-);
-
-/**
-/* Arabic (العربية) 
- * @author Jalal Hassan
- * @author Suheir Daksa-Halabi
- */
-$messages['ar'] = array(
-	'wrsharing-facebook'            => "شاركوا على الفيسبوك",
-	'wrsharing-twitter'             => "شاركوا على تويتير",
-	#'wrsharing-twitter-msg'         => "",
-	'wrsharing-email'               => "شاركوا بالبريد الإلكتروني",
-	'wrsharing-print'               => "للطباعة",
-	'wrsharing-loading'	     => 'يجري التحميل',
-	'wrsharing-newsletter-btn' => 'التسجيل لنشرة التحديثات',
-	'wrsharing-feedback-btn'       => 'تقييم الموقع',	
 );
