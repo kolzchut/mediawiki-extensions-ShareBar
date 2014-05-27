@@ -126,8 +126,11 @@ HTML;
                     $link = '#';
                 }
                 $text = wfMessage( 'ext-sharebar-' . $item )->text();
+				$additionalScreenReaderTextMsg = wfMessage( 'ext-sharebar-service-name-' . $item );
+				$additionalScreenReaderText = $additionalScreenReaderTextMsg->isBlank() ? '' : $additionalScreenReaderTextMsg->text();
+
                 $linkClass = 'wr-share-link' . ( $item === 'changerequest' ? ' btn' : '' );
-                $link = "<a class=\"{$linkClass}\" data-share-type=\"{$item}\" href=\"{$link}\" target=\"_blank\">{$text}</a>";
+                $link = "<a class=\"{$linkClass}\" data-share-type=\"{$item}\" href=\"{$link}\" target=\"_blank\">{$text}<span class=\"sr-only\">{$additionalScreenReaderText}</span></a>";
                 $li = "<li class=\"wr-sharebar-{$item}\">{$link}</li>";
 
                 $output .= $li;

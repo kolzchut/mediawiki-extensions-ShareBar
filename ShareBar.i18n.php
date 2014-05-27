@@ -59,6 +59,11 @@ $messages['en'] = array(
 	'ext-sharebar-facebook'	 => '{{int:ext-sharebar-share-on}}', // Do not translate
 	'ext-sharebar-twitter' => '{{int:ext-sharebar-share-on}}', // Do not translate
 	'ext-sharebar-gplus' => '{{int:ext-sharebar-share-on}}', // Do not translate
+
+	'ext-sharebar-service-name-facebook' => 'Facebook',
+	'ext-sharebar-service-name-twitter' => 'Twitter',
+	'ext-sharebar-service-name-gplus' => 'Google+',
+
 	# sharing texts
 	'ext-sharebar-twitter-msg' => '$1 at #$2 - know your rights!',	// Template text for sharing on Twitter
 	'ext-sharebar-facebook-msg' => 'Learn about $1 at $2 - know your rights!', // Template text for sharing on Facebook
