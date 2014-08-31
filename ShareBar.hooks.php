@@ -51,8 +51,8 @@ class ExtShareBarHooks {
     }
 
     public static function onSkinHelenaSidebarButtons( &$skin, &$buttons ) {
-        $buttons .= ExtShareBar::makeModalButton( 'donate' );
-        $buttons .= ExtShareBar::makeModalButton( 'feedback' );
+        //$buttons .= ExtShareBar::makeModalButton( 'donate' );
+        //$buttons .= ExtShareBar::makeModalButton( 'feedback' );
 
         return true;
     }
