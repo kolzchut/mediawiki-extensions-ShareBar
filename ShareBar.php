@@ -34,7 +34,7 @@ $wgExtensionMessagesFiles['ShareBarMagic'] = __DIR__ . '/ShareBar.i18n.magic.php
 $wgHooks['ParserFirstCallInit'][] = 'ExtShareBarHooks::onParserFirstCallInit';
 $wgHooks['ResourceLoaderGetConfigVars'][] = 'ExtShareBarHooks::onResourceLoaderGetConfigVars';
 $wgHooks['BeforePageDisplay'][] = 'ExtShareBarHooks::onBeforePageDisplay';
-$wgHooks['SkinHelenaSidebarButtons'][] = 'ExtShareBarHooks::onSkinHelenaSidebarButtons';
+$wgHooks['SkinHelenaSidebar::Buttons'][] = 'ExtShareBarHooks::onSkinHelenaSidebarButtons';
 
 
 $wrShareBarResourceTemplate = array(
