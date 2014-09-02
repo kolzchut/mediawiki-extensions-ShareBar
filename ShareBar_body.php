@@ -12,7 +12,7 @@ class ExtShareBar {
         if( is_array( $props ) && !empty( $props['url'] ) ) {
             $text = wfMessage( 'ext-sharebar-btn-' . $type )->text();
 
-            $output = "<a href=\"{$props['url']}\" target=\"_blank\" data-share-type=\"{$type}\""
+            $output = "<a href=\"{$props['url']}\" target=\"_blank\" data-share-type=\"{$type}\" "
 				. "class=\"wr-share-link sidebar-btn wr-sidebar-btn-{$type}\">"
                 . "<button class=\"btn col-sm-12\">"
                 . "<span class=\"img-icon pull-left\"></span>{$text}</button></a>";

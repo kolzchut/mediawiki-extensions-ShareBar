@@ -8,37 +8,40 @@
 	var $frame = $sharebarModal.find('iframe');
 
 
-	$('.sidebar-btn, .wr-share-link, .kz-nav-donation > a, .kz-footer-donation > a, .kz-footer-feedback > a').on( 'click', function( event ) {
-		var shareType = $(this).data( 'share-type') || null;
-		if( $(this).parent().hasClass( 'kz-nav-donation' ) || $(this).parent().hasClass( 'kz-footer-donation' ) ) {
-			shareType = 'donate';
+	$('.sidebar-btn, .wr-share-link,' +
+		'.kz-nav-donation > a, .kz-footer-donation > a,' +
+		'.kz-nav-feedback > a, .kz-footer-feedback > a')
+		.on( 'click', function( event ) {
+			var shareType = $(this).data( 'share-type') || null;
+			if( $(this).parent().hasClass( 'kz-nav-donation' ) || $(this).parent().hasClass( 'kz-footer-donation' ) ) {
+				shareType = 'donate';
+			}
+			if( $(this).parent().hasClass( 'kz-nav-feedback' ) || $(this).parent().hasClass( 'kz-footer-feedback' ) ) {
+				shareType = 'feedback';
+			}
+
+			if ( shareType === null ) { return; }
+
+			var props = egShareBar[shareType];
+			var url = $.inArray(shareType, ['donate', 'feedback'] ) !== -1 && props.url !== undefined ?
+				props.url : $(this).attr('href');
+
+
+			/* Sanity check for screen size */
+			var width = Math.min( props.width || 800, screen.width );
+			var height = Math.min( props.height || 700, screen.height );
+			//mw.log( width + 'x' + height);
+			switch( props.openAs ) {
+				case 'window': openWindow( url, width, height, 'shareWindow' );
+					break;
+				case 'print': window.print();
+					break;
+				default: case 'modal': openModal( url, $(this), width, height );
+			}
+
+			event.preventDefault();
 		}
-		if( $(this).parent().hasClass( 'kz-nav-feedback' ) || $(this).parent().hasClass( 'kz-footer-feedback' ) ) {
-			shareType = 'feedback';
-		}
-
-		if ( shareType === null ) { return; }
-
-		var props = egShareBar[shareType];
-        var url = $.inArray(shareType, ['donate', 'feedback'] ) !== -1 && props.url !== undefined ?
-			props.url : $(this).attr('href');
-
-
-		/* Sanity check for screen size */
-		var width = Math.min( props.width || 800, screen.width );
-		var height = Math.min( props.height || 700, screen.height );
-		//mw.log( width + 'x' + height);
-		switch( props.openAs ) {
-            case 'window': openWindow( url, width, height, 'shareWindow' );
-                break;
-            case 'print': window.print();
-                break;
-			default: case 'modal': openModal( url, $(this), width, height );
-		}
-
-        event.preventDefault();
-
-    });
+	);
 
 
     function openWindow( url, width, height, windowName ) {
