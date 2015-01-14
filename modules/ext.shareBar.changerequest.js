@@ -2,7 +2,7 @@ $( document ).ready( function() {
     "use strict";
     var egShareBar = mw.config.get( 'egShareBar' );
     var formTitle = mw.msg( 'ext-sharebar-cr-form-title' );
-    if( egShareBar.changerequest != null && egShareBar.changerequest.url ) {
+    if( egShareBar.changerequest !== null && egShareBar.changerequest.url ) {
         $( '.sharebar-cr-btn').click( function() {
             var $dialog = $('<div></div>')
                 .html( '<iframe style="border: 0; " src="' + egShareBar.changerequest.url +
@@ -24,5 +24,6 @@ $( document ).ready( function() {
 
 
 window.closeCrDialog = function() { //Kol-Zchut specific
+	"use strict";
     $( '.ui-dialog-titlebar-close').trigger( 'click' );
-}
+};
