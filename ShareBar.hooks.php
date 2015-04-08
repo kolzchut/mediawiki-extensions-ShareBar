@@ -41,7 +41,7 @@ class ExtShareBarHooks {
      */
     public static function onBeforePageDisplay( OutputPage $out, $skin ) {
 		// Add a single modal container for use by all modals
-		$out->addHTML( ExtShareBar::makeModalContainer() );
+		$out->prependHTML( ExtShareBar::makeModalContainer() );
 
 		//Add modules:
         $out->addModuleStyles( 'ext.wr.ShareBar' );
