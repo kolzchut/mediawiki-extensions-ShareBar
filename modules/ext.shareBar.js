@@ -38,9 +38,11 @@
 						shareType = 'feedback';
 					}
 
-					if ( shareType === null ) { return; }
-
 					var props = wrShareBar.settings[shareType];
+					if ( shareType === null || props === 'undefined' || props.openAs === 'no' ) {
+						return;
+					}
+
 					var url = $.inArray(shareType, ['donate', 'feedback'] ) !== -1 && props.url !== undefined ?
 						props.url : $(this).attr('href');
 
