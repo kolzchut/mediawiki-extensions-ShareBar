@@ -1,8 +1,8 @@
 <?php
 /**
  * WikiRights ShareBar extension - provides sharing tools
- * @author Dror Snir
- * @copyright (C) 2014 Dror S. (Kol-Zchut)
+ * @author Dror S. [FFS]
+ * @copyright © 2014, 2015 Dror S. & Kol-Zchut Ltd.
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  *
  * @todo Parameters for share urls!
@@ -14,17 +14,17 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 /* Setup */
 $wgExtensionCredits['parserhook'][] = array(
-    'path'           => __FILE__,
-    'name'           => 'WikiRights ShareBar',
-    'author'         => 'Dror S. ([http://www.kolzchut.org.il Kol-Zchut])',
-    'version'        => '0.1.0',
-    'url'            => 'http://www.kolzchut.org.il/he/כל-זכות:Extensions/ShareBar',
-    'descriptionmsg' => 'ext-sharebar-desc',
+	'path'           => __FILE__,
+	'name'           => 'WikiRights ShareBar',
+	'author'         => 'Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])',
+	'version'        => '0.1.0',
+	'url'            => 'http://www.kolzchut.org.il/he/כל-זכות:Extensions/ShareBar',
+	'descriptionmsg' => 'ext-sharebar-desc',
 );
 
 // @todo add a "valid services" const to evaluate $egShareBarEnabledServices against
 
-require_once( 'ShareBar.settings.php' );
+require_once ( 'ShareBar.settings.php' );
 
 $wgAutoloadClasses['ExtShareBarHooks'] = __DIR__ . '/ShareBar.hooks.php';
 $wgAutoloadClasses['ExtShareBar'] = __DIR__ . '/ShareBar_body.php';
@@ -57,16 +57,16 @@ $wgResourceModules['ext.wrSharing.addThis'] = $wrSharingResourceTemplate + array
 );
 */
 $wgResourceModules['ext.wr.ShareBar'] = $wrShareBarResourceTemplate + array(
-    'styles' => 'ext.shareBar.less',
-    'position' => 'top',
-    'dependencies' => array( 'skins.helena.bootstrap', 'skins.helena.bootstrapOverride' ),
+	'styles' => 'ext.shareBar.less',
+	'position' => 'top',
+	'dependencies' => array( 'skins.helena.bootstrap', 'skins.helena.bootstrapOverride' ),
 );
 
 $wgResourceModules['ext.wr.ShareBar.js'] = $wrShareBarResourceTemplate + array(
-        'scripts' => 'ext.shareBar.js',
-        'messages' => array(
-            'ext-sharebar-loading',
-            //'ext-sharebar-feedback-form-title'
-        ),
-        'dependencies' => array( 'skins.helena.bootstrap.js' ),
-    );
+	'scripts' => 'ext.shareBar.js',
+	'messages' => array(
+	    'ext-sharebar-loading',
+	    //'ext-sharebar-feedback-form-title'
+	),
+	'dependencies' => array( 'skins.helena.bootstrap.js' ),
+);

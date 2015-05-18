@@ -40,13 +40,13 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
- * @author Dror Snir
+ * @author Dror S. [FFS]
  */
 $messages['qqq'] = array(
 );
 
 /** Hebrew (עברית)
- * @author Dror Snir
+ * @author Dror S. [FFS]
  */
 $messages['he'] = array(
 	'ext-sharebar' => 'סרגל שיתוף עבור כל-זכות',
