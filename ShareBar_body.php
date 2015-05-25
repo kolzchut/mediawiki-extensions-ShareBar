@@ -58,7 +58,7 @@ HTML;
 
 		foreach( array( 'facebook', 'twitter', 'gplus', 'send', 'changerequest') as $service ) {
             $egShareBarServices[$service]['openAs'] = 'window';
-			$egShareBarServices[$service]['url'] = self::buildShareUrl( $service, $title );
+			$egShareBarServices[$service]['url'] = ExtShareBar::buildShareUrl( $service, $title );
         }
 
 		$egShareBarServices['send']['openAs'] = 'modal';
@@ -146,7 +146,7 @@ HTML;
     }
 
 
-    private function buildShareUrl( $service, Title $title ) {
+    private static function buildShareUrl( $service, Title $title ) {
 		/** Legit globals */
 		global $egShareBarServices, $wgSitename;
 		/** Evil globals */
