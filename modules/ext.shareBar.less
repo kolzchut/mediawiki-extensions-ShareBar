@@ -1,6 +1,8 @@
 @import "mediawiki.mixins";
 
-@btn-background: #608835;
+@btn-bg: #608835;
+@btn-bg-hover: darken(@btn-bg, 5%);
+
 
 /* Fix jQuery UI Dialog priority over Bootstrap elements */
 .wr-sharebar-dialog {
@@ -9,10 +11,6 @@
 
 .wr-sharebar-modal .modal-content {
     min-height: 500px;
-}
-
-.nav > li > a.sidebar-btn {
-    padding: 0;
 }
 
 .wr-sharebar {
@@ -61,7 +59,7 @@
 	#content &:focus,
 	#content &:active,
 	#content &.active {
-		color: darken(#ffffff, 15% );
+		color: darken(#fff, 15% );
 	}
 }
 
@@ -129,30 +127,13 @@
 }
 
 .wr-sharebar .btn {
-    background-color: @btn-background;
-    border-color: @btn-background;
-    color: #FFFFFF;
+    background-color: @btn-bg;
+    color: #fff;
 }
 .wr-sharebar .btn:hover,
 .wr-sharebar .btn:focus,
 .wr-sharebar .btn:active,
 .wr-sharebar .btn.active {
-    background-color: #53762e;
-    border-color: #466327;
-    color: #FFFFFF;
-}
-.wr-sharebar .btn.disabled:hover,
-.wr-sharebar .btn.disabled:focus,
-.wr-sharebar .btn.disabled:active,
-.wr-sharebar .btn.disabled.active,
-.wr-sharebar .btn[disabled]:hover,
-.wr-sharebar .btn[disabled]:focus,
-.wr-sharebar .btn[disabled]:active,
-.wr-sharebar .btn[disabled].active,
-fieldset[disabled] .wr-sharebar .btn:hover,
-fieldset[disabled] .wr-sharebar .btn:focus,
-fieldset[disabled] .wr-sharebar .btn:active,
-fieldset[disabled] .wr-sharebar .btn.active {
-    background-color: @btn-background;
-    border-color: @btn-background;
+    background-color: @btn-bg-hover;
+    color: #fff;
 }
