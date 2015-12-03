@@ -3,7 +3,7 @@
  * WikiRights ShareBar extension - provides sharing tools
  * @author Dror S. [FFS]
  * @copyright © 2014, 2015 Dror S. & Kol-Zchut Ltd.
- * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 3.0
  *
  * @todo Parameters for share urls!
  */
@@ -20,6 +20,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'version'        => '0.1.0',
 	'url'            => 'http://www.kolzchut.org.il/he/כל-זכות:Extensions/ShareBar',
 	'descriptionmsg' => 'ext-sharebar-desc',
+	'license-name' => 'GPL-3.0' // GNU General Public License v3.0
 );
 
 // @todo add a "valid services" const to evaluate $egShareBarEnabledServices against
