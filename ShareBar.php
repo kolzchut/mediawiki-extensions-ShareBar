@@ -40,8 +40,7 @@ $wgHooks['SkinHelenaSidebar::Buttons'][] = 'ExtShareBarHooks::onSkinHelenaSideba
 
 $wrShareBarResourceTemplate = array(
 	'localBasePath' => __DIR__ . '/modules',
-	'remoteExtPath' => 'WikiRights/ShareBar/modules',
-	'group' => 'ext.wr.shareBar',
+	'remoteExtPath' => 'WikiRights/ShareBar/modules'
 );
 
 /*
@@ -65,6 +64,7 @@ $wgResourceModules['ext.wr.ShareBar'] = $wrShareBarResourceTemplate + array(
 
 $wgResourceModules['ext.wr.ShareBar.js'] = $wrShareBarResourceTemplate + array(
 	'scripts' => 'ext.shareBar.js',
+	'position' => 'bottom',
 	'messages' => array(
 	    'ext-sharebar-loading',
 	    //'ext-sharebar-feedback-form-title'
