@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahlam Rahal",
+			"Jalal Hassan",
+			"Suheir Daksa-Halabi"
+		]
+	},
+	"ext-sharebar": "لوحة مشاركة كل الحق",
+	"ext-sharebar-desc": "أدوات مشاركة كل الحق",
+	"ext-sharebar-loading": "تحميل...",
+	"ext-sharebar-feedback-form-title": " رد فعل حول استخدام الموقع",
+	"ext-sharebar-cr-form-title": "اكتب اقتراح تغيير",
+	"ext-sharebar-donate-form-title": "تبرع لـ {{SITENAME}}",
+	"ext-sharebar-btn-donate": "تبرع",
+	"ext-sharebar-btn-changerequest": "اقتراح تغيير",
+	"ext-sharebar-btn-feedback": "رد فعل",
+	"ext-sharebar-share-on": "شارك&nbsp;",
+	"ext-sharebar-send": "أرسل المقال",
+	"ext-sharebar-print": "طباعة",
+	"ext-sharebar-changerequest": "{{int:ext-sharebar-btn-changerequest}}",
+	"ext-sharebar-facebook": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-twitter": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-gplus": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-twitter-msg": "$1 حتى #$2 – اعرف حقوقك!",
+	"ext-sharebar-facebook-msg": " تعلم حول $1 حتى $2 – اعرف حقوقك!"
+}

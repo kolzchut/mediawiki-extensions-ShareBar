@@ -2,7 +2,7 @@
 
 class ExtShareBar {
 	static $numOfBars = 0;
-	static $isModalContainerCreated = false;
+    private static $isMergedSettings = false;
 
     public static function makeModalButton( $type ) {
         global $egShareBarServices;
@@ -22,31 +22,27 @@ class ExtShareBar {
         return $output;
     }
 
-    static function makeModalContainer() {
-		global $wgSitename;
-
-		if ( self::$isModalContainerCreated ) { return; }
-		self::$isModalContainerCreated = true;	// So we only do this once
-
-        $output = <<<HTML
-<div id="wr-sharebar-modal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog"><div class="modal-content"><div class="modal-header"><!--
-    --><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><!--
-    --><h4 class="modal-title">{$wgSitename}</h4>
-      </div><iframe src="" frameborder="0"></iframe></div></div>
-</div>
-HTML;
-
-        return $output;
-    }
-
-
-	static function registerJsConfigVars( &$vars ) {
+	public static function registerJsConfigVars( &$vars ) {
 		global $egShareBarServices;
-		$vars['egShareBar'] = $egShareBarServices;
+        self::mergeSettings();
+
+        $vars['egShareBar'] = $egShareBarServices;
 
 		return true;
 	}
+
+    static function mergeSettings() {
+        global $egShareBarServices, $egShareBarServicesDefaults;
+
+        if( self::$isMergedSettings == true ) {
+            return;
+        }
+
+        $egShareBarServices = array_merge_recursive( $egShareBarServicesDefaults, $egShareBarServices );
+
+        self::$isMergedSettings = true;
+
+    }
 
     /**
      * @param Title $title
@@ -56,6 +52,7 @@ HTML;
     static function setServicesDefaults( Title $title ) {
         global $egShareBarServices;
 
+        self::mergeSettings();
 		foreach( array( 'facebook', 'twitter', 'gplus', 'send', 'changerequest') as $service ) {
             $egShareBarServices[$service]['openAs'] = 'window';
 			$egShareBarServices[$service]['url'] = ExtShareBar::buildShareUrl( $service, $title );
@@ -114,8 +111,6 @@ HTML;
             $output .= '<ul class="list-inline sharebar-section section-' . $section . '">';
 
             foreach( $sectionItems as $item ) {
-                $link = '';
-
                 if( is_array( $egShareBarDisabledServices ) && in_array( $item, $egShareBarDisabledServices ) ) {
                     continue;
                 }

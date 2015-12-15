@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dror S. [FFS]"
+		]
+	},
+	"ext-sharebar": "Kol-Zchut ShareBar",
+	"ext-sharebar-desc": "ShareBar for for the Kol-Zchut website",
+	"ext-sharebar-loading": "Loading...",
+	"ext-sharebar-feedback-form-title": "Give us feedback",
+	"ext-sharebar-cr-form-title": "Submit a change proposal",
+	"ext-sharebar-donate-form-title": "Donate to {{SITENAME}}",
+	"ext-sharebar-btn-donate": "Donate",
+	"ext-sharebar-btn-changerequest": "Change Proposal",
+	"ext-sharebar-btn-feedback": "Feedback",
+	"ext-sharebar-share-on": "Share on&nbsp;&nbsp;",
+	"ext-sharebar-send": "Send article",
+	"ext-sharebar-print": "Print",
+	"ext-sharebar-changerequest": "{{int:ext-sharebar-btn-changerequest}}",
+	"ext-sharebar-facebook": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-twitter": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-gplus": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-service-name-facebook": "Facebook",
+	"ext-sharebar-service-name-twitter": "Twitter",
+	"ext-sharebar-service-name-gplus": "Google+",
+	"ext-sharebar-twitter-msg": "$1 at #$2 - know your rights!",
+	"ext-sharebar-facebook-msg": "Learn about $1 at $2 - know your rights!"
+}

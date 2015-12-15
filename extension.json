@@ -1,0 +1,106 @@
+{
+	"name": "WikiRights ShareBar",
+	"version": "0.2.0",
+	"author": "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])",
+	"url": "https://github.com/kolzchut/mediawiki-extensions-ShareBar",
+	"descriptionmsg": "ext-sharebar-desc",
+	"license-name": "GPL-3.0",
+	"type": "parserhook",
+	"MessagesDirs": {
+		"ShareBar": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"ShareBarMagic": "ShareBar.i18n.magic.php"
+	},
+	"AutoloadClasses": {
+		"ExtShareBarHooks": "ShareBar.hooks.php",
+		"ExtShareBar": "ShareBar_body.php"
+	},
+	"ResourceModules": {
+		"ext.wr.ShareBar": {
+			"styles": "ext.shareBar.less",
+			"position": "top",
+			"dependencies": [
+				"skins.helena.bootstrap",
+				"skins.helena.bootstrapOverride"
+			]
+		},
+		"ext.wr.ShareBar.js": {
+			"scripts": "ext.shareBar.js",
+			"position": "bottom",
+			"messages": [
+				"ext-sharebar-loading"
+			],
+			"templates": {
+				"modal.mustache": "../templates/modal.mustache"
+			},
+			"dependencies": [
+				"skins.helena.bootstrap.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "WikiRights/ShareBar/modules"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"ExtShareBarHooks::onParserFirstCallInit"
+		],
+		"ResourceLoaderGetConfigVars": [
+			"ExtShareBarHooks::onResourceLoaderGetConfigVars"
+		],
+		"BeforePageDisplay": [
+			"ExtShareBarHooks::onBeforePageDisplay"
+		],
+		"SkinHelenaSidebar::Buttons": [
+			"ExtShareBarHooks::onSkinHelenaSidebarButtons"
+		]
+	},
+	"config": {
+		"_prefix": "eg",
+		"ShareBarDisabledServices": null,
+		"ShareBarServices": [],
+		"ShareBarServicesDefaults": {
+			"print": {
+				"openAs": "print"
+			},
+			"feedback": {
+				"width": 800,
+				"height": 700
+			},
+			"donate": {
+				"width": 1050,
+				"height": 750
+			},
+			"changerequest": {
+				"url": "/forms/ChangeRequest/",
+				"width": 750,
+				"height": 650
+			},
+			"send": {
+				"url": "/forms/mailArticle/",
+				"width": 700,
+				"height": 500
+			},
+			"facebook": {
+				"openAs": "window",
+				"width": 520,
+				"height": 350
+			},
+			"twitter": {
+				"openAs": "window",
+				"width": 550,
+				"height": 420
+			},
+			"gplus": {
+				"openAs": "window",
+				"width": 575,
+				"height": 400
+			}
+		}
+	},
+	"manifest_version": 1
+}

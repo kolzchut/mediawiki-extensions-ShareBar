@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dror S. [FFS]"
+		]
+	},
+	"ext-sharebar": "סרגל שיתוף עבור כל-זכות",
+	"ext-sharebar-desc": "כלי שיתוף עבור כל-זכות",
+	"ext-sharebar-loading": "בטעינה...",
+	"ext-sharebar-feedback-form-title": "משוב על שימוש באתר",
+	"ext-sharebar-cr-form-title": "הצעת שינוי לתוכן האתר",
+	"ext-sharebar-donate-form-title": "תרומה לכל-זכות",
+	"ext-sharebar-btn-donate": "תרומה",
+	"ext-sharebar-btn-changerequest": "הצעת שינוי",
+	"ext-sharebar-btn-feedback": "משוב",
+	"ext-sharebar-share-on": "שתפו ב-",
+	"ext-sharebar-send": "שלחו כתבה",
+	"ext-sharebar-print": "הדפסה",
+	"ext-sharebar-twitter-msg": "$1 ב#$2 - דעו מה מגיע לכם!",
+	"ext-sharebar-facebook-msg": "מידע על $1 ב$2 - דעו מה מגיע לכם!"
+}

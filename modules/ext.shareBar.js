@@ -1,27 +1,25 @@
 /**
  * Utilities for a sharebar, mainly to open windows and modals
  * (c) 2014 Kol-Zchut Ltd. & Dror S.
- * GPLv2 or later
+ * GPLv3
  *
  */
 
-/* global mediaWiki */
 ( function ( mw, $ ) {
     "use strict";
 	var wrShareBar;
 
 	wrShareBar = mw.wrShareBar = {
 		settings: {},
-		$sharebarModal: null,
-		$frame: null,
+		$activeModal: null,
+		modalTemplate: null,
 		/* static */ basicWindowFeatures: "menubar=no,toolbar=no,location=no,resizable=no,scrollbars=no,status=no,directories=no",
 
 		init: function() {
 			this.settings = mw.config.get( 'egShareBar' );
-			this.$sharebarModal = $( '#wr-sharebar-modal' );
-			this.$frame = wrShareBar.$sharebarModal.find('iframe');
+			this.modalTemplate = mw.template.get( 'ext.wr.ShareBar.js', 'modal.mustache' );
 
-			wrShareBar.attachClickHandlers();
+			this.attachClickHandlers();
 		},
 
 		attachClickHandlers: function() {
@@ -56,7 +54,7 @@
 					} else if (props.openAs === 'print') {
 						window.print();
 					} else {
-						wrShareBar.openModal(url, $(this), width, height);
+						wrShareBar.openModal(url, width, height);
 					}
 
 					event.preventDefault();
@@ -77,41 +75,62 @@
 			window.open( url, windowName, strWindowFeatures );
 		},
 
-		openModal: function( url, $anchor, width, height ) {
-			wrShareBar.$frame.attr({
-				src: url,
-				height: height - 60,
-				width: '100%'
-			});
-			wrShareBar.$sharebarModal.modal({
-				backdrop: 'static',
-				keyboard: false
-			}).find('.modal-dialog').css({
-				//height: height,
-				width: width
-			});
+		openModal: function( url, width, height ) {
+			var templateData = {
+				modalTitle: mw.config.get( 'wgSiteName' ),
+				iframeSrc: url,
+				iframeHeight: height - 60,
+				iframeWidth: '100%',
+				modalWidth: width + 'px'
+			};
 
-			wrShareBar.$sharebarModal.on('hide.bs.modal', function () {
-				// Remove iframe source to prevent flash of previous content on next load
-				wrShareBar.$frame.attr({
-					src: ''
+			// Create modal if it doesn't exist, otherwise reuse it:
+			if( !this.$activeModal ) {
+				// Select .first() to fix a bug with an extra TextNode ("\n"), which
+				// caused Bootstrap's modal to behave wierdly
+				this.$activeModal = this.modalTemplate.render( templateData ).first();
+				this.$activeModal.modal({
+					backdrop: 'static',
+					keyboard: false
+				}).on('hidden.bs.modal', function () {
+					// Remove iframe source to prevent flash of previous content on next load
+					mw.wrShareBar.$activeModal.find('iframe').attr({
+						src: ''
+					});
 				});
-			});
+			} else {
+				this.$activeModal.find('iframe').attr({
+					src: url,
+					height: height - 60,
+					width: '100%'
+				});
+				this.$activeModal.find('.modal-dialog').css({
+					//height: height,
+					width: width
+				});
+				this.$activeModal.modal('show');
+			}
+
+			mw.log( this.$activeModal );
+
+
+
+		},
+
+		closeModal: function() {
+			if( mw.wrShareBar.$activeModal ) {
+				mw.wrShareBar.$activeModal.modal('hide');
+			}
 		}
 
 
 	};
 
-
 	wrShareBar.init();
 
+	window.closeActiveModal = mw.wrShareBar.closeModal();
+	window.closeCrDialog = mw.wrShareBar.closeModal(); 	// b/c for forms
 
-	window.closeActiveModal = function() {
-		$( '.modal.in').modal('hide');
-	};
-
-	// b/c for forms
-	window.closeCrDialog = window.closeActiveModal;
 
 }( mediaWiki, jQuery ) );
 

@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dror S. [FFS]"
+		]
+	},
+	"ext-sharebar": "Name of this extension, only shows in credits",
+	"ext-sharebar-desc": "Description of this extension, only shows in credits",
+	"ext-sharebar-loading": "Text to show while loading sharing forms",
+	"ext-sharebar-feedback-form-title": "Title for the feedback form",
+	"ext-sharebar-cr-form-title": "Tooltip for change proposal button",
+	"ext-sharebar-donate-form-title": "Title for the donation form",
+	"ext-sharebar-btn-donate": "Donation button",
+	"ext-sharebar-btn-changerequest": "Button",
+	"ext-sharebar-btn-feedback": "Button which loads a feedback form",
+	"ext-sharebar-share-on": "prefix to sharing buttons, which show the logo for each service, so it looks like this: \"Share on [facebook logo]\"",
+	"ext-sharebar-send": "Share an article with a friend, through email at the moment",
+	"ext-sharebar-print": "Print button",
+	"ext-sharebar-changerequest": "Do not translate",
+	"ext-sharebar-facebook": "Do not translate",
+	"ext-sharebar-twitter": "Do not translate",
+	"ext-sharebar-gplus": "Do not translate",
+	"ext-sharebar-service-name-facebook": "Facebook",
+	"ext-sharebar-service-name-twitter": "Twitter",
+	"ext-sharebar-service-name-gplus": "Google+",
+	"ext-sharebar-twitter-msg": "Template text for sharing on Twitter",
+	"ext-sharebar-facebook-msg": "Template text for sharing on Facebook"
+}
