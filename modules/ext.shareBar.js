@@ -1,6 +1,6 @@
 /**
  * Utilities for a sharebar, mainly to open windows and modals
- * (c) 2014 Kol-Zchut Ltd. & Dror S.
+ * (c) 2014-2015 Kol-Zchut Ltd. & Dror S.
  * GPLv3
  *
  */
@@ -111,10 +111,6 @@
 				this.$activeModal.modal('show');
 			}
 
-			mw.log( this.$activeModal );
-
-
-
 		},
 
 		closeModal: function() {
@@ -129,7 +125,8 @@
 	wrShareBar.init();
 
 	window.closeActiveModal = mw.wrShareBar.closeModal();
-	window.closeCrDialog = mw.wrShareBar.closeModal(); 	// b/c for forms
+	// b/c for forms
+	window.closeCrDialog = mw.wrShareBar.closeModal();
 
 
 }( mediaWiki, jQuery ) );
