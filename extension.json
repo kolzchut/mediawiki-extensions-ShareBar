@@ -83,7 +83,7 @@
 			"send": {
 				"url": "/forms/mailArticle/",
 				"width": 700,
-				"height": 500
+				"height": 600
 			},
 			"facebook": {
 				"openAs": "window",
