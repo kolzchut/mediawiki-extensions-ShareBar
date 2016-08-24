@@ -124,9 +124,9 @@
 
 	wrShareBar.init();
 
-	window.closeActiveModal = mw.wrShareBar.closeModal();
+	window.closeActiveModal = mw.wrShareBar.closeModal;
 	// b/c for forms
-	window.closeCrDialog = mw.wrShareBar.closeModal();
+	window.closeCrDialog = mw.wrShareBar.closeModal;
 
 
 }( mediaWiki, jQuery ) );
