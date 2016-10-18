@@ -28,11 +28,11 @@
 				'.kz-nav-donation > a, .kz-footer-donation > a,' +
 				'.kz-nav-feedback > a, .kz-footer-feedback > a',
 				function( event ) {
-					var shareType = $(this).data( 'share-type') || null;
-					if( $(this).parent().hasClass( 'kz-nav-donation' ) || $(this).parent().hasClass( 'kz-footer-donation' ) ) {
+					var shareType = $( this ).data( 'share-type') || null;
+					if( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
 						shareType = 'donate';
 					}
-					if( $(this).parent().hasClass( 'kz-nav-feedback' ) || $(this).parent().hasClass( 'kz-footer-feedback' ) ) {
+					if( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
 						shareType = 'feedback';
 					}
 
@@ -41,20 +41,20 @@
 						return;
 					}
 
-					var url = $.inArray(shareType, ['donate', 'feedback'] ) !== -1 && props.url !== undefined ?
-						props.url : $(this).attr('href');
+					var url = $.inArray( shareType, ['donate', 'feedback'] ) !== -1 && props.url !== undefined ?
+						props.url : $( this ).attr( 'href' );
 
 
 					/* Sanity check for screen size */
 					var width = Math.min( props.width || 800, screen.width );
 					var height = Math.min( props.height || 700, screen.height );
 					//mw.log( width + 'x' + height);
-					if (props.openAs === 'window') {
-						wrShareBar.openWindow(url, width, height, 'shareWindow');
-					} else if (props.openAs === 'print') {
+					if ( props.openAs === 'window') {
+						wrShareBar.openWindow( url, width, height, 'shareWindow' );
+					} else if ( props.openAs === 'print' ) {
 						window.print();
 					} else {
-						wrShareBar.openModal(url, width, height);
+						wrShareBar.openModal( url, width, height );
 					}
 
 					event.preventDefault();
@@ -94,7 +94,7 @@
 					keyboard: false
 				}).on('hidden.bs.modal', function () {
 					// Remove iframe source to prevent flash of previous content on next load
-					mw.wrShareBar.$activeModal.find('iframe').attr({
+					mw.wrShareBar.$activeModal.find( 'iframe' ).attr({
 						src: ''
 					});
 				});
@@ -104,18 +104,18 @@
 					height: height - 60,
 					width: '100%'
 				});
-				this.$activeModal.find('.modal-dialog').css({
-					//height: height,
+				this.$activeModal.find( '.modal-dialog' ).css({
+					// height: height,
 					width: width
 				});
-				this.$activeModal.modal('show');
+				this.$activeModal.modal( 'show' );
 			}
 
 		},
 
 		closeModal: function() {
 			if( mw.wrShareBar.$activeModal ) {
-				mw.wrShareBar.$activeModal.modal('hide');
+				mw.wrShareBar.$activeModal.modal( 'hide' );
 			}
 		}
 
