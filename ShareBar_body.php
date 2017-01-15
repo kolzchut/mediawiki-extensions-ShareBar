@@ -173,7 +173,7 @@ class ExtShareBar {
 		];
 
 		$serviceUrl = [
-			'facebook' => 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]={URL}&p[title]={TITLE}&p[summary]={TEXT}',	//Optional: &p[images][0]={IMAGE}
+			'facebook' => 'http://www.facebook.com/sharer/sharer.php?u={URL}',
 			'twitter' => 'https://twitter.com/intent/tweet?url={URL}&text={TEXT}',  //More optional params: &text, &hashtags
 			'gplus' => 'https://plus.google.com/share?url={URL}',
 			'send' => $egShareBarServices['send']['url']
