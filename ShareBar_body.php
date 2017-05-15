@@ -4,6 +4,10 @@ class ExtShareBar {
 	private static $numOfBars = 0;
 	private static $isMergedSettings = false;
 
+	public static function getNumberOfBars() {
+		return self::$numOfBars;
+	}
+
 	public static function makeModalButton( $type ) {
 		global $egShareBarServices;
 		$output = null;
@@ -22,26 +26,15 @@ class ExtShareBar {
 		return $output;
 	}
 
-	public static function registerJsConfigVars( &$vars ) {
-		global $egShareBarServices;
-		self::mergeSettings();
-
-		$vars['egShareBar'] = $egShareBarServices;
-
-		return true;
-	}
-
 	static function mergeSettings() {
 		global $egShareBarServices, $egShareBarServicesDefaults;
 
-		if ( self::$isMergedSettings == true ) {
-			return;
+		if ( self::$isMergedSettings !== true ) {
+			$egShareBarServices = array_merge_recursive( $egShareBarServicesDefaults, $egShareBarServices );
+			self::$isMergedSettings = true;
 		}
 
-		$egShareBarServices = array_merge_recursive( $egShareBarServicesDefaults, $egShareBarServices );
-
-		self::$isMergedSettings = true;
-
+		return $egShareBarServices;
 	}
 
 	/**
@@ -71,23 +64,23 @@ class ExtShareBar {
 	 *
 	 * @todo Check enabled services for validity
 	 */
-	public static function shareBarFunctionHook( &$parser ) {
-		$output = self::makeShareBar( $parser->getTitle() );
-		return [ $output, 'noparse' => true, 'isHTML' => true ];
+	public static function shareBarFunctionHook( Parser &$parser ) {
+		$shareBar = self::makeShareBar( $parser->getTitle() );
+
+		return [ $shareBar, 'noparse' => true, 'isHTML' => true ];
 	}
 
 
 	/**
 	 * @param Title $title
-	 * @return String
 	 *
+	 * @return String
 	 * @todo Check enabled services for validity
 	 */
 	public static function makeShareBar( Title $title ) {
 		global $egShareBarDisabledServices, $egShareBarServices;
 
 		self::$numOfBars++;
-
 		self::setServicesDefaults( $title );
 
 		$sharebarButtons = [

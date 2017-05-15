@@ -54,9 +54,6 @@
 		],
 		"BeforePageDisplay": [
 			"ExtShareBarHooks::onBeforePageDisplay"
-		],
-		"SkinHelenaSidebar::Buttons": [
-			"ExtShareBarHooks::onSkinHelenaSidebarButtons"
 		]
 	},
 	"config": {
