@@ -1,6 +1,6 @@
 {
 	"name": "WikiRights ShareBar",
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"author": "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])",
 	"url": "https://github.com/kolzchut/mediawiki-extensions-ShareBar",
 	"descriptionmsg": "ext-sharebar-desc",
@@ -20,7 +20,14 @@
 	},
 	"ResourceModules": {
 		"ext.wr.ShareBar": {
-			"styles": "ext.shareBar.less",
+			"styles": {
+				"ext.shareBar.less": {
+					"media": "screen and ( min-width: 768px )"
+				},
+				"ext.shareBar.mobile.less": {
+					"media": "screen and ( max-width: 767px )"
+				}
+			},
 			"position": "top",
 			"dependencies": [
 				"skins.helena.bootstrap",
@@ -38,6 +45,19 @@
 			},
 			"dependencies": [
 				"skins.helena.bootstrap.js"
+			]
+		},
+		"ext.wr.ShareBar.analytics": {
+			"position": "bottom",
+			"scripts": [
+				"ext.shareBar.analytics.js"
+			],
+			"dependencies": [
+				"ext.wr.ShareBar.js"
+			],
+			"targets": [
+				"mobile",
+				"desktop"
 			]
 		}
 	},
@@ -58,42 +78,48 @@
 	},
 	"config": {
 		"_prefix": "eg",
-		"ShareBarDisabledServices": null,
+		"ShareBarDisabledServices": [],
 		"ShareBarServices": [],
 		"ShareBarServicesDefaults": {
 			"print": {
-				"openAs": "print"
+				"action": "print"
 			},
 			"feedback": {
 				"width": 800,
-				"height": 700
+				"height": 700,
+				"action": "modal"
 			},
 			"donate": {
 				"width": 1050,
-				"height": 750
+				"height": 750,
+				"action": "modal"
 			},
+			"email": {},
+			"whatsapp": {},
 			"changerequest": {
 				"url": "/forms/ChangeRequest/",
 				"width": 750,
-				"height": 650
+				"height": 650,
+				"action": "modal"
 			},
 			"send": {
 				"url": "/forms/mailArticle/",
 				"width": 700,
-				"height": 600
+				"height": 600,
+				"action": "modal"
 			},
 			"facebook": {
-				"openAs": "window",
+				"action": "window",
 				"width": 520,
 				"height": 350
 			},
 			"twitter": {
-				"openAs": "window",
+				"action": "window",
 				"width": 550,
 				"height": 420
 			},
-			"gplus": {
-				"openAs": "window",
+			"google": {
+				"action": "window",
 				"width": 575,
 				"height": 400
 			}

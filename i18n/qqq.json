@@ -19,10 +19,15 @@
 	"ext-sharebar-changerequest": "Do not translate",
 	"ext-sharebar-facebook": "Do not translate",
 	"ext-sharebar-twitter": "Do not translate",
-	"ext-sharebar-gplus": "Do not translate",
-	"ext-sharebar-service-name-facebook": "Facebook",
-	"ext-sharebar-service-name-twitter": "Twitter",
-	"ext-sharebar-service-name-gplus": "Google+",
-	"ext-sharebar-twitter-msg": "Template text for sharing on Twitter",
-	"ext-sharebar-facebook-msg": "Template text for sharing on Facebook"
+	"ext-sharebar-google": "Do not translate",
+	"ext-sharebar-whatsapp": "Do not translate",
+	"ext-sharebar-email": "Do not translate",
+	"ext-sharebar-service-name-facebook": "Name of service for display",
+	"ext-sharebar-service-name-twitter": "Name of service for display",
+	"ext-sharebar-service-name-google": "Name of service for display",
+	"ext-sharebar-service-name-whatsapp": "Name of service for display",
+	"ext-sharebar-service-name-email": "Name of service for display",
+	"ext-sharebar-service-name-more": "Text for the button that displays more sharing options",
+	"ext-sharebar-twitter-msg": "Template text for sharing on Twitter. $1 is the page's title, $2 is sitename.",
+	"ext-sharebar-share-text": "Template text for sharing on services that don't have a customzied text.\n$1 is the page's title, $2 is sitename."
 }

@@ -3,6 +3,11 @@
 @btn-bg: #608835;
 @btn-bg-hover: darken(@btn-bg, 5%);
 
+// Hide the mobile sharebar
+.wr-sharebar-fixed {
+	display: none;
+}
+
 
 /* Fix jQuery UI Dialog priority over Bootstrap elements */
 .wr-sharebar-dialog {
@@ -117,7 +122,7 @@
     .background-image("images/twitter.png");
 }
 
-.wr-sharebar-gplus > a {
+.wr-sharebar-google > a {
     .background-image("images/gplus.png");
 }
 

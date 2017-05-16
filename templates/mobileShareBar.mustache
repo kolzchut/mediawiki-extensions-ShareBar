@@ -1,0 +1,33 @@
+<div class="wr-sharebar wr-sharebar-fixed hidden-print noprint"{{#id}} id="sharebar-{{.}}"{{/id}}>
+	<div id="mobile-share-additional" class="collapse">
+		<ul class="additionalServices list-unstyled">
+			{{#additionalServices}}
+				<li class="wr-sharebar-{{name}}">
+					<a href="{{url}}" class="wr-share-link btn-social btn-{{name}}" data-service="{{name}}">
+						<i class="fa fa-{{iconClass}}{{^iconClass}}{{name}}{{/iconClass}}"></i>
+						<span class="sr-only">{{text}}{{screenReaderText}}</span>
+					</a>
+				</li>
+			{{/additionalServices}}
+		</ul>
+	</div>
+	<ul class="services">
+		{{#services}}
+			<li class="wr-sharebar-{{name}}">
+				<a href="{{url}}" class="wr-share-link btn-social btn-{{name}}" data-service="{{name}}">
+					<i class="fa fa-{{iconClass}}{{^iconClass}}{{name}}{{/iconClass}}"></i>
+					<span class="sr-only">{{text}}{{screenReaderText}}</span>
+				</a>
+			</li>
+		{{/services}}
+			<li class="wr-sharebar-more">
+				<a class="wr-share-link btn-social btn-dropbox"
+				   data-toggle="collapse" href="#mobile-share-additional" data-service="more"
+				   role="button" aria-expanded="false" aria-controls="mobile-share-additional"
+				>
+					<i class="fa fa-plus"></i>
+					<span class="sr-only">{{moreText}}</span>
+				</a>
+			</li>
+	</ul>
+</div>

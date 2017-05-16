@@ -1,0 +1,16 @@
+<div class="wr-sharebar hidden-xs hidden-print noprint"{{#id}} id="sharebar-{{.}}"{{/id}}>
+	{{#sections}}
+	<ul class="list-inline sharebar-section section-{{name}}">
+		{{#services}}
+			<li class="wr-sharebar-{{name}}">
+				<a href="{{url}}" class="wr-share-link{{class}}" data-service="{{name}}" data-action="{{action}}">
+					{{text}}
+					{{#screenReaderText}}
+						<span class="sr-only">{{.}}</span>
+					{{/screenReaderText}}
+				</a>
+			</li>
+		{{/services}}
+	</ul>
+	{{/sections}}
+</div>

@@ -16,6 +16,18 @@
 	"ext-sharebar-share-on": "שתפו ב-",
 	"ext-sharebar-send": "שלחו כתבה",
 	"ext-sharebar-print": "הדפסה",
-	"ext-sharebar-twitter-msg": "$1 ב#$2 - דעו מה מגיע לכם!",
-	"ext-sharebar-facebook-msg": "מידע על $1 ב$2 - דעו מה מגיע לכם!"
+	"ext-sharebar-changerequest": "{{int:ext-sharebar-btn-changerequest}}",
+	"ext-sharebar-facebook": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-twitter": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-google": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-whatsapp": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-email": "שתפו ב",
+	"ext-sharebar-service-name-facebook": "Facebook",
+	"ext-sharebar-service-name-twitter": "Twitter",
+	"ext-sharebar-service-name-google": "Google+",
+	"ext-sharebar-service-name-whatsapp": "WhatsApp",
+	"ext-sharebar-service-name-email": "דוא\"ל",
+	"ext-sharebar-service-name-more": "עוד",
+	"ext-sharebar-share-text": "\"$1\" ב$2 - דעו מה מגיע לכם!",
+	"ext-sharebar-twitter-msg": "\"$1\" ב#$2 - דעו מה מגיע לכם!"
 }

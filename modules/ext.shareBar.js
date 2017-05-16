@@ -6,14 +6,14 @@
  */
 
 ( function ( mw, $ ) {
-    "use strict";
+    'use strict';
 	var wrShareBar;
 
 	wrShareBar = mw.wrShareBar = {
 		settings: {},
 		$activeModal: null,
 		modalTemplate: null,
-		/* static */ basicWindowFeatures: "menubar=no,toolbar=no,location=no,resizable=no,scrollbars=no,status=no,directories=no",
+		/* static */ basicWindowFeatures: 'menubar=no,toolbar=no,location=no,resizable=no,scrollbars=no,status=no,directories=no',
 
 		init: function() {
 			this.settings = mw.config.get( 'egShareBar' );
@@ -23,39 +23,54 @@
 		},
 
 		attachClickHandlers: function() {
-			$('body').on( 'click',
-				'.sidebar-btn, .wr-share-link,' +
-				'.kz-nav-donation > a, .kz-footer-donation > a,' +
-				'.kz-nav-feedback > a, .kz-footer-feedback > a',
-				function( event ) {
-					var shareType = $( this ).data( 'share-type') || null;
+			var selectors = [
+				'.wr-share-link',
+				'.kz-nav-donation > a',
+				'.kz-footer-donation > a',
+				'.kz-nav-feedback > a',
+				'.kz-footer-feedback > a'
+			];
+
+			$('body').on( 'click', selectors.join(','), function( event ) {
+					var service = $( this ).data( 'service') || null;
+					var action = $( this ).data( 'action' ) || null;
+
 					if( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
-						shareType = 'donate';
+						service = 'donate';
+						action = 'modal';
 					}
 					if( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
-						shareType = 'feedback';
+						service = 'feedback';
+						action = 'modal';
 					}
 
-					var props = wrShareBar.settings[shareType];
-					if ( shareType === null || props === 'undefined' || props.openAs === 'no' ) {
+					var props = wrShareBar.settings[service];
+					if ( service === null || props === 'undefined' || action === null ) {
 						return;
 					}
 
-					var url = $.inArray( shareType, ['donate', 'feedback'] ) !== -1 && props.url !== undefined ?
-						props.url : $( this ).attr( 'href' );
-
+					var url = $( this ).attr( 'href' );
+					if( ( service === 'donate' || service === 'feedback') && props.url !== undefined ) {
+						url = props.url;
+					}
 
 					/* Sanity check for screen size */
 					var width = Math.min( props.width || 800, screen.width );
 					var height = Math.min( props.height || 700, screen.height );
 					//mw.log( width + 'x' + height);
-					if ( props.openAs === 'window') {
-						wrShareBar.openWindow( url, width, height, 'shareWindow' );
-					} else if ( props.openAs === 'print' ) {
-						window.print();
-					} else {
-						wrShareBar.openModal( url, width, height );
+
+					switch( action ) {
+						case 'print':
+							window.print();
+							break;
+						case 'window':
+							wrShareBar.openWindow(url, width, height, 'shareWindow');
+							break;
+						case 'modal':
+							wrShareBar.openModal(url, width, height);
+							break;
 					}
+
 
 					event.preventDefault();
 				}

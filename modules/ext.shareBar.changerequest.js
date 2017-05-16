@@ -3,7 +3,7 @@ $( document ).ready( function() {
     var egShareBar = mw.config.get( 'egShareBar' );
     var formTitle = mw.msg( 'ext-sharebar-cr-form-title' );
     if( egShareBar.changerequest !== null && egShareBar.changerequest.url ) {
-        $( '.sharebar-cr-btn').click( function() {
+        $( '.wr-sharebar-changerequest').click( function() {
             var $dialog = $('<div></div>')
                 .html( '<iframe style="border: 0; " src="' + egShareBar.changerequest.url +
                     '" width="100%" height="99%">' + mw.msg( 'ext-sharebar-loading' ) + '</iframe>' )

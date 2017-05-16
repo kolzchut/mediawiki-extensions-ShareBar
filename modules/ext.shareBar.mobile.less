@@ -1,0 +1,53 @@
+@import "socialButtons";
+
+// Hide desktop sharebars
+.wr-sharebar {
+	display: none;
+}
+
+// Functionality is JS-dependent
+.client-nojs .wr-sharebar-more {
+	display: none !important;
+}
+
+.wr-sharebar-fixed {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 0 5px;
+	font-size: 1.5em;
+	text-align: center;
+
+	.additionalServices {
+		width: 25%;
+		float: right;
+		margin-bottom: 0;
+	}
+
+	ul.services {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		border-top: 1px solid #EFEFEF;
+		margin-bottom: 0;
+		padding: 0;
+
+		li {
+			display: table-cell;
+		}
+	}
+
+	li {
+		padding: 5px;
+		background-color: #fff;
+	}
+
+
+	.wr-share-link {
+		display: inline-block;
+		width: 100%;
+	}
+}
+
+

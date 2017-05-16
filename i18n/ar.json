@@ -21,7 +21,15 @@
 	"ext-sharebar-changerequest": "{{int:ext-sharebar-btn-changerequest}}",
 	"ext-sharebar-facebook": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-twitter": "{{int:ext-sharebar-share-on}}",
-	"ext-sharebar-gplus": "{{int:ext-sharebar-share-on}}",
-	"ext-sharebar-twitter-msg": "$1 حتى #$2 – اعرف حقوقك!",
-	"ext-sharebar-facebook-msg": " تعلم حول $1 حتى $2 – اعرف حقوقك!"
+	"ext-sharebar-google": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-whatsapp": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-email": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-service-name-facebook": "Facebook",
+	"ext-sharebar-service-name-twitter": "Twitter",
+	"ext-sharebar-service-name-google": "Google+",
+	"ext-sharebar-service-name-whatsapp": "WhatsApp",
+	"ext-sharebar-service-name-email": "البريد الإلكتروني",
+	"ext-sharebar-service-name-more": "إضافي",
+	"ext-sharebar-share-text": "\"$1\" حتى $2 – اعرف حقوقك!",
+	"ext-sharebar-twitter-msg": "\"$1\" حتى #$2 – اعرف حقوقك!"
 }

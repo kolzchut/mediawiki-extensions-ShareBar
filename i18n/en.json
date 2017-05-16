@@ -19,10 +19,15 @@
 	"ext-sharebar-changerequest": "{{int:ext-sharebar-btn-changerequest}}",
 	"ext-sharebar-facebook": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-twitter": "{{int:ext-sharebar-share-on}}",
-	"ext-sharebar-gplus": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-google": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-whatsapp": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-email": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-service-name-facebook": "Facebook",
 	"ext-sharebar-service-name-twitter": "Twitter",
-	"ext-sharebar-service-name-gplus": "Google+",
-	"ext-sharebar-twitter-msg": "$1 at #$2 - know your rights!",
-	"ext-sharebar-facebook-msg": "Learn about $1 at $2 - know your rights!"
+	"ext-sharebar-service-name-google": "Google+",
+	"ext-sharebar-service-name-whatsapp": "WhatsApp",
+	"ext-sharebar-service-name-email": "E-mail",
+	"ext-sharebar-service-name-more": "More",
+	"ext-sharebar-share-text": "\"$1\" at All Rights - know your rights!",
+	"ext-sharebar-twitter-msg": "\"$1\" at #$2 - know your rights!"
 }

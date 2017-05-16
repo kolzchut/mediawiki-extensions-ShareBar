@@ -47,7 +47,12 @@ class ExtShareBarHooks {
 		 * which skin:Helena does... so we add the modules unconditionally.
 		 */
 		$out->addModuleStyles( 'ext.wr.ShareBar' );
-		$out->addModules( 'ext.wr.ShareBar.js' );
+		$out->addModules(
+			[
+			'ext.wr.ShareBar.js',
+			'ext.wr.ShareBar.analytics'
+			]
+		);
 
 		return true;
 	}
