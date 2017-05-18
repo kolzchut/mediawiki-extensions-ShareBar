@@ -8,6 +8,54 @@
  * https://github.com/lipis/bootstrap-social
  */
 
+@color-social-adn:           #d87a68;
+@color-social-bitbucket:     #205081;
+@color-social-dropbox:       #1087dd;
+@color-social-facebook:      #3b5998;
+@color-social-flickr:        #ff0084;
+@color-social-foursquare:    #f94877;
+@color-social-github:        #444444;
+@color-social-google:        #dd4b39;
+@color-social-instagram:     #3f729b;
+@color-social-linkedin:      #007bb6;
+@color-social-microsoft:     #2672ec;
+@color-social-odnoklassniki: #f4731c;
+@color-social-openid:        #f7931e;
+@color-social-pinterest:     #cb2027;
+@color-social-reddit:        #eff7ff;
+@color-social-soundcloud:    #ff5500;
+@color-social-tumblr:        #2c4762;
+@color-social-twitter:       #55acee;
+@color-social-vimeo:         #1ab7ea;
+@color-social-vk:            #587ea3;
+@color-social-yahoo:         #720e9e;
+@color-social-whatsapp:      #25D366;
+@color-social-email:         #8d8d8d;
+
+.btn-round-adn           { .btn-social-round( @color-social-adn ); }
+.btn-round-bitbucket     { .btn-social-round( @color-social-bitbucket ); }
+.btn-round-dropbox       { .btn-social-round( @color-social-dropbox ); }
+.btn-round-facebook      { .btn-social-round( @color-social-facebook ); }
+.btn-round-flickr        { .btn-social-round( @color-social-flickr ); }
+.btn-round-foursquare    { .btn-social-round( @color-social-foursquare ); }
+.btn-round-github        { .btn-social-round( @color-social-github ); }
+.btn-round-google        { .btn-social-round( @color-social-google ); }
+.btn-round-instagram     { .btn-social-round( @color-social-instagram ); }
+.btn-round-linkedin      { .btn-social-round( @color-social-linkedin ); }
+.btn-round-microsoft     { .btn-social-round( @color-social-microsoft ); }
+.btn-round-odnoklassniki { .btn-social-round( @color-social-odnoklassniki ); }
+.btn-round-openid        { .btn-social-round( @color-social-openid ); }
+.btn-round-pinterest     { .btn-social-round( @color-social-pinterest ); }
+.btn-round-reddit        { .btn-social-round( @color-social-reddit, #000 ); }
+.btn-round-soundcloud    { .btn-social-round( @color-social-soundcloud ); }
+.btn-round-tumblr        { .btn-social-round( @color-social-tumblr ); }
+.btn-round-twitter       { .btn-social-round( @color-social-twitter ); }
+.btn-round-vimeo         { .btn-social-round( @color-social-vimeo ); }
+.btn-round-vk            { .btn-social-round( @color-social-vk ); }
+.btn-round-yahoo         { .btn-social-round( @color-social-yahoo ); }
+.btn-round-whatsapp      { .btn-social-round( @color-social-whatsapp ); }
+.btn-round-email         { .btn-social-round( @color-social-email ); }
+
 .btn-adn           { .btn-social(#d87a68); }
 .btn-bitbucket     { .btn-social(#205081); }
 .btn-dropbox       { .btn-social(#1087dd); }
@@ -22,7 +70,7 @@
 .btn-odnoklassniki { .btn-social(#f4731c); }
 .btn-openid        { .btn-social(#f7931e); }
 .btn-pinterest     { .btn-social(#cb2027); }
-.btn-reddit        { .btn-social(#eff7ff, #000); }
+.btn-reddit        { .btn-social(#eff7ff); }
 .btn-soundcloud    { .btn-social(#ff5500); }
 .btn-tumblr        { .btn-social(#2c4762); }
 .btn-twitter       { .btn-social(#55acee); }
@@ -35,6 +83,66 @@
 .btn-social(@color-bg, @color: #fff) {
 	.button-variant(@color, @color-bg, rgba(0,0,0,.2));
 }
+
+/* Variation on Bootstrap button mixin */
+.btn-social-round(@background, @color: #fff, @border: rgba(0,0,0,.2) ) {
+	& .fa-stack-2x {
+		color: @background;
+		border-color: @border;
+	}
+    & .fa-stack-1x {
+	    color: @color;
+    }
+
+	&:focus,
+	&.focus {
+		& .fa-stack-2x {
+			color: darken(@background, 10%);
+			border-color: darken(@border, 25%);
+		}
+		& .fa-stack-1x {
+			color: @color;
+		}
+	}
+	&:hover {
+		& .fa-stack-2x {
+			color: darken(@background, 10%);
+			border-color: darken(@border, 12%);
+		}
+		& .fa-stack-1x {
+			color: @color;
+		}
+	}
+	&:active,
+	&.active {
+		& .fa-stack-2x {
+			color: darken(@background, 10%);
+			border-color: darken(@border, 12%);
+		}
+		& .fa-stack-1x {
+			color: @color;
+		}
+	}
+	&:active,
+	&.active,
+	.open > .dropdown-toggle& {
+		background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&:hover,
+		&:focus,
+		&.focus {
+			& .fa-stack-2x {
+				color: @background;
+				border-color: @border;
+			}
+		}
+	}
+}
+
+
 
 /*
  * Bootstrap's button mixin

@@ -36,12 +36,19 @@ If JavaScript is not available, these will open in a plain new window/tab.
     - It is possible to change URLs for services or the size of windows/dialogs to be opened
     (sensible defaults based on official recommendations by Facebook, etc)
 - `$egShareBarDisabledServices`: an array of service names *not* to display.
+- `$egShareBarMobileServices`: an array of service names to show in the mobile sharebar.
+  If you specify more than 4 services, an overflow menu will be created -
+  so you will see 3 services + a "more" button.
 
 ### Set custom URLs for Feedback/ Donate
 You can set custom URLs for these by overriding `$egShareBarServices` like this:
 `$egShareBarServices['feedback']['url'] = 'http://www.google.com';`
 
 ## Changelog
+
+### 1.1.0 [2017-05-18]
+- It is now possible to configure the list of services for mobile.
+- The buttons are now round.
 
 ### 1.0.0 [2017-05-17]
 - Add a mobile share bar option (responsive). It has a different list

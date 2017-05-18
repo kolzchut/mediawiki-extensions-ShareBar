@@ -94,7 +94,8 @@ class ExtShareBar {
 
 
 	public static function makeMobileShareBar( $title, $id = null ) {
-		$services = [ 'whatsapp', 'facebook', 'email', 'twitter', 'google' ];
+		global $egShareBarMobileServices;
+		$services = $egShareBarMobileServices;
 		$services = self::getSpecificServices( $title, $services );
 		$services['email']['iconClass'] = 'envelope-o';
 
@@ -102,14 +103,18 @@ class ExtShareBar {
 			return false;
 		}
 
-		$mainServices = array_slice( $services, 0, 3, true );
-		// Reverse the additional services, because the menu is vertical and read top-to-bottom
-		$additionalServices = array_reverse( array_slice( $services, 3, null, true ) );
+		$additionalServices = [];
+		if ( count( $services ) > 4 ) {
+			// Reverse the additional services, because the menu is vertical and read top-to-bottom
+			$additionalServices = array_reverse( array_slice( $services, 3, null, true ) );
+			$services = array_slice( $services, 0, 3, true );
+		}
 
 		$templateData['id'] = $id;
 		$templateData['moreText'] = wfMessage( 'ext-sharebar-service-name-more' )->text();
-		$templateData['services'] = new ArrayIterator( $mainServices );
+		$templateData['services'] = new ArrayIterator( $services );
 		$templateData['additionalServices'] = new ArrayIterator( $additionalServices );
+		$templateData['hasAdditionalServices'] = !empty( $additionalServices );
 
 		return self::renderTemplate( 'mobileShareBar', $templateData );
 	}

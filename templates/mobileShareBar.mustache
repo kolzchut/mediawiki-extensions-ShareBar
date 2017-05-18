@@ -3,31 +3,42 @@
 		<ul class="additionalServices list-unstyled">
 			{{#additionalServices}}
 				<li class="wr-sharebar-{{name}}">
-					<a href="{{url}}" class="wr-share-link btn-social btn-{{name}}" data-service="{{name}}">
-						<i class="fa fa-{{iconClass}}{{^iconClass}}{{name}}{{/iconClass}}"></i>
+					<a href="{{url}}" class="wr-share-link btn-round-{{name}}" data-service="{{name}}">
+						<span class="fa-stack">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-{{iconClass}}{{^iconClass}}{{name}}{{/iconClass}} fa-stack-1x"></i>
+						</span>
 						<span class="sr-only">{{text}}{{screenReaderText}}</span>
 					</a>
 				</li>
 			{{/additionalServices}}
 		</ul>
 	</div>
-	<ul class="services">
+	<ul class="services list-inline">
 		{{#services}}
 			<li class="wr-sharebar-{{name}}">
-				<a href="{{url}}" class="wr-share-link btn-social btn-{{name}}" data-service="{{name}}">
-					<i class="fa fa-{{iconClass}}{{^iconClass}}{{name}}{{/iconClass}}"></i>
+				<a href="{{url}}" class="wr-share-link btn-round-{{name}}" data-service="{{name}}">
+					<span class="fa-stack">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-{{iconClass}}{{^iconClass}}{{name}}{{/iconClass}} fa-stack-1x"></i>
+					</span>
 					<span class="sr-only">{{text}}{{screenReaderText}}</span>
 				</a>
 			</li>
 		{{/services}}
-			<li class="wr-sharebar-more">
-				<a class="wr-share-link btn-social btn-dropbox"
-				   data-toggle="collapse" href="#mobile-share-additional" data-service="more"
-				   role="button" aria-expanded="false" aria-controls="mobile-share-additional"
-				>
-					<i class="fa fa-plus"></i>
-					<span class="sr-only">{{moreText}}</span>
-				</a>
-			</li>
+		{{#hasAdditionalServices}}
+		<li class="wr-sharebar-more">
+			<a class="wr-share-link btn-round-dropbox"
+			   data-toggle="collapse" href="#mobile-share-additional" data-service="more"
+			   role="button" aria-expanded="false" aria-controls="mobile-share-additional"
+			>
+				<span class="fa-stack">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-plus fa-stack-1x"></i>
+				</span>
+				<span class="sr-only">{{moreText}}</span>
+			</a>
+		</li>
+		{{/hasAdditionalServices}}
 	</ul>
 </div>

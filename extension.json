@@ -1,6 +1,6 @@
 {
 	"name": "WikiRights ShareBar",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"author": "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])",
 	"url": "https://github.com/kolzchut/mediawiki-extensions-ShareBar",
 	"descriptionmsg": "ext-sharebar-desc",
@@ -80,6 +80,7 @@
 		"_prefix": "eg",
 		"ShareBarDisabledServices": [],
 		"ShareBarServices": [],
+		"ShareBarMobileServices": [ "whatsapp", "facebook", "email", "twitter" ],
 		"ShareBarServicesDefaults": {
 			"print": {
 				"action": "print"
