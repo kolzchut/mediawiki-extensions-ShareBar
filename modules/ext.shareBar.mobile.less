@@ -17,9 +17,11 @@
 	width: 100%;
 	font-size: 1.5em;
 	text-align: center;
+	z-index: 10;
 
 	ul {
 		background-color: #fff;
+		padding: 5px;
 	}
 
 	.additionalServices {
@@ -33,7 +35,6 @@
 		width: 100%;
 		border-top: 1px solid #EFEFEF;
 		margin: 0;
-		padding: 0;
 
 		li {
 			display: table-cell;
@@ -42,15 +43,17 @@
 		}
 	}
 
-	li {
-		padding: 5px;
-	}
-
-
 	.wr-share-link {
 		display: inline-block;
 		width: 100%;
 	}
 }
+
+
+/* add margin to footer, to leave space for the sharebar */
+footer {
+	margin-bottom: 2.5em;
+}
+
 
 
