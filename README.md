@@ -46,6 +46,10 @@ You can set custom URLs for these by overriding `$egShareBarServices` like this:
 
 ## Changelog
 
+### 1.2.0 [2017-05-26]
+- Add Google Analytics tagging to the shared links, so we estimate
+  their effect. This add "utm_source=sharebar&utm_medium={service_name}".
+
 ### 1.1.0 [2017-05-18]
 - It is now possible to configure the list of services for mobile.
 - The buttons are now round.

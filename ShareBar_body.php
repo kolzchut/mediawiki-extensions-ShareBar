@@ -186,10 +186,12 @@ class ExtShareBar {
 		/** Evil globals */
 		global $wgLanguageCode, $wgContLang;
 
+		$analyticsTagging = '?utm_source=sharebar&utm_medium=' . $service; // Tag us as source
+
 		/// Data gathering
 		$pageName = $title->getPrefixedText();
-		$url = wfExpandUrl( $title->getLocalURL() );
-		$niceUrl = self::getNicePageURL( $title );
+		$url = wfExpandUrl( $title->getLocalURL() . $analyticsTagging );
+		$niceUrl = self::getNicePageURL( $title ) . $analyticsTagging;
 		$msg = wfMessage( "ext-sharebar-$service-msg" );
 		$msg = $msg->exists() ? $msg : wfMessage( 'ext-sharebar-share-text' );
 		$text = $msg->params( $pageName, $wgSitename, $url )->text();
