@@ -80,6 +80,7 @@
 		"_prefix": "eg",
 		"ShareBarDisabledServices": [],
 		"ShareBarServices": [],
+		"ShareBarMobileServicesLimit": 5,
 		"ShareBarMobileServices": [ "whatsapp", "facebook", "email", "twitter" ],
 		"ShareBarServicesDefaults": {
 			"print": {

@@ -94,7 +94,7 @@ class ExtShareBar {
 
 
 	public static function makeMobileShareBar( $title, $id = null ) {
-		global $egShareBarMobileServices;
+		global $egShareBarMobileServices, $egShareBarMobileServicesLimit;
 		$services = $egShareBarMobileServices;
 		$services = self::getSpecificServices( $title, $services );
 		$services['email']['iconClass'] = 'envelope-o';
@@ -104,10 +104,10 @@ class ExtShareBar {
 		}
 
 		$additionalServices = [];
-		if ( count( $services ) > 4 ) {
+		if ( count( $services ) > $egShareBarMobileServicesLimit ) {
 			// Reverse the additional services, because the menu is vertical and read top-to-bottom
-			$additionalServices = array_reverse( array_slice( $services, 3, null, true ) );
-			$services = array_slice( $services, 0, 3, true );
+			$additionalServices = array_reverse( array_slice( $services, $egShareBarMobileServicesLimit-1, null, true ) );
+			$services = array_slice( $services, 0, $egShareBarMobileServicesLimit-1, true );
 		}
 
 		$templateData['id'] = $id;
