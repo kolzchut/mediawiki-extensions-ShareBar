@@ -20,6 +20,7 @@
 	},
 	"ResourceModules": {
 		"ext.wr.ShareBar": {
+			"class": "HelenaResourceLoaderModule",
 			"styles": {
 				"ext.shareBar.less": {
 					"media": "screen and ( min-width: 768px )"
