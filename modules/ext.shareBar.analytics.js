@@ -4,7 +4,10 @@
 	mw.wrShareBar.analytics = {
 		container: '.wr-sharebar',
 		init: function() {
-			mw.loader.using( 'ext.googleUniversalAnalytics.utils', function() {
+			if( mw.loader.getState( 'ext.googleUniversalAnalytics.utils' ) === null ) {
+				return;
+			}
+			mw.loader.using( 'ext.googleUniversalAnalytics.utils' ).then( function() {
 				$( mw.wrShareBar.analytics.container ).on( 'click', '.wr-share-link', function( event ) {
 					var target = (event.delegateTarget.id || 'unknown').replace( 'sharebar-', '' );
 					mw.googleAnalytics.utils.recordSocialInteraction( {
