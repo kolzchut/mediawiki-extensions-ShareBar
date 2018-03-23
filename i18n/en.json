@@ -21,13 +21,15 @@
 	"ext-sharebar-twitter": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-google": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-whatsapp": "{{int:ext-sharebar-share-on}}",
+	"ext-sharebar-telegram": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-email": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-service-name-facebook": "Facebook",
 	"ext-sharebar-service-name-twitter": "Twitter",
 	"ext-sharebar-service-name-google": "Google+",
 	"ext-sharebar-service-name-whatsapp": "WhatsApp",
+	"ext-sharebar-service-name-telegram": "Telegram",
 	"ext-sharebar-service-name-email": "E-mail",
 	"ext-sharebar-service-name-more": "More",
-	"ext-sharebar-share-text": "\"$1\" at All Rights - know your rights!",
-	"ext-sharebar-twitter-msg": "\"$1\" at #$2 - know your rights!"
+	"ext-sharebar-share-text": "\"$1\" at Kol-Zchut - all your rights!",
+	"ext-sharebar-twitter-msg": "\"$1\" at #$2 - all your rights!"
 }

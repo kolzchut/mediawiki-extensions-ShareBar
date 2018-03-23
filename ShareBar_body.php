@@ -54,7 +54,10 @@ class ExtShareBar {
 			$props['class'] = ( $service === 'changerequest' ? ' btn' : '' );
 		}
 
-		$services = [ 'facebook', 'twitter', 'google', 'send', 'changerequest', 'whatsapp', 'email' ];
+		$services = [
+			'facebook', 'twitter', 'google', 'send',
+			'changerequest', 'whatsapp', 'telegram', 'email'
+		];
 		foreach ( $services as $service ) {
 			$egShareBarServices[$service]['url'] = ExtShareBar::buildShareUrl( $service, $title );
 		}
@@ -94,13 +97,18 @@ class ExtShareBar {
 
 
 	public static function makeMobileShareBar( $title, $id = null ) {
-		global $egShareBarMobileServices, $egShareBarMobileServicesLimit;
+		global $egShareBarMobileServices, $egShareBarMobileServicesLimit,
+		       $egShareBarMobileServicesFlipOrder;
 		$services = $egShareBarMobileServices;
 		$services = self::getSpecificServices( $title, $services );
 		$services['email']['iconClass'] = 'envelope-o';
 
 		if ( !$services || count( $services ) === 0 ) {
 			return false;
+		}
+
+		if ( $egShareBarMobileServicesFlipOrder = true ) {
+			$services = array_reverse ( $services );
 		}
 
 		$additionalServices = [];
@@ -216,7 +224,8 @@ class ExtShareBar {
 				. '?page={TITLE}&pageUrl={URL}',
 			'changerequest' => $egShareBarServices['changerequest']['url']
 				. '?page={TITLE}&lang={language}&categories={CATEGORIES}',
-			'whatsapp' => 'whatsapp://send?text={TEXT}%20{NICE_URL}',
+			'whatsapp' => 'https://api.whatsapp.com/send?text={TEXT}\r\n{NICE_URL}',
+			'telegram' => 'https://telegram.me/share/url?url={NICE_URL}&text={TEXT}',
 			'email' => 'mailto:?subject={TEXT}&body={NICE_URL}'
 
 		];

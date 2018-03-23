@@ -14,6 +14,7 @@ Services included:
 - Change Request (custom URL, point at your own form)
 - Donate (custom URL, point at your own form)
 - WhatsApp (mobile only)
+- Telegram (mobile only)
 - Email (mobile only)
 
 If JavaScript is available, all of these will open either in a new pop-up window (Facebook, Twitter
@@ -36,9 +37,12 @@ If JavaScript is not available, these will open in a plain new window/tab.
     - It is possible to change URLs for services or the size of windows/dialogs to be opened
     (sensible defaults based on official recommendations by Facebook, etc)
 - `$egShareBarDisabledServices`: an array of service names *not* to display.
+- `$egShareBarMobileServicesLimit`: if more than this number of is selected, any additional
+  services will show in an overflow menu - so you will see that number of services + a "more" button.
 - `$egShareBarMobileServices`: an array of service names to show in the mobile sharebar.
-  If you specify more than 4 services, an overflow menu will be created -
-  so you will see 3 services + a "more" button.
+- `$egShareBarMobileServicesFlipOrder`: flip the order. Useful when you prefer this list
+  to not be in the normal wiki directionality (for example, in Hebrew we prefer this list to show
+  left-to-right, because it seems more natural)
 
 ### Set custom URLs for Feedback/ Donate
 You can set custom URLs for these by overriding `$egShareBarServices` like this:
@@ -46,6 +50,12 @@ You can set custom URLs for these by overriding `$egShareBarServices` like this:
 
 ## Changelog
 
+### 1.3.0 [2018-03-23]
+- Add Telegram as a service.
+- Add $egShareBarMobileServicesFlipOrder to control the order of display in mobile
+- Fix a bug where the CSS caused each icon to take up 25% percent of width in
+  mobile, even after you changed the limit to, say, 5.
+- Move repeating (mobile) template code to a partial template.
 ### 1.2.2 [2017-10-23]
 - Add $egShareBarMobileServicesLimit to control the number of displayed icons
 ### 1.2.0 [2017-05-26]
