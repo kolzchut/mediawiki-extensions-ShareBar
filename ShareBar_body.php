@@ -224,7 +224,7 @@ class ExtShareBar {
 				. '?page={TITLE}&pageUrl={URL}',
 			'changerequest' => $egShareBarServices['changerequest']['url']
 				. '?page={TITLE}&lang={language}&categories={CATEGORIES}',
-			'whatsapp' => 'https://api.whatsapp.com/send?text={TEXT}\r\n{NICE_URL}',
+			'whatsapp' => "https://api.whatsapp.com/send?text={TEXT}%0A{NICE_URL}",
 			'telegram' => 'https://telegram.me/share/url?url={NICE_URL}&text={TEXT}',
 			'email' => 'mailto:?subject={TEXT}&body={NICE_URL}'
 
