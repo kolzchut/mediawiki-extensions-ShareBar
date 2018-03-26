@@ -32,6 +32,6 @@
 	"ext-sharebar-service-name-telegram": "Telegram",
 	"ext-sharebar-service-name-email": "البريد الإلكتروني",
 	"ext-sharebar-service-name-more": "إضافي",
-	"ext-sharebar-share-text": "\"$1\" حتى $2 – اعرف حقوقك!",
-	"ext-sharebar-twitter-msg": "\"$1\" حتى #$2 – اعرف حقوقك!"
+	"ext-sharebar-share-text": "$1 حتى $2 – اعرف حقوقك!",
+	"ext-sharebar-twitter-msg": "$1 حتى #$2 – اعرف حقوقك!"
 }

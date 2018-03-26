@@ -30,6 +30,6 @@
 	"ext-sharebar-service-name-telegram": "Telegram",
 	"ext-sharebar-service-name-email": "E-mail",
 	"ext-sharebar-service-name-more": "More",
-	"ext-sharebar-share-text": "\"$1\" at Kol-Zchut - all your rights!",
-	"ext-sharebar-twitter-msg": "\"$1\" at #$2 - all your rights!"
+	"ext-sharebar-share-text": "$1 at \"Kol עןZchut\" - all your rights!",
+	"ext-sharebar-twitter-msg": "$1 at #Kol-Zchut - all your rights!"
 }

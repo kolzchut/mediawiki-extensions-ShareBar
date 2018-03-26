@@ -30,6 +30,6 @@
 	"ext-sharebar-service-name-telegram": "Telegram",
 	"ext-sharebar-service-name-email": "דוא\"ל",
 	"ext-sharebar-service-name-more": "עוד",
-	"ext-sharebar-share-text": "\"$1\" ב$2 - זכותך לדעת, זכותך לקבל",
-	"ext-sharebar-twitter-msg": "\"$1\" ב#$2 - זכותך לדעת, זכותך לקבל"
+	"ext-sharebar-share-text": "$1 ב\"כל זכות\" - זכותך לדעת, זכותך לקבל",
+	"ext-sharebar-twitter-msg": "$1 ב#$2 - זכותך לדעת, זכותך לקבל"
 }
