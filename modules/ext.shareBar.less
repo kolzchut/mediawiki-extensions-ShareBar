@@ -80,46 +80,51 @@
 }
 
 
-.wr-sharebar > ul > li > a {
+.wr-sharebar a.wr-share-link {
     background-repeat: no-repeat;
     display: inline-block;
     min-height: 21px;
 }
 
 
-/* Print only works with JS */
-.client-nojs .wr-sharebar-print {
+/* Print and Link only work with JS */
+.client-nojs .wr-sharebar-print,
+.client-nojs .wr-sharebar-getlink {
     display: none;
 }
 
-.sharebar-section.section-localshare > li > a {
+.sharebar-section.section-localshare a.wr-share-link {
     background-position: left;
     padding-left: 26px; /* 21px for image + 5px margin */
 }
 
-.wr-sharebar-print > a {
+.wr-sharebar-print a.wr-share-link {
     .background-image("images/print.png");
 }
 
-.wr-sharebar-send > a {
+.wr-sharebar-send a.wr-share-link {
     .background-image("images/send.png");
 }
 
-.sharebar-section.section-cloudshare > li > a {
+.wr-sharebar-getlink a.wr-share-link {
+	.background-image("images/link.png");
+}
+
+.wr-sharebar-getlink .dropdown-menu {
+	padding: 1em;
+}
+
+.sharebar-section.section-cloudshare a.wr-share-link {
     background-position: right;
     padding-right: 23px; /* 21px for image + 2px margin */
 }
 
-.wr-sharebar-facebook > a {
+.wr-sharebar-facebook a.wr-share-link {
     .background-image("images/facebook.png");
 }
 
-.wr-sharebar-twitter > a {
+.wr-sharebar-twitter > a.wr-share-link {
     .background-image("images/twitter.png");
-}
-
-.wr-sharebar-google > a {
-    .background-image("images/gplus.png");
 }
 
 

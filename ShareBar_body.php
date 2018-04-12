@@ -92,7 +92,7 @@ class ExtShareBar {
 		$id = !empty( $id ) ? trim( $id ) : null;
 		$shareBar = self::makeDesktopShareBar( $parser->getTitle(), $id );
 
-		return [ $shareBar, 'noparse' => true, 'isHTML' => true ];
+		return $parser->insertStripItem( $shareBar );
 	}
 
 
@@ -108,7 +108,7 @@ class ExtShareBar {
 		}
 
 		if ( $egShareBarMobileServicesFlipOrder = true ) {
-			$services = array_reverse ( $services );
+			$services = array_reverse( $services );
 		}
 
 		$additionalServices = [];
@@ -129,8 +129,17 @@ class ExtShareBar {
 
 
 	public static function makeDesktopShareBar( $title, $id = null ) {
-		$services = [ 'print', 'send', 'facebook', 'twitter', 'google', 'changerequest' ];
+		$services = [ 'print', 'send', 'getlink', 'facebook', 'twitter', 'changerequest' ];
 		$services = self::getSpecificServices( $title, $services );
+
+		$shareLink = self::renderTemplate( 'desktopShareBar.getlink', [
+			'text' => wfMessage( 'ext-sharebar-getlink' )->text(),
+			'btn-text' => wfMessage( 'ext-sharebar-getlink-btn' )->text(),
+			'link' => htmlspecialchars( self::getNicePageURL( $title ) )
+		] );
+
+		// Remove all lines breaks, etc., because MW wreaks havoc by making things into <P>s.
+		$shareLink = str_replace( [ "\t", "\n" ], '', $shareLink );
 
 		if ( !$services || count( $services ) === 0 ) {
 			return false;
@@ -143,7 +152,10 @@ class ExtShareBar {
 					'name' => 'localshare',
 					'services' => [
 						$services['print'],
-						$services['send']
+						$services['send'],
+						[ 'name' => 'getlink',
+						  'arbitraryhtml?' => [ 'html' => $shareLink ]
+						],
 					]
 				],
 				[
@@ -151,7 +163,6 @@ class ExtShareBar {
 					'services'=> [
 						$services['facebook'],
 						$services['twitter'],
-						$services['google']
 					]
 				],
 				[

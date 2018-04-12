@@ -32,50 +32,69 @@
 			];
 
 			$('body').on( 'click', selectors.join(','), function( event ) {
-					var service = $( this ).data( 'service') || null;
-					var action = $( this ).data( 'action' ) || null;
+				var service = $( this ).data( 'service') || null;
+				var action = $( this ).data( 'action' ) || null;
 
-					if( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
-						service = 'donate';
-						action = 'modal';
-					}
-					if( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
-						service = 'feedback';
-						action = 'modal';
-					}
-
-					var props = wrShareBar.settings[service];
-					if ( service === null || props === 'undefined' || action === null ) {
-						return;
-					}
-
-					var url = $( this ).attr( 'href' );
-					if( ( service === 'donate' || service === 'feedback') && props.url !== undefined ) {
-						url = props.url;
-					}
-
-					/* Sanity check for screen size */
-					var width = Math.min( props.width || 800, screen.width );
-					var height = Math.min( props.height || 700, screen.height );
-					//mw.log( width + 'x' + height);
-
-					switch( action ) {
-						case 'print':
-							window.print();
-							break;
-						case 'window':
-							wrShareBar.openWindow(url, width, height, 'shareWindow');
-							break;
-						case 'modal':
-							wrShareBar.openModal(url, width, height);
-							break;
-					}
-
-
-					event.preventDefault();
+				if( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
+					service = 'donate';
+					action = 'modal';
 				}
-			);
+				if( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
+					service = 'feedback';
+					action = 'modal';
+				}
 
+				var props = wrShareBar.settings[service];
+				if ( service === null || props === 'undefined' || action === null ) {
+					return;
+				}
+
+				var url = $( this ).attr( 'href' );
+				if( ( service === 'donate' || service === 'feedback') && props.url !== undefined ) {
+					url = props.url;
+				}
+
+				/* Sanity check for screen size */
+				var width = Math.min( props.width || 800, screen.width );
+				var height = Math.min( props.height || 700, screen.height );
+				//mw.log( width + 'x' + height);
+
+				switch( action ) {
+					case 'print':
+						window.print();
+						break;
+					case 'window':
+						wrShareBar.openWindow(url, width, height, 'shareWindow');
+						break;
+					case 'modal':
+						wrShareBar.openModal(url, width, height);
+						break;
+				}
+
+
+				event.preventDefault();
+			});
+
+			$( '.wr-sharebar-getlink' ).on('show.bs.dropdown', function( event ) {
+				var $target = $( event.currentTarget );
+				var $btn = $target.find('.btn' );
+
+				$target.find( '.dropdown-menu' ).on( 'click', function( e ) { e.stopPropagation(); });
+				mw.loader.using( 'clipboard.js', function() {
+					var clipboard = new ClipboardJS( $btn[0] );
+					clipboard.on('success', function(e) {
+						$btn.text( mw.message( 'ext-sharebar-getlink-success' ).text() );
+						e.clearSelection();
+					});
+
+					clipboard.on('error', function(e) {
+						$btn.text( mw.message( 'ext-sharebar-getlink-fail' ).text() );
+					});
+				});
+				var $input = $target.find( 'input' );
+				var textLength = $input.val().length + 'ch';
+				$input.css( 'min-width',  textLength );
+			});
 		},
 
 

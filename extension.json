@@ -39,7 +39,9 @@
 			"scripts": "ext.shareBar.js",
 			"position": "bottom",
 			"messages": [
-				"ext-sharebar-loading"
+				"ext-sharebar-loading",
+				"ext-sharebar-getlink-success",
+				"ext-sharebar-getlink-fail"
 			],
 			"templates": {
 				"modal.mustache": "../templates/modal.mustache"
@@ -56,6 +58,13 @@
 			"dependencies": [
 				"ext.wr.ShareBar.js"
 			],
+			"targets": [
+				"mobile",
+				"desktop"
+			]
+		},
+		"clipboard.js": {
+			"scripts": "clipboard.js/clipboard.js",
 			"targets": [
 				"mobile",
 				"desktop"
@@ -107,6 +116,7 @@
 				"height": 650,
 				"action": "modal"
 			},
+			"getlink": {},
 			"send": {
 				"url": "/forms/mailArticle/",
 				"width": 700,
