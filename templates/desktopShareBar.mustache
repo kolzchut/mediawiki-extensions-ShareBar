@@ -4,7 +4,7 @@
 		{{#services}}
 				<li class="wr-sharebar-{{name}}">
 					{{#arbitraryhtml?}}{{{html}}}{{/arbitraryhtml?}}{{^arbitraryhtml?}}
-					<a href="{{url}}" class="wr-share-link{{class}}" data-service="{{name}}" data-action="{{action}}">
+					<a href="{{url}}" class="wr-share-link{{class}}" data-service="{{name}}" data-action="{{action}}" rel="nofollow">
 						{{text}}
 						{{#screenReaderText}}
 							<span class="sr-only">{{.}}</span>
