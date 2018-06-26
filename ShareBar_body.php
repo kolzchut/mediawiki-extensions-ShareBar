@@ -20,7 +20,7 @@ class ExtShareBar {
 			);
 			self::$isMergedSettings = true;
 			// Remove disabled services
-			$egShareBarServices = array_diff_key( $egShareBarServices, $egShareBarDisabledServices );
+			$egShareBarServices = array_diff_key( $egShareBarServices, array_flip( $egShareBarDisabledServices ) );
 		}
 
 		return $egShareBarServices;
