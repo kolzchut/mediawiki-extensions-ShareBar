@@ -129,7 +129,13 @@ class ExtShareBar {
 
 
 	public static function makeDesktopShareBar( $title, $id = null ) {
-		$services = [ 'print', 'send', 'getlink', 'facebook', 'twitter', 'changerequest' ];
+		$services = [ 
+			'whatsapp', 
+			'facebook', 
+			'twitter', 
+			'email', 
+			'print', 
+		];
 		$services = self::getSpecificServices( $title, $services );
 
 		$shareLink = self::renderTemplate( 'desktopShareBar.getlink', [
@@ -137,7 +143,7 @@ class ExtShareBar {
 			'btn-text' => wfMessage( 'ext-sharebar-getlink-btn' )->text(),
 			'link' => htmlspecialchars( self::getNicePageURL( $title ) )
 		] );
-
+		//die(print_r($services, TRUE));
 		// Remove all lines breaks, etc., because MW wreaks havoc by making things into <P>s.
 		$shareLink = str_replace( [ "\t", "\n" ], '', $shareLink );
 
@@ -149,27 +155,14 @@ class ExtShareBar {
 			'id' => $id,
 			'sections' => [
 				[
-					'name' => 'localshare',
-					'services' => [
-						$services['print'],
-						$services['send'],
-						[ 'name' => 'getlink',
-						  'arbitraryhtml?' => [ 'html' => $shareLink ]
-						],
-					]
-				],
-				[
 					'name' => 'cloudshare',
-					'services'=> [
-						$services['facebook'],
-						$services['twitter'],
+					'services' => [
+						$services['whatsapp'], 
+						$services['facebook'], 
+						$services['twitter'], 
+						$services['email'], 
+						$services['print'], 
 					]
-				],
-				[
-					'name' => 'changerequest',
-					'services'=> [
-						$services['changerequest']
-					],
 				]
 			]
 		];
