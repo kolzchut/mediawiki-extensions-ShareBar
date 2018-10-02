@@ -61,7 +61,7 @@ class ExtShareBar {
 		foreach ( $services as $service ) {
 			$egShareBarServices[$service]['url'] = ExtShareBar::buildShareUrl( $service, $title );
 		}
-
+		//die('<pre>' . print_r($egShareBarServices, TRUE) . '</pre>');
 	}
 
 	static function getSpecificServices( $title, $services ) {
@@ -161,7 +161,10 @@ class ExtShareBar {
 						$services['facebook'], 
 						$services['twitter'], 
 						$services['email'], 
-						$services['print'], 
+						$services['print'],
+						[ 'name' => 'getlink',
+						  'arbitraryhtml?' => [ 'html' => $shareLink ]
+						],
 					]
 				]
 			]
@@ -217,7 +220,7 @@ class ExtShareBar {
 			'{title}' => rawurlencode( $pageName ),
 			'{text}' => rawurlencode( $text ),
 			'{language}' => $wgLanguageCode,
-			'{categories}' => rawurlencode( $categories )
+			'{categories}' => rawurlencode( $categories ),
 		];
 
 		$serviceUrl = [

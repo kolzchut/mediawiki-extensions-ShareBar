@@ -18,37 +18,29 @@
     min-height: 500px;
 }
 
-.wr-sharebar {
-    margin-bottom: 20px;
-    padding: 10px 0;
-	border-width: 1px 0;
-	border-style: solid;
-	border-color: #b7bdbb;
-}
 
-.sharebar-section {
+
+#bodyWrapper .sharebar-section {
     margin: 0;
+    padding: 0 3px;
+    background-color: #618837;
     display: inline-block;
-
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
 	#content & {
 		margin-bottom: 0;
 	}
+    li{
+        height:37px;
+        margin:0;
+        border-bottom:1px solid #fff;
+        &:last-child {
+            
+            border-bottom:0;
+        }
+    }
 }
 
-.sharebar-section a {
-    color: #464646;
-
-	&:hover,
-	&:focus,
-	&:active,
-	&.active {
-		text-decoration: none;
-		color: #131313;
-		position: relative;
-		top: -1px;
-		right: -1px;
-	}
-}
 
 .wr-sharebar-changerequest .btn {
     padding: 0 10px;
@@ -88,12 +80,11 @@
     background-repeat: no-repeat;
     display: inline-block;
     min-height: 21px;
-    background-color:#618837;
-        background-position: center;
+    background-position: center;
     display: inline-block;
     width: 34px;
     height: 35px;
-    background-size: 80%;
+    background-size: 70%;
 }
 
 
@@ -115,7 +106,7 @@
 }
 
 .wr-sharebar-getlink a.wr-share-link {
-	.background-image("images/link.png");
+    .background-image("images/new-design/link.svg");
 }
 
 .wr-sharebar-getlink .dropdown-menu {
@@ -132,10 +123,16 @@
     .background-image("images/new-design/facebook.svg");
 }
 div#sharebar-top {
-    position: absolute;
-    right: -60px;
+    position: fixed;
+    right: 0;
+    top: 150px;
+    z-index: 3;
     li{
         list-style:none;
+    }
+    .dropdown-menu{
+        left:auto;
+        right:10px;
     }
 }
 .wr-sharebar-twitter > a.wr-share-link {

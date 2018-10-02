@@ -27,13 +27,18 @@
 	"ext-sharebar-whatsapp": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-telegram": "{{int:ext-sharebar-share-on}}",
 	"ext-sharebar-email": "שתפו ב",
-	"ext-sharebar-service-name-facebook": "Facebook",
-	"ext-sharebar-service-name-twitter": "Twitter",
+	"ext-sharebar-service-name-facebook": "שיתוף בפייסבוק",
+	"ext-sharebar-service-name-twitter": "ציוץ בטוויטר",
 	"ext-sharebar-service-name-google": "Google+",
-	"ext-sharebar-service-name-whatsapp": "WhatsApp",
+	"ext-sharebar-service-name-whatsapp": "שיתוף בוואטסאפ",
 	"ext-sharebar-service-name-telegram": "Telegram",
-	"ext-sharebar-service-name-email": "דוא\"ל",
+	"ext-sharebar-service-name-email": "שיתוף בדוא״ל",
+	"ext-sharebar-service-name-print": "הדפסה",
+	"ext-sharebar-service-name-getlink": "שתפו קישור",
 	"ext-sharebar-service-name-more": "עוד",
 	"ext-sharebar-share-text": "$1 ב\"כל זכות\" - זכותך לדעת, זכותך לקבל",
 	"ext-sharebar-twitter-msg": "$1 ב#$2 - זכותך לדעת, זכותך לקבל"
 }
+
+
+

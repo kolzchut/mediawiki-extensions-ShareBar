@@ -36,7 +36,13 @@
 			]
 		},
 		"ext.wr.ShareBar.js": {
-			"scripts": "ext.shareBar.js",
+			"scripts": [
+				"tooltip/vanilla-js-tooltip.min.js",
+				"ext.shareBar.js"
+			],
+			"styles" : [
+				"tooltip/vanilla-js-tooltip.css"
+			],
 			"position": "bottom",
 			"messages": [
 				"ext-sharebar-loading",

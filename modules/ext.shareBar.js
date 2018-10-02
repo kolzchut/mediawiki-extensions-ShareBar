@@ -20,6 +20,10 @@
 			this.modalTemplate = mw.template.get( 'ext.wr.ShareBar.js', 'modal.mustache' );
 
 			this.attachClickHandlers();
+			this.tooltip = new Tooltip({
+			    theme: "dark",
+			    delay: 250
+			});
 		},
 
 		attachClickHandlers: function() {
