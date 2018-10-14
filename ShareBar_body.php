@@ -233,13 +233,15 @@ class ExtShareBar {
 			'google' => 'https://plus.google.com/share?url={URL}',
 			'send' => $egShareBarServices['send']['url']
 				. '?page={TITLE}&pageUrl={URL}',
-			'changerequest' => $egShareBarServices['changerequest']['url']
-				. '?page={TITLE}&lang={language}&categories={CATEGORIES}',
 			'whatsapp' => "https://api.whatsapp.com/send?text={TEXT}%0A{NICE_URL}",
 			'telegram' => 'https://telegram.me/share/url?url={NICE_URL}&text={TEXT}',
 			'email' => 'mailto:?subject={TEXT}&body={NICE_URL}'
-
 		];
+		if ( isset( $egShareBarServices['changerequest'] ) ) {
+			$serviceUrl['changerequest'] = $egShareBarServices['changerequest']['url']
+			                   . '?page={TITLE}&lang={language}&categories={CATEGORIES}';
+		}
+
 
 		$url = str_ireplace(
 			array_keys( $placeholders ),
