@@ -32,13 +32,10 @@
 	"ext-sharebar-service-name-google": "Google+",
 	"ext-sharebar-service-name-whatsapp": "שיתוף בוואטסאפ",
 	"ext-sharebar-service-name-telegram": "Telegram",
-	"ext-sharebar-service-name-email": "שיתוף בדוא״ל",
+	"ext-sharebar-service-name-email": "שיתוף בדוא\"ל",
 	"ext-sharebar-service-name-print": "הדפסה",
 	"ext-sharebar-service-name-getlink": "שתפו קישור",
 	"ext-sharebar-service-name-more": "עוד",
 	"ext-sharebar-share-text": "$1 ב\"כל זכות\" - זכותך לדעת, זכותך לקבל",
 	"ext-sharebar-twitter-msg": "$1 ב#$2 - זכותך לדעת, זכותך לקבל"
 }
-
-
-
