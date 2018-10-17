@@ -1,18 +1,21 @@
 {
 	"name": "WikiRights ShareBar",
-	"version": "1.3.0",
+	"version": "2.0.0",
 	"author": "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])",
 	"url": "https://github.com/kolzchut/mediawiki-extensions-ShareBar",
 	"descriptionmsg": "ext-sharebar-desc",
 	"license-name": "GPL-3.0",
 	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.29.0",
+		"extensions": {
+			"WikiRights Tooltip": "*"
+		}
+	},
 	"MessagesDirs": {
 		"ShareBar": [
 			"i18n"
 		]
-	},
-	"ExtensionMessagesFiles": {
-		"ShareBarMagic": "ShareBar.i18n.magic.php"
 	},
 	"AutoloadClasses": {
 		"ExtShareBarHooks": "ShareBar.hooks.php",
@@ -80,9 +83,6 @@
 		"remoteExtPath": "WikiRights/ShareBar/modules"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"ExtShareBarHooks::onParserFirstCallInit"
-		],
 		"ResourceLoaderGetConfigVars": [
 			"ExtShareBarHooks::onResourceLoaderGetConfigVars"
 		],
@@ -114,12 +114,6 @@
 			"email": {},
 			"whatsapp": {},
 			"telegram": {},
-			"changerequest": {
-				"url": "/forms/ChangeRequest/",
-				"width": 750,
-				"height": 650,
-				"action": "modal"
-			},
 			"getlink": {},
 			"send": {
 				"url": "/forms/mailArticle/",

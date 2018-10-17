@@ -51,17 +51,16 @@ class ExtShareBar {
 
 			$props['screenReaderText'] = $additionalScreenReaderTextMsg->isBlank() ?
 				false : $additionalScreenReaderTextMsg->text();
-			$props['class'] = ( $service === 'changerequest' ? ' btn' : '' );
+			$props['class'] = '';
 		}
 
 		$services = [
 			'facebook', 'twitter', 'google', 'send',
-			'changerequest', 'whatsapp', 'telegram', 'email'
+			'whatsapp', 'telegram', 'email'
 		];
 		foreach ( $services as $service ) {
 			$egShareBarServices[$service]['url'] = ExtShareBar::buildShareUrl( $service, $title );
 		}
-		//die('<pre>' . print_r($egShareBarServices, TRUE) . '</pre>');
 	}
 
 	static function getSpecificServices( $title, $services ) {
@@ -129,12 +128,12 @@ class ExtShareBar {
 
 
 	public static function makeDesktopShareBar( $title, $id = null ) {
-		$services = [ 
-			'whatsapp', 
-			'facebook', 
-			'twitter', 
-			'email', 
-			'print', 
+		$services = [
+			'whatsapp',
+			'facebook',
+			'twitter',
+			'email',
+			'print',
 		];
 		$services = self::getSpecificServices( $title, $services );
 
@@ -143,7 +142,6 @@ class ExtShareBar {
 			'btn-text' => wfMessage( 'ext-sharebar-getlink-btn' )->text(),
 			'link' => htmlspecialchars( self::getNicePageURL( $title ) )
 		] );
-		//die(print_r($services, TRUE));
 		// Remove all lines breaks, etc., because MW wreaks havoc by making things into <P>s.
 		$shareLink = str_replace( [ "\t", "\n" ], '', $shareLink );
 
@@ -153,20 +151,15 @@ class ExtShareBar {
 
 		$templateData = [
 			'id' => $id,
-			'sections' => [
-				[
-					'name' => 'cloudshare',
-					'services' => [
-						$services['whatsapp'], 
-						$services['facebook'], 
-						$services['twitter'], 
-						$services['email'], 
-						$services['print'],
-						[ 'name' => 'getlink',
-						  'arbitraryhtml?' => [ 'html' => $shareLink ]
-						],
-					]
-				]
+			'services' => [
+				$services['whatsapp'],
+				$services['facebook'],
+				$services['twitter'],
+				$services['email'],
+				$services['print'],
+				[ 'name' => 'getlink',
+				  'arbitraryhtml?' => [ 'html' => $shareLink ]
+				],
 			]
 		];
 
@@ -225,7 +218,7 @@ class ExtShareBar {
 
 		$serviceUrl = [
 			'facebook' => 'https://www.facebook.com/sharer/sharer.php?u={URL}',
-			'twitter' => 'https://twitter.com/intent/tweet?url={URL}&text={TEXT}',  //More optional params: &text, &hashtags
+			'twitter' => 'https://twitter.com/intent/tweet?url={URL}&text={TEXT}',  // More optional params: &text, &hashtags
 			'google' => 'https://plus.google.com/share?url={URL}',
 			'send' => $egShareBarServices['send']['url']
 				. '?page={TITLE}&pageUrl={URL}',

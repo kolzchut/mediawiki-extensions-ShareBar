@@ -18,28 +18,29 @@
     min-height: 500px;
 }
 
+.wr-sharebar-desktop {
+	position: fixed;
+	right: 0;
+	top: 192px;
+	z-index: 3;
 
+	.dropdown-menu {
+		left: auto;
+		right: 10px;
+	}
 
-#bodyWrapper .sharebar-section {
-    margin: 0;
-    /*padding: 0 3px;
-    */
-    display: inline-block;
-    
-    #content & {
-        margin-bottom: 0;
-    }
-    li{
-        height:45px;
-        margin:0;
+    li {
+	    list-style:none;
+	    height: 45px;
+        margin: 0;
         padding: 0 0 0 3px;
         background: #858585;
-        a{
-            border-bottom:1px solid #fff;
+        a {
+            border-bottom: 1px solid #fff;
             height: 45px;
             padding: 3px 8px 3px 5px;
             display: inline-block;
-            width:48px;
+            width: 48px;
         }
         &:hover {
             background-color: #618837;
@@ -48,61 +49,21 @@
             border-top-left-radius: 4px;
         }
         &:last-child {
-            
-            a{
+            a {
                 border-bottom:0;
-                }
+            }
             border-bottom-left-radius: 4px;
         }
     }
 }
-
-
-.wr-sharebar-changerequest .btn {
-    padding: 0 10px;
-
-	&:hover,
-	&:focus,
-	&:active,
-	&.active {
-    	position: static; /* Undo the positioning damage I do above */
-	}
-
-	#content &:hover,
-	#content &:focus,
-	#content &:active,
-	#content &.active {
-		color: darken(#fff, 15% );
-	}
-}
-
-
-@media (min-width: 992px) {
-    .wr-sharebar > ul.section-localshare > li {
-        margin-right: 30px;
-    }
-
-    .wr-sharebar > ul.section-cloudshare > li {
-        margin-right: 20px;
-    }
-
-    .wr-sharebar-changerequest .btn {
-        padding: 0 20px;
-    }
-}
-
 
 .wr-sharebar a.wr-share-link {
     background-repeat: no-repeat;
     display: inline-block;
     min-height: 21px;
     background-position: center left 15px;
-    display: inline-block;
-    width: 34px;
-    height: 35px;
     background-size: 50%;
 }
-
 
 /* Print and Link only work with JS */
 .client-nojs .wr-sharebar-print,
@@ -138,40 +99,11 @@
 .wr-sharebar-facebook a.wr-share-link {
     .background-image("images/new-design/facebook.svg");
 }
-div#sharebar-top {
-    position: fixed;
-    right: 0;
-    top: 192px;
-    z-index: 3;
-    li{
-        list-style:none;
-    }
-    .dropdown-menu{
-        left:auto;
-        right:10px;
-    }
-}
+
 .wr-sharebar-twitter > a.wr-share-link {
     .background-image("images/new-design/twitter.svg");
 }
 
 .wr-sharebar-whatsapp > a.wr-share-link {
     .background-image("images/new-design/whatsapp.svg");
-}
-
-
-.wr-sharebar .section-changerequest {
-    float: right;
-}
-
-.wr-sharebar .btn {
-    background-color: @btn-bg;
-    color: #fff;
-}
-.wr-sharebar .btn:hover,
-.wr-sharebar .btn:focus,
-.wr-sharebar .btn:active,
-.wr-sharebar .btn.active {
-    background-color: @btn-bg-hover;
-    color: #fff;
 }
