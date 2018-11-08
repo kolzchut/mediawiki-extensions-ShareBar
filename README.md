@@ -1,9 +1,12 @@
 WikiRights ShareBar extension for MediaWiki
 ===========================================
 
-This extension adds a social sharebar, using the parser-function
-{{#sharebar:}}. It was designed for use with the non-public skin:Helena,
-but can be used independently.
+This extension was developed for Kol-Zchut, and is quite dependant on
+the the non-public skin:Helena.
+
+The extension adds a mobile and desktop sharebars - the mobile version
+is fixed at the bottom of the screen, while the desktop version is fixed
+to the right of the screen.
 
 Services included:
 - Facebook (share)
@@ -22,12 +25,9 @@ If JavaScript is available, all of these will open either in a new pop-up window
 If JavaScript is not available, these will open in a plain new window/tab.
 
 ## Usage
-- To use from inside the wikitext, simply put:
-  `{{#sharebar:}}`. If you want the sharebar to have an HTML id, set it like this:
-  `{{#sharebar:myid}}`. The actual id will be 'sharebar-myid'.
-- To use from another extension or skin, call one of the relevant functions in PHP:
-  - `ExtShareBar::makeDesktopShareBar( $this->getSkin()->getTitle() );`
-  - `ExtShareBar::makeMobileShareBar( $this->getSkin()->getTitle() );`
+To use from another extension or skin, call one of the relevant functions in PHP:
+- `ExtShareBar::makeDesktopShareBar( $this->getSkin()->getTitle() );`
+- `ExtShareBar::makeMobileShareBar( $this->getSkin()->getTitle() );`
   You can add an HTML id to either sharebar by passing a string as a 2nd parameter.
 
 
@@ -50,6 +50,12 @@ You can set custom URLs for these by overriding `$egShareBarServices` like this:
 
 ## Changelog
 
+### 2.0.0 [2018-11-xx]
+This release is aimed at skin:Helena version 4.0.
+- The desktop sharebar is now injected by the skin
+  - Parser function {{#sharebar:}} was removed
+- The desktop sharebar is a sticky side bar.
+- Removed Google+ & Change Request services
 ### 1.3.0 [2018-03-23]
 - Add Telegram as a service.
 - Add $egShareBarMobileServicesFlipOrder to control the order of display in mobile
@@ -91,6 +97,7 @@ Initial release
 
 
 ## Todo
- * Add a "valid services" const to evaluate $egShareBarServices against
- * Consider using jQueryUI's dialog window, which already comes with MediaWiki
+* Add a "valid services" const to evaluate $egShareBarServices against
+* Consider using OOUI's dialog, which already comes with MediaWiki,
+   instead of using Bootstrap's dialog (which is an extra dependency)
 

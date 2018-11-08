@@ -1,5 +1,10 @@
 <div class="dropdown">
-	<a href="#" class="wr-share-link dropdown-toggle" data-toggle="dropdown" data-tooltip="{{btn-text}}" data-position="right center" aria-haspopup="true"></a>
+	<a href="#" class="wr-share-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+		<span class="fa fa-link"></span>
+		{{#text}}
+			<span class="text">{{.}}</span>
+		{{/text}}
+	</a>
 	<div class="dropdown-menu">
 		<div class="input-group">
 			<input value="{{link}}" class="form-control" type="text" readonly>

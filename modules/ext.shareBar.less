@@ -4,14 +4,8 @@
 @btn-bg-hover: darken(@btn-bg, 5%);
 
 // Hide the mobile sharebar
-.wr-sharebar-fixed {
+.wr-sharebar-mobile {
 	display: none;
-}
-
-
-/* Fix jQuery UI Dialog priority over Bootstrap elements */
-.wr-sharebar-dialog {
-    z-index: 1100;
 }
 
 .wr-sharebar-modal .modal-content {
@@ -23,46 +17,68 @@
 	right: 0;
 	top: 192px;
 	z-index: 3;
-
-	.dropdown-menu {
-		left: auto;
-		right: 10px;
-	}
-
-    li {
-	    list-style:none;
-	    height: 45px;
-        margin: 0;
-        padding: 0 0 0 3px;
-        background: #858585;
-        a {
-            border-bottom: 1px solid #fff;
-            height: 45px;
-            padding: 3px 8px 3px 5px;
-            display: inline-block;
-            width: 48px;
-        }
-        &:hover {
-            background-color: #618837;
-        }
-        &:first-child {
-            border-top-left-radius: 4px;
-        }
-        &:last-child {
-            a {
-                border-bottom:0;
-            }
-            border-bottom-left-radius: 4px;
-        }
-    }
+	width: 50px;
 }
 
-.wr-sharebar a.wr-share-link {
-    background-repeat: no-repeat;
+.wr-sharebar-desktop .dropdown-menu {
+	left: auto;
+	right: 10px;
+}
+
+.wr-sharebar-desktop li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	float: right;
+	white-space: nowrap;
+
+	&:first-child a {
+		border-top-left-radius: 4px;
+	}
+	&:last-child a {
+		border-bottom-left-radius: 4px;
+		// border-bottom:0;
+	}
+}
+
+
+.wr-share-link {
+    background: #858585;
+    // border-bottom: 1px solid #fff;
+    margin-bottom: 1px;
+	padding: 10px;
     display: inline-block;
-    min-height: 21px;
-    background-position: center left 15px;
-    background-size: 50%;
+    max-width: 50px;
+	min-width: 50px;
+    color: #fff;
+    transition: max-width 500ms linear;
+    text-decoration: none;
+	text-align: center;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: #618837;
+        text-align: left;
+	    color: #fff;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        max-width: 250px; /* Just a guess, to fit any translation */
+	    text-decoration: none;
+
+	    .text {
+		    display: inline-block;
+	    }
+    }
+
+    .fa {
+        font-size: 1.5em;
+    }
+	.text {
+		display: none;
+		vertical-align: text-bottom;
+		margin-left: 5px;
+	}
 }
 
 /* Print and Link only work with JS */
@@ -71,39 +87,12 @@
     display: none;
 }
 
-.wr-sharebar-print a.wr-share-link {
-    .background-image("images/new-design/print.svg");
-}
-.wr-sharebar-email a.wr-share-link {
-    .background-image("images/new-design/email.svg");
-}
-
-.wr-sharebar-send a.wr-share-link {
-    .background-image("images/send.png");
-}
-
-.wr-sharebar-getlink a.wr-share-link {
-    .background-image("images/new-design/link.svg");
-}
-
 .wr-sharebar-getlink .dropdown-menu {
 	padding: 1em;
 }
 
-/* Override direction for email field */
+/* Override direction for url field */
 .sitedir-rtl .wr-sharebar-getlink input {
 	/* @noflip */
 	direction: ltr;
-}
-
-.wr-sharebar-facebook a.wr-share-link {
-    .background-image("images/new-design/facebook.svg");
-}
-
-.wr-sharebar-twitter > a.wr-share-link {
-    .background-image("images/new-design/twitter.svg");
-}
-
-.wr-sharebar-whatsapp > a.wr-share-link {
-    .background-image("images/new-design/whatsapp.svg");
 }

@@ -1,13 +1,8 @@
 <?php
 
 class ExtShareBar {
-	private static $numOfBars = 0;
 	private static $isMergedSettings = false;
 	private static $isSetDefaults = false;
-
-	public static function getNumberOfBars() {
-		return self::$numOfBars;
-	}
 
 	static function mergeSettings() {
 		global $egShareBarServices, $egShareBarServicesDefaults, $egShareBarDisabledServices;
@@ -20,7 +15,10 @@ class ExtShareBar {
 			);
 			self::$isMergedSettings = true;
 			// Remove disabled services
-			$egShareBarServices = array_diff_key( $egShareBarServices, array_flip( $egShareBarDisabledServices ) );
+			$egShareBarServices = array_diff_key(
+				$egShareBarServices,
+				array_flip( $egShareBarDisabledServices )
+			);
 		}
 
 		return $egShareBarServices;
@@ -47,15 +45,12 @@ class ExtShareBar {
 				$props['url'] = '#';
 			}
 			$props['text'] = wfMessage( 'ext-sharebar-' . $service )->text();
-			$additionalScreenReaderTextMsg = wfMessage( 'ext-sharebar-service-name-' . $service );
-
-			$props['screenReaderText'] = $additionalScreenReaderTextMsg->isBlank() ?
-				false : $additionalScreenReaderTextMsg->text();
 			$props['class'] = '';
+			$props['icon'] = empty( $props['icon'] ) ? $props['name'] : $props['icon'];
 		}
 
 		$services = [
-			'facebook', 'twitter', 'google', 'send',
+			'facebook', 'twitter', 'send',
 			'whatsapp', 'telegram', 'email'
 		];
 		foreach ( $services as $service ) {
@@ -219,11 +214,8 @@ class ExtShareBar {
 		$serviceUrl = [
 			'facebook' => 'https://www.facebook.com/sharer/sharer.php?u={URL}',
 			'twitter' => 'https://twitter.com/intent/tweet?url={URL}&text={TEXT}',  // More optional params: &text, &hashtags
-			'google' => 'https://plus.google.com/share?url={URL}',
 			'send' => $egShareBarServices['send']['url']
 				. '?page={TITLE}&pageUrl={URL}',
-			'changerequest' => $egShareBarServices['changerequest']['url']
-				. '?page={TITLE}&lang={language}&categories={CATEGORIES}',
 			'whatsapp' => "https://api.whatsapp.com/send?text={TEXT}%0A{NICE_URL}",
 			'telegram' => 'https://telegram.me/share/url?url={NICE_URL}&text={TEXT}',
 			'email' => 'mailto:?subject={TEXT}&body={NICE_URL}'

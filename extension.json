@@ -7,10 +7,7 @@
 	"license-name": "GPL-3.0",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.29.0",
-		"extensions": {
-			"WikiRights Tooltip": "*"
-		}
+		"MediaWiki": ">= 1.29.0"
 	},
 	"MessagesDirs": {
 		"ShareBar": [
@@ -53,7 +50,6 @@
 				"modal.mustache": "../templates/modal.mustache"
 			},
 			"dependencies": [
-				"ext.wr.Tooltip.js",
 				"skins.helena.bootstrap.js"
 			]
 		},
@@ -111,7 +107,9 @@
 				"height": 750,
 				"action": "modal"
 			},
-			"email": {},
+			"email": {
+				"icon": "envelope"
+			},
 			"whatsapp": {},
 			"telegram": {},
 			"getlink": {},
@@ -124,17 +122,13 @@
 			"facebook": {
 				"action": "window",
 				"width": 520,
-				"height": 350
+				"height": 350,
+				"icon": "facebook-official"
 			},
 			"twitter": {
 				"action": "window",
 				"width": 550,
 				"height": 420
-			},
-			"google": {
-				"action": "window",
-				"width": 575,
-				"height": 400
 			}
 		}
 	},

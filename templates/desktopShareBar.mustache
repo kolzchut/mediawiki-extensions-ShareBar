@@ -3,10 +3,9 @@
 		{{#services}}
 				<li class="wr-sharebar-{{name}}">
 					{{#arbitraryhtml?}}{{{html}}}{{/arbitraryhtml?}}{{^arbitraryhtml?}}
-					<a href="{{url}}" class="wr-share-link{{class}}" data-service="{{name}}" data-action="{{action}}" data-tooltip="{{screenReaderText}}"  data-position="right center" rel="nofollow" target="_blank">
-						{{#screenReaderText}}
-							<span class="sr-only">{{.}}</span>
-						{{/screenReaderText}}
+					<a href="{{url}}" class="wr-share-link{{class}}" data-service="{{name}}" data-action="{{action}}"  rel="nofollow" target="_blank">
+						<span class="fa fa-{{icon}}"></span>
+						{{#text}}<span class="text">{{.}}</span>{{/text}}
 					</a>{{/arbitraryhtml?}}
 				</li>
 		{{/services}}
