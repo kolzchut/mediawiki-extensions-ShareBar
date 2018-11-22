@@ -5,11 +5,12 @@ class ExtShareBarHooks {
 	 * ResourceLoaderGetConfigVars hook
 	 * Make extension configuration variables available in javascript
 	 *
-	 * @param $vars
+	 * @param array &$vars
 	 * @return true
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		$vars['egShareBar'] = ExtShareBar::mergeSettings();
+		global $egShareBarServicesConfig;
+		$vars['egShareBar'] = $egShareBarServicesConfig;
 
 		return true;
 	}
@@ -19,8 +20,8 @@ class ExtShareBarHooks {
 	 *
 	 * Add the modules to the page
 	 *
-	 * @param $out OutputPage output page
-	 * @param $skin Skin current skin
+	 * @param OutputPage &$out output page
+	 * @param Skin &$skin current skin
 	 *
 	 * @return true
 	 */

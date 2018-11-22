@@ -11,14 +11,11 @@ to the right of the screen.
 Services included:
 - Facebook (share)
 - Twitter (share)
-- Google+ (share)
 - Print (javascript-dependant)
-- Feedback (custom URL, point at your own form)
 - Change Request (custom URL, point at your own form)
-- Donate (custom URL, point at your own form)
-- WhatsApp (mobile only)
-- Telegram (mobile only)
-- Email (mobile only)
+- WhatsApp
+- Telegram
+- Email
 
 If JavaScript is available, all of these will open either in a new pop-up window (Facebook, Twitter
 , etc.) or a modal window (note: the modal windows used are Bootstrap's, which aren't included here!).
@@ -32,21 +29,22 @@ To use from another extension or skin, call one of the relevant functions in PHP
 
 
 ## Configuration
-- `$egShareBarServices`: used to override the default configuration, listed in
-  `$egShareBarDefaultServices` (see `extension.json`).
-    - It is possible to change URLs for services or the size of windows/dialogs to be opened
-    (sensible defaults based on official recommendations by Facebook, etc)
-- `$egShareBarDisabledServices`: an array of service names *not* to display.
+- `$egShareBarServices`: comma-separated list of services. You can override
+  the default list, e.g. 'facebook,twitter,telegram'.
+  (see `extension.json`).
+- `$egShareBarMobileServices`: same as `$egShareBarServices`, but for mobile.
 - `$egShareBarMobileServicesLimit`: if more than this number of is selected, any additional
   services will show in an overflow menu - so you will see that number of services + a "more" button.
-- `$egShareBarMobileServices`: an array of service names to show in the mobile sharebar.
+- `$egShareBarServicesConfig`: an array of  defaults for the different services -
+   Change URLs for services or the size of windows/dialogs to be opened
+   (sensible defaults based on official recommendations by Facebook, etc)
 - `$egShareBarMobileServicesFlipOrder`: flip the order. Useful when you prefer this list
   to not be in the normal wiki directionality (for example, in Hebrew we prefer this list to show
   left-to-right, because it seems more natural)
 
-### Set custom URLs for Feedback/ Donate
-You can set custom URLs for these by overriding `$egShareBarServices` like this:
-`$egShareBarServices['feedback']['url'] = 'http://www.google.com';`
+### Set custom URLs for Feedback
+You can set custom URLs for these by overriding `$egShareBarServicesConfig` like this:
+`$egShareBarServicesConfig['feedback']['url'] = 'http://www.google.com';`
 
 ## Changelog
 
@@ -56,6 +54,11 @@ This release is aimed at skin:Helena version 4.0.
   - Parser function {{#sharebar:}} was removed
 - The desktop sharebar is a sticky side bar.
 - Removed Google+ & Change Request services
+- `$egShareBarServices` and `$egShareBarMobileServices` are now comma-separated
+  lists (string) instead of arrays, to bypass problems with MediaWiki.
+- `$egShareBarDisabledServices` was removed - to disable services override
+  `$egShareBarServices` and/or `$egShareBarMobileServices`
+- `$egShareBarServicesDefaults` is now `$egShareBarServicesConfig`
 ### 1.3.0 [2018-03-23]
 - Add Telegram as a service.
 - Add $egShareBarMobileServicesFlipOrder to control the order of display in mobile

@@ -84,12 +84,11 @@
 	},
 	"config": {
 		"_prefix": "eg",
-		"ShareBarDisabledServices": [],
-		"ShareBarServices": [],
+		"ShareBarServices": "whatsapp,facebook,twitter,email,print",
 		"ShareBarMobileServicesLimit": 5,
-		"ShareBarMobileServices": [ "whatsapp", "facebook", "email", "telegram", "twitter" ],
+		"ShareBarMobileServices": "whatsapp,facebook,email,telegram,twitter",
 		"ShareBarMobileServicesFlipOrder": true,
-		"ShareBarServicesDefaults": {
+		"ShareBarServicesConfig": {
 			"print": {
 				"action": "print"
 			},
@@ -109,12 +108,6 @@
 			"whatsapp": {},
 			"telegram": {},
 			"getlink": {},
-			"send": {
-				"url": "/forms/mailArticle/",
-				"width": 700,
-				"height": 600,
-				"action": "modal"
-			},
 			"facebook": {
 				"action": "window",
 				"width": 520,
@@ -125,7 +118,8 @@
 				"action": "window",
 				"width": 550,
 				"height": 420
-			}
+			},
+			"_merge_strategy": "array_plus_2d"
 		}
 	},
 	"manifest_version": 1
