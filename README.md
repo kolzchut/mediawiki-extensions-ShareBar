@@ -1,55 +1,64 @@
 WikiRights ShareBar extension for MediaWiki
 ===========================================
 
-This extension adds a social sharebar, using the parser-function
-{{#sharebar:}}. It was designed for use with the non-public skin:Helena,
-but can be used independently.
+This extension was developed for Kol-Zchut, and is quite dependant on
+the the non-public skin:Helena.
+
+The extension adds a mobile and desktop sharebars - the mobile version
+is fixed at the bottom of the screen, while the desktop version is fixed
+to the right of the screen.
 
 Services included:
 - Facebook (share)
 - Twitter (share)
-- Google+ (share)
 - Print (javascript-dependant)
-- Feedback (custom URL, point at your own form)
 - Change Request (custom URL, point at your own form)
-- Donate (custom URL, point at your own form)
-- WhatsApp (mobile only)
-- Telegram (mobile only)
-- Email (mobile only)
+- WhatsApp
+- Telegram
+- Email
 
 If JavaScript is available, all of these will open either in a new pop-up window (Facebook, Twitter
 , etc.) or a modal window (note: the modal windows used are Bootstrap's, which aren't included here!).
 If JavaScript is not available, these will open in a plain new window/tab.
 
 ## Usage
-- To use from inside the wikitext, simply put:
-  `{{#sharebar:}}`. If you want the sharebar to have an HTML id, set it like this:
-  `{{#sharebar:myid}}`. The actual id will be 'sharebar-myid'.
-- To use from another extension or skin, call one of the relevant functions in PHP:
-  - `ExtShareBar::makeDesktopShareBar( $this->getSkin()->getTitle() );`
-  - `ExtShareBar::makeMobileShareBar( $this->getSkin()->getTitle() );`
+To use from another extension or skin, call one of the relevant functions in PHP:
+- `ExtShareBar::makeDesktopShareBar( $this->getSkin()->getTitle() );`
+- `ExtShareBar::makeMobileShareBar( $this->getSkin()->getTitle() );`
   You can add an HTML id to either sharebar by passing a string as a 2nd parameter.
 
 
 ## Configuration
-- `$egShareBarServices`: used to override the default configuration, listed in
-  `$egShareBarDefaultServices` (see `extension.json`).
-    - It is possible to change URLs for services or the size of windows/dialogs to be opened
-    (sensible defaults based on official recommendations by Facebook, etc)
-- `$egShareBarDisabledServices`: an array of service names *not* to display.
+- `$egShareBarServices`: comma-separated list of services. You can override
+  the default list, e.g. 'facebook,twitter,telegram'.
+  (see `extension.json`).
+- `$egShareBarMobileServices`: same as `$egShareBarServices`, but for mobile.
 - `$egShareBarMobileServicesLimit`: if more than this number of is selected, any additional
   services will show in an overflow menu - so you will see that number of services + a "more" button.
-- `$egShareBarMobileServices`: an array of service names to show in the mobile sharebar.
+- `$egShareBarServicesConfig`: an array of  defaults for the different services -
+   Change URLs for services or the size of windows/dialogs to be opened
+   (sensible defaults based on official recommendations by Facebook, etc)
 - `$egShareBarMobileServicesFlipOrder`: flip the order. Useful when you prefer this list
   to not be in the normal wiki directionality (for example, in Hebrew we prefer this list to show
   left-to-right, because it seems more natural)
 
-### Set custom URLs for Feedback/ Donate
-You can set custom URLs for these by overriding `$egShareBarServices` like this:
-`$egShareBarServices['feedback']['url'] = 'http://www.google.com';`
+### Set custom URLs for Feedback
+You can set custom URLs for these by overriding `$egShareBarServicesConfig` like this:
+`$egShareBarServicesConfig['feedback']['url'] = 'http://www.google.com';`
 
 ## Changelog
 
+### 2.0.0 [2018-11-xx]
+This release is aimed at skin:Helena version 4.0.
+- The desktop sharebar is now injected by the skin
+  - Parser function {{#sharebar:}} was removed
+- The desktop sharebar is a sticky side bar.
+- Removed Google+ & Change Request services
+- `$egShareBarServices` and `$egShareBarMobileServices` are now comma-separated
+  lists (string) instead of arrays, to bypass problems with MediaWiki.
+- `$egShareBarDisabledServices` was removed - to disable services override
+  `$egShareBarServices` and/or `$egShareBarMobileServices`
+- `$egShareBarServicesDefaults` is now `$egShareBarServicesConfig`
 ### 1.3.0 [2018-03-23]
 - Add Telegram as a service.
 - Add $egShareBarMobileServicesFlipOrder to control the order of display in mobile
@@ -91,6 +100,7 @@ Initial release
 
 
 ## Todo
- * Add a "valid services" const to evaluate $egShareBarServices against
- * Consider using jQueryUI's dialog window, which already comes with MediaWiki
+* Add a "valid services" const to evaluate $egShareBarServices against
+* Consider using OOUI's dialog, which already comes with MediaWiki,
+   instead of using Bootstrap's dialog (which is an extra dependency)
 

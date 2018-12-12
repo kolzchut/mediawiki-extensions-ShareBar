@@ -1,0 +1,35 @@
+.b-tooltip {
+     display: inline-block;
+    font-size: .875em;
+    padding: .75em;
+    position: absolute;
+    max-width: 200px;
+    padding: .25rem .5rem;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    border-radius: 6px;
+    z-index:5;
+}
+
+.b-tooltip:after{
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(0, 0, 0, 0);
+	border-left-color: #000;
+	border-width: 6px;
+	margin-top: -6px;
+}
+.b-tooltip-light {
+
+}
+
+.b-tooltip-dark {
+   
+}

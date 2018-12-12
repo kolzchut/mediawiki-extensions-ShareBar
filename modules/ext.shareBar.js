@@ -6,7 +6,7 @@
  */
 
 ( function ( mw, $ ) {
-    'use strict';
+	'use strict';
 	var wrShareBar;
 
 	wrShareBar = mw.wrShareBar = {
@@ -31,80 +31,84 @@
 				'.kz-footer-feedback > a'
 			];
 
-			$('body').on( 'click', selectors.join(','), function( event ) {
-				var service = $( this ).data( 'service') || null;
-				var action = $( this ).data( 'action' ) || null;
+			$( 'body' ).on( 'click', selectors.join( ',' ), function( event ) {
+				var service = $( this ).data( 'service' ) || null,
+					action = $( this ).data( 'action' ) || null,
+					props,
+					url,
+					width,
+					height;
 
-				if( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
+				if ( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
 					service = 'donate';
 					action = 'modal';
 				}
-				if( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
+				if ( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
 					service = 'feedback';
 					action = 'modal';
 				}
 
-				var props = wrShareBar.settings[service];
+				props = wrShareBar.settings[ service ];
 				if ( service === null || props === 'undefined' || action === null ) {
 					return;
 				}
 
-				var url = $( this ).attr( 'href' );
-				if( ( service === 'donate' || service === 'feedback') && props.url !== undefined ) {
+				url = $( this ).attr( 'href' );
+				if ( ( service === 'donate' || service === 'feedback' ) && props.url !== undefined ) {
 					url = props.url;
 				}
 
 				/* Sanity check for screen size */
-				var width = Math.min( props.width || 800, screen.width );
-				var height = Math.min( props.height || 700, screen.height );
-				//mw.log( width + 'x' + height);
+				width = Math.min( props.width || 800, screen.width );
+				height = Math.min( props.height || 700, screen.height );
+				// mw.log( width + 'x' + height);
 
-				switch( action ) {
+				switch ( action ) {
 					case 'print':
 						window.print();
 						break;
 					case 'window':
-						wrShareBar.openWindow(url, width, height, 'shareWindow');
+						wrShareBar.openWindow( url, width, height, 'shareWindow' );
 						break;
 					case 'modal':
-						wrShareBar.openModal(url, width, height);
+						wrShareBar.openModal( url, width, height );
 						break;
 				}
 
-
 				event.preventDefault();
-			});
+			} );
 
-			$( '.wr-sharebar-getlink' ).on('show.bs.dropdown', function( event ) {
-				var $target = $( event.currentTarget );
-				var $btn = $target.find('.btn' );
+			$( '.wr-sharebar-getlink' ).on( 'show.bs.dropdown', function( event ) {
+				var $target = $( event.currentTarget ),
+					$btn = $target.find( '.btn' ),
+					$input,
+					textLength;
 
-				$target.find( '.dropdown-menu' ).on( 'click', function( e ) { e.stopPropagation(); });
+				$target.find( '.dropdown-menu' ).on( 'click', function( e ) { e.stopPropagation(); } );
 				mw.loader.using( 'clipboard.js', function() {
-					var clipboard = new ClipboardJS( $btn[0] );
-					clipboard.on('success', function(e) {
+					var clipboard = new ClipboardJS( $btn[ 0 ] );
+					clipboard.on( 'success', function( e ) {
 						$btn.text( mw.message( 'ext-sharebar-getlink-success' ).text() );
 						e.clearSelection();
-					});
+					} );
 
-					clipboard.on('error', function(e) {
+					clipboard.on( 'error', function( e ) {
 						$btn.text( mw.message( 'ext-sharebar-getlink-fail' ).text() );
-					});
-				});
-				var $input = $target.find( 'input' );
-				var textLength = $input.val().length + 'ch';
-				$input.css( 'min-width',  textLength );
-			});
+					} );
+				} );
+				$input = $target.find( 'input' );
+				textLength = $input.val().length + 'ch';
+				$input.css( 'min-width', textLength );
+			} );
 		},
 
-
 		openWindow: function( url, width, height, windowName ) {
-			var widthAndHeight = 'width=' + width + ',height=' + height;
-			// screen.left determines location in multi-monitor setup, supposedly
-			var left = (screen.width/2)-(width/2) + screen.left;
-			var top = (screen.height/2)-(height/2);
-			var position = 'left=' + left + ',top=' + top;
-			var strWindowFeatures = wrShareBar.basicWindowFeatures + ',' + widthAndHeight + ',' + position;
+			var widthAndHeight = 'width=' + width + ',height=' + height,
+				// screen.left determines location in multi-monitor setup, supposedly
+				left = ( screen.width / 2 ) - ( width / 2 ) + screen.left,
+				top = ( screen.height / 2 ) - ( height / 2 ),
+				position = 'left=' + left + ',top=' + top,
+				strWindowFeatures = wrShareBar.basicWindowFeatures + ',' + widthAndHeight + ',' + position;
 
 			window.open( url, windowName, strWindowFeatures );
 		},
@@ -119,40 +123,39 @@
 			};
 
 			// Create modal if it doesn't exist, otherwise reuse it:
-			if( !this.$activeModal ) {
+			if ( !this.$activeModal ) {
 				// Select .first() to fix a bug with an extra TextNode ("\n"), which
 				// caused Bootstrap's modal to behave wierdly
 				this.$activeModal = this.modalTemplate.render( templateData ).first();
-				this.$activeModal.modal({
+				this.$activeModal.modal( {
 					backdrop: 'static',
 					keyboard: false
-				}).on('hidden.bs.modal', function () {
+				} ).on( 'hidden.bs.modal', function () {
 					// Remove iframe source to prevent flash of previous content on next load
-					mw.wrShareBar.$activeModal.find( 'iframe' ).attr({
+					mw.wrShareBar.$activeModal.find( 'iframe' ).attr( {
 						src: ''
-					});
-				});
+					} );
+				} );
 			} else {
-				this.$activeModal.find('iframe').attr({
+				this.$activeModal.find( 'iframe' ).attr( {
 					src: url,
 					height: height - 60,
 					width: '100%'
-				});
-				this.$activeModal.find( '.modal-dialog' ).css({
+				} );
+				this.$activeModal.find( '.modal-dialog' ).css( {
 					// height: height,
 					width: width
-				});
+				} );
 				this.$activeModal.modal( 'show' );
 			}
 
 		},
 
 		closeModal: function() {
-			if( mw.wrShareBar.$activeModal ) {
+			if ( mw.wrShareBar.$activeModal ) {
 				mw.wrShareBar.$activeModal.modal( 'hide' );
 			}
 		}
-
 
 	};
 
@@ -162,8 +165,4 @@
 	// b/c for forms
 	window.closeCrDialog = mw.wrShareBar.closeModal;
 
-
 }( mediaWiki, jQuery ) );
-
-
-
