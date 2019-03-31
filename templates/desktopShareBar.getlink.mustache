@@ -2,12 +2,12 @@
 	<a href="#" class="wr-share-link dropdown-toggle" data-service="link" data-toggle="dropdown" aria-haspopup="true">
 		<span class="fa fa-link"></span>
 		{{#text}}
-			<span class="text">{{.}}</span>
+			<span class="text">{{.}}</span><span class="sr-only">{{.}}</span>
 		{{/text}}
 	</a>
 	<div class="dropdown-menu">
 		<div class="input-group">
-			<input value="{{link}}" class="form-control" type="text" readonly>
+			<input value="{{link}}" class="form-control" type="text" aria-label="{{label}}" readonly>
 			<span class="input-group-btn">
 				<button type="button" data-clipboard-text="{{link}}" class="btn btn-default">
 					<span class="fa fa-clipboard"></span>&nbsp;{{btn-text}}

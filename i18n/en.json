@@ -16,6 +16,7 @@
 	"ext-sharebar-share-on": "Share on&nbsp;&nbsp;",
 	"ext-sharebar-print": "Print",
 	"ext-sharebar-getlink": "Get link",
+	"ext-sharebar-getlink-label": "Link",
 	"ext-sharebar-getlink-btn": "Copy to clipboard",
 	"ext-sharebar-getlink-success": "Copied successfully!",
 	"ext-sharebar-getlink-fail": "Copy failed...",

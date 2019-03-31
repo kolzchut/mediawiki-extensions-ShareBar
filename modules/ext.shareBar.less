@@ -1,8 +1,5 @@
 @import "mediawiki.mixins";
 
-@btn-bg: #608835;
-@btn-bg-hover: darken(@btn-bg, 5%);
-
 // Hide the mobile sharebar
 .wr-sharebar-mobile {
 	display: none;
@@ -58,7 +55,7 @@
     &:hover,
     &:focus,
     &:active {
-        background-color: #618837;
+        background-color: @color-green; // This comes from HelenaResourceLoaderModule
         text-align: left;
 	    color: #fff;
         border-top-left-radius: 4px;
@@ -68,6 +65,10 @@
 
 	    .text {
 		    display: inline-block;
+	    }
+	    // Hide screen-reader text when displaying the regular text, which is the same
+	    .sr-only {
+		    display: none;
 	    }
     }
 

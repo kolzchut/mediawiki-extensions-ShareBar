@@ -91,6 +91,7 @@ class ExtShareBar {
 
 		$shareLink = self::renderTemplate( 'desktopShareBar.getlink', [
 			'text' => wfMessage( 'ext-sharebar-getlink' )->text(),
+			'label' => wfMessage( 'ext-sharebar-getlink-label' )->text(),
 			'btn-text' => wfMessage( 'ext-sharebar-getlink-btn' )->text(),
 			'link' => htmlspecialchars( self::getNicePageURL( $title ) )
 		] );

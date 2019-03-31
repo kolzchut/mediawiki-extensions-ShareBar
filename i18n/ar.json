@@ -18,6 +18,7 @@
 	"ext-sharebar-share-on": "شارك&nbsp;",
 	"ext-sharebar-print": "طباعة",
 	"ext-sharebar-getlink": "للرابط",
+	"ext-sharebar-getlink-label": "موقع",
 	"ext-sharebar-getlink-btn": "نسخ الى الحافظة",
 	"ext-sharebar-getlink-success": "تم النسخ بنجاح",
 	"ext-sharebar-getlink-fail": "فشل النسخ",
