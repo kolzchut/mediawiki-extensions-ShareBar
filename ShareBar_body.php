@@ -189,7 +189,9 @@ class ExtShareBar {
 	}
 
 	private static function getNicePageURL( Title $title ) {
-		return wfExpandIRI( $title->getFullURL() );
+		$url = wfExpandIRI( $title->getLocalURL() );
+		$url = str_replace( [ '(', ')', '"', "'"], ['%28', '%29', '%22', '%20' ], $url );
+		return $url;
 	}
 
 }
