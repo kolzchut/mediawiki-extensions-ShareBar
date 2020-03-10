@@ -12,10 +12,10 @@ Services included:
 - Facebook (share)
 - Twitter (share)
 - Print (javascript-dependant)
-- Change Request (custom URL, point at your own form)
 - WhatsApp
 - Telegram
 - Email
+- Getlink - shows a popup for copying a cleaner link, useful in unicode charsets (javascript-depndant)
 
 If JavaScript is available, all of these will open either in a new pop-up window (Facebook, Twitter
 , etc.) or a modal window (note: the modal windows used are Bootstrap's, which aren't included here!).
@@ -29,7 +29,7 @@ To use from another extension or skin, call one of the relevant functions in PHP
 
 
 ## Configuration
-- `$egShareBarServices`: comma-separated list of services. You can override
+- `$egShareBarServices`: comma-separated list of services (lowercase). You can override
   the default list, e.g. 'facebook,twitter,telegram'.
   (see `extension.json`).
 - `$egShareBarMobileServices`: same as `$egShareBarServices`, but for mobile.
