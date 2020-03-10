@@ -28,5 +28,6 @@
 	"ext-sharebar-email": "Share by e-mail",
 	"ext-sharebar-service-name-more": "More",
 	"ext-sharebar-share-text": "$1 at \"Kol Zchut\" - all your rights!",
+	"ext-sharebar-email-msg": "I thought you might like \"$1\" from \"Kol Zchut\"",
 	"ext-sharebar-twitter-msg": "$1 at #Kol-Zchut - all your rights!"
 }

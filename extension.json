@@ -85,8 +85,8 @@
 	"config": {
 		"_prefix": "eg",
 		"ShareBarServices": "whatsapp,facebook,twitter,email,print",
-		"ShareBarMobileServicesLimit": 5,
-		"ShareBarMobileServices": "whatsapp,facebook,email,telegram,twitter",
+		"ShareBarMobileServicesLimit": 6,
+		"ShareBarMobileServices": "whatsapp,facebook,email,getlink,telegram,twitter",
 		"ShareBarMobileServicesFlipOrder": true,
 		"ShareBarServicesConfig": {
 			"print": {

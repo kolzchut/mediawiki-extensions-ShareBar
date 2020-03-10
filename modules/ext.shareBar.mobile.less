@@ -44,9 +44,45 @@
 	.wr-share-link {
 		display: inline-block;
 		width: 100%;
+
+		.btn-social-round( @color-green ); // Color comes from HelenaResourceLoaderModule );
+
+		&.btn-round-facebook      { .btn-social-round( @color-social-facebook ); }
+		&.btn-round-google        { .btn-social-round( @color-social-google ); }
+		&.btn-round-twitter       { .btn-social-round( @color-social-twitter ); }
+		&.btn-round-whatsapp      { .btn-social-round( @color-social-whatsapp ); }
+		&.btn-round-telegram      { .btn-social-round( @color-social-telegram ); }
+		&.btn-round-email         { .btn-social-round( @color-social-email ); }
 	}
 }
 
+.wr-sharebar-getlink {
+	.client-nojs & {
+		display: none;
+	}
+
+	.dropdown {
+		position: static;
+	}
+
+	.dropdown-menu {
+		padding: .5em;
+		right: .5em;
+		left: .5em;
+	}
+
+	input {
+		min-width: auto !important; // Override the min-width set through JS for desktop
+		text-overflow: ellipsis;
+		direction: ltr;
+	}
+}
+
+/* Override direction for url field */
+.sitedir-rtl .wr-sharebar-getlink input {
+	/* @noflip */
+	direction: ltr;
+}
 
 /* add margin to footer, to leave space for the sharebar */
 footer {

@@ -7,7 +7,9 @@
  *
  * https://github.com/lipis/bootstrap-social
  *
- * Additional buttons by WikiRights: Telegram
+ * Changes made by WikiRights:
+ * - Additional buttons by WikiRights: Telegram
+ * - Unused buttons removed
  */
 
 @color-social-adn:           #d87a68;
@@ -35,63 +37,7 @@
 @color-social-telegram:      #0088cc;
 @color-social-email:         #8d8d8d;
 
-
-
-.btn-round-adn           { .btn-social-round( @color-social-adn ); }
-.btn-round-bitbucket     { .btn-social-round( @color-social-bitbucket ); }
-.btn-round-dropbox       { .btn-social-round( @color-social-dropbox ); }
-.btn-round-facebook      { .btn-social-round( @color-social-facebook ); }
-.btn-round-flickr        { .btn-social-round( @color-social-flickr ); }
-.btn-round-foursquare    { .btn-social-round( @color-social-foursquare ); }
-.btn-round-github        { .btn-social-round( @color-social-github ); }
-.btn-round-google        { .btn-social-round( @color-social-google ); }
-.btn-round-instagram     { .btn-social-round( @color-social-instagram ); }
-.btn-round-linkedin      { .btn-social-round( @color-social-linkedin ); }
-.btn-round-microsoft     { .btn-social-round( @color-social-microsoft ); }
-.btn-round-odnoklassniki { .btn-social-round( @color-social-odnoklassniki ); }
-.btn-round-openid        { .btn-social-round( @color-social-openid ); }
-.btn-round-pinterest     { .btn-social-round( @color-social-pinterest ); }
-.btn-round-reddit        { .btn-social-round( @color-social-reddit, #000 ); }
-.btn-round-soundcloud    { .btn-social-round( @color-social-soundcloud ); }
-.btn-round-tumblr        { .btn-social-round( @color-social-tumblr ); }
-.btn-round-twitter       { .btn-social-round( @color-social-twitter ); }
-.btn-round-vimeo         { .btn-social-round( @color-social-vimeo ); }
-.btn-round-vk            { .btn-social-round( @color-social-vk ); }
-.btn-round-yahoo         { .btn-social-round( @color-social-yahoo ); }
-.btn-round-whatsapp      { .btn-social-round( @color-social-whatsapp ); }
-.btn-round-telegram      { .btn-social-round( @color-social-telegram ); }
-.btn-round-email         { .btn-social-round( @color-social-email ); }
-
-.btn-adn           { .btn-social( @color-social-adn ); }
-.btn-bitbucket     { .btn-social( @color-social-bitbucket ); }
-.btn-dropbox       { .btn-social( @color-social-dropbox ); }
-.btn-facebook      { .btn-social( @color-social-facebook ); }
-.btn-flickr        { .btn-social( @color-social-flickr ); }
-.btn-foursquare    { .btn-social( @color-social-foursquare ); }
-.btn-github        { .btn-social( @color-social-github ); }
-.btn-google        { .btn-social( @color-social-google ); }
-.btn-instagram     { .btn-social( @color-social-instagram ); }
-.btn-linkedin      { .btn-social( @color-social-linkedin ); }
-.btn-microsoft     { .btn-social( @color-social-microsoft ); }
-.btn-odnoklassniki { .btn-social( @color-social-odnoklassniki ); }
-.btn-openid        { .btn-social( @color-social-openid ); }
-.btn-pinterest     { .btn-social( @color-social-pinterest ); }
-.btn-reddit        { .btn-social( @color-social-reddit, #000 ); }
-.btn-soundcloud    { .btn-social( @color-social-soundcloud ); }
-.btn-tumblr        { .btn-social( @color-social-tumblr ); }
-.btn-twitter       { .btn-social( @color-social-twitter ); }
-.btn-vimeo         { .btn-social( @color-social-vimeo ); }
-.btn-vk            { .btn-social( @color-social-vk ); }
-.btn-yahoo         { .btn-social( @color-social-yahoo ); }
-.btn-whatsapp      { .btn-social( @color-social-whatsapp ); }
-.btn-telegram      { .btn-social( @color-social-telegram ); }
-.btn-email         { .btn-social( @color-social-email ); }
-
-.btn-social(@color-bg, @color: #fff) {
-	.button-variant(@color, @color-bg, rgba(0,0,0,.2));
-}
-
-/* Variation on Bootstrap button mixin */
+/* Variation on Bootstrap 3's button mixin */
 .btn-social-round(@background, @color: #fff, @border: rgba(0,0,0,.2) ) {
 	& .fa-stack-2x {
 		color: @background;
@@ -146,63 +92,5 @@
 				border-color: @border;
 			}
 		}
-	}
-}
-
-
-
-/*
- * Bootstrap's button mixin
- */
-.button-variant(@color; @background; @border) {
-	color: @color;
-	background-color: @background;
-	border-color: @border;
-
-	&:focus,
-	&.focus {
-		color: @color;
-		background-color: darken(@background, 10%);
-		border-color: darken(@border, 25%);
-	}
-	&:hover {
-		color: @color;
-		background-color: darken(@background, 10%);
-		border-color: darken(@border, 12%);
-	}
-	&:active,
-	&.active,
-	.open > .dropdown-toggle& {
-		color: @color;
-		background-color: darken(@background, 10%);
-		border-color: darken(@border, 12%);
-
-		&:hover,
-		&:focus,
-		&.focus {
-			color: @color;
-			background-color: darken(@background, 17%);
-			border-color: darken(@border, 25%);
-		}
-	}
-	&:active,
-	&.active,
-	.open > .dropdown-toggle& {
-		background-image: none;
-	}
-	&.disabled,
-	&[disabled],
-	fieldset[disabled] & {
-		&:hover,
-		&:focus,
-		&.focus {
-			background-color: @background;
-			border-color: @border;
-		}
-	}
-
-	.badge {
-		color: @background;
-		background-color: @color;
 	}
 }
