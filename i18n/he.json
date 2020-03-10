@@ -16,7 +16,7 @@
 	"ext-sharebar-print": "הדפסה",
 	"ext-sharebar-getlink": "שתפו קישור",
 	"ext-sharebar-getlink-label": "קישור",
-	"ext-sharebar-getlink-btn": "העתקה ללוח",
+	"ext-sharebar-getlink-btn": "העתקה",
 	"ext-sharebar-getlink-success": "הועתק בהצלחה!",
 	"ext-sharebar-getlink-fail": "ההעתקה נכשלה...",
 	"ext-sharebar-changerequest": "{{int:ext-sharebar-btn-changerequest}}",
@@ -26,6 +26,7 @@
 	"ext-sharebar-telegram": "שתפו בטלגרם",
 	"ext-sharebar-email": "שתפו בדוא\"ל",
 	"ext-sharebar-service-name-more": "עוד",
-	"ext-sharebar-share-text": "$1 ב\"כל זכות\" - זכותך לדעת, זכותך לקבל",
+	"ext-sharebar-share-text": "$1 מאתר \"כל זכות\"",
+	"ext-sharebar-email-msg": "חשבתי שיעניין אותך - $1 מאתר \"כל זכות\"",
 	"ext-sharebar-twitter-msg": "$1 ב#$2 - זכותך לדעת, זכותך לקבל"
 }

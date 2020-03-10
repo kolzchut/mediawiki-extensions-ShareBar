@@ -52,6 +52,11 @@ class ExtShareBar {
 		$services = self::getServices( $title, explode( ',', $egShareBarMobileServices ) );
 		$services['email']['iconClass'] = 'envelope-o';
 
+		if ( in_array( 'getlink', array_keys( $services ) ) ) {
+			$services[ 'getlink' ][ 'iconClass' ] = 'link';
+			$services[ 'getlink' ][ 'arbitraryhtml?' ] = [ 'html' => self::renderGetLink( $title, true ) ];
+		}
+
 		if ( !$services || count( $services ) === 0 ) {
 			return false;
 		}
@@ -88,16 +93,6 @@ class ExtShareBar {
 		global $egShareBarServices;
 
 		$services = self::getServices( $title, explode( ',', $egShareBarServices ) );
-
-		$shareLink = self::renderTemplate( 'desktopShareBar.getlink', [
-			'text' => wfMessage( 'ext-sharebar-getlink' )->text(),
-			'label' => wfMessage( 'ext-sharebar-getlink-label' )->text(),
-			'btn-text' => wfMessage( 'ext-sharebar-getlink-btn' )->text(),
-			'link' => htmlspecialchars( self::getNicePageURL( $title ) )
-		] );
-		// Remove all lines breaks, etc., because MW wreaks havoc by making things into <P>s.
-		$shareLink = str_replace( [ "\t", "\n" ], '', $shareLink );
-
 		if ( !$services || count( $services ) === 0 ) {
 			return false;
 		}
@@ -106,10 +101,29 @@ class ExtShareBar {
 		$templateData[ 'services' ] = array_values( $services );
 		$templateData[ 'services' ][] = [
 			'name' => 'getlink',
-			'arbitraryhtml?' => [ 'html' => $shareLink ]
+			'arbitraryhtml?' => [ 'html' => self::renderGetLink( $title ) ]
 		];
 
 		return self::renderTemplate( 'desktopShareBar', $templateData );
+	}
+
+	/**
+	 * @param Title $title
+	 *
+	 * @return string
+	 */
+	public static function renderGetLink( $title, $isMobile = false ) {
+		$templateName = $isMobile ? 'mobileShareBar.getlink' : 'desktopShareBar.getlink';
+		$shareLink = self::renderTemplate( $templateName, [
+			'text' => wfMessage( 'ext-sharebar-getlink' )->text(),
+			'label' => wfMessage( 'ext-sharebar-getlink-label' )->text(),
+			'btn-text' => wfMessage( 'ext-sharebar-getlink-btn' )->text(),
+			'link' => htmlspecialchars( self::getNicePageURL( $title ) )
+		] );
+		// Remove all lines breaks, etc., because MW wreaks havoc by making things into <P>s.
+		$shareLink = str_replace( [ "\t", "\n" ], '', $shareLink );
+
+		return $shareLink;
 	}
 
 	/**

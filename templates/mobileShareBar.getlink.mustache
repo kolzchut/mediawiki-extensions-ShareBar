@@ -1,0 +1,19 @@
+<div class="dropdown dropup">
+	<a href="#" class="wr-share-link dropdown-toggle" data-service="link" data-toggle="dropdown" aria-haspopup="true">
+		<span class="fa-stack">
+			<i class="fa fa-circle fa-stack-2x"></i>
+			<i class="fa fa-link fa-stack-1x"></i>
+		</span>
+		<span class="sr-only">{{text}}</span>
+	</a>
+	<div class="dropdown-menu">
+		<div class="input-group">
+			<input value="{{link}}" class="form-control" type="text" aria-label="{{label}}" readonly>
+			<span class="input-group-btn">
+				<button type="button" aria-label="{{btn-text}}" data-clipboard-text="{{link}}" class="btn btn-default">
+					<span class="fa fa-clipboard"></span>
+				</button>
+			</span>
+		</div>
+	</div>
+</div>

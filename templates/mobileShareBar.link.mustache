@@ -1,9 +1,10 @@
 <li class="wr-sharebar-{{name}}">
-	<a href="{{url}}" rel="nofollow noopener" class="wr-share-link btn-round-{{name}}" data-service="{{name}}" aria-label="{{btn-text}}" target="_blank">
+	{{#arbitraryhtml?}}{{{html}}}{{/arbitraryhtml?}}{{^arbitraryhtml?}}
+	<a href="{{url}}" rel="nofollow noopener" class="wr-share-link btn-round-{{name}}" data-service="{{name}}" target="_blank">
 		<span class="fa-stack">
 			<i class="fa fa-circle fa-stack-2x"></i>
 			<i class="fa fa-{{iconClass}}{{^iconClass}}{{name}}{{/iconClass}} fa-stack-1x"></i>
 		</span>
 		<span class="sr-only">{{text}}</span>
-	</a>
+	</a>{{/arbitraryhtml?}}
 </li>
