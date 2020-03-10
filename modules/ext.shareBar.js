@@ -81,14 +81,19 @@
 			$( '.wr-sharebar-getlink' ).on( 'show.bs.dropdown', function( event ) {
 				var $target = $( event.currentTarget ),
 					$btn = $target.find( '.btn' ),
+					originalBtnText = $btn.html(),
 					$input,
 					textLength;
 
 				$target.find( '.dropdown-menu' ).on( 'click', function( e ) { e.stopPropagation(); } );
 				mw.loader.using( 'clipboard.js', function() {
 					var clipboard = new ClipboardJS( $btn[ 0 ] );
-					clipboard.on( 'success', function( e ) {
+					clipboard.on( 'success', function ( e ) {
 						$btn.text( mw.message( 'ext-sharebar-getlink-success' ).text() );
+						// Reset the button the text the second it's hidden
+						$target.find( '.dropdown' ).one( 'hidden.bs.dropdown', function () {
+							$btn.html( originalBtnText );
+						} );
 						e.clearSelection();
 					} );
 
