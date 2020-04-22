@@ -38,52 +38,60 @@
 @color-social-email:         #8d8d8d;
 
 /* Variation on Bootstrap 3's button mixin */
-.btn-social-round(@background, @color: #fff, @border: rgba(0,0,0,.2) ) {
+.btn-social-round( @background, @color: #fff, @border: rgba( 0,0,0,.2 ) ) {
 	& .fa-stack-2x {
 		color: @background;
 		border-color: @border;
 	}
-    & .fa-stack-1x {
-	    color: @color;
-    }
+
+	& .fa-stack-1x {
+		color: @color;
+	}
 
 	&:focus,
 	&.focus {
 		& .fa-stack-2x {
-			color: darken(@background, 10%);
-			border-color: darken(@border, 25%);
+			color: darken( @background, 10% );
+			border-color: darken( @border, 25% );
 		}
+
 		& .fa-stack-1x {
 			color: @color;
 		}
 	}
+
 	&:hover {
 		& .fa-stack-2x {
-			color: darken(@background, 10%);
-			border-color: darken(@border, 12%);
+			color: darken( @background, 10% );
+			border-color: darken( @border, 12% );
 		}
+
 		& .fa-stack-1x {
 			color: @color;
 		}
 	}
+
 	&:active,
 	&.active {
 		& .fa-stack-2x {
-			color: darken(@background, 10%);
-			border-color: darken(@border, 12%);
+			color: darken( @background, 10% );
+			border-color: darken( @border, 12% );
 		}
+
 		& .fa-stack-1x {
 			color: @color;
 		}
 	}
+
 	&:active,
 	&.active,
 	.open > .dropdown-toggle& {
 		background-image: none;
 	}
+
 	&.disabled,
-	&[disabled],
-	fieldset[disabled] & {
+	&[ disabled ],
+	fieldset[ disabled ] & {
 		&:hover,
 		&:focus,
 		&.focus {

@@ -1,6 +1,13 @@
 <?php
 
-class ExtShareBar {
+namespace WikiRights\ShareBar;
+
+use ArrayIterator;
+use Parser;
+use TemplateParser;
+use Title;
+
+class ShareBar {
 	/**
 	 * @param Title $title
 	 * @param string[] $services
@@ -47,12 +54,12 @@ class ExtShareBar {
 	 */
 	public static function makeMobileShareBar( $title, $id = null ) {
 		global $egShareBarMobileServices, $egShareBarMobileServicesLimit,
-		       $egShareBarMobileServicesFlipOrder;
+			   $egShareBarMobileServicesFlipOrder;
 
 		$services = self::getServices( $title, explode( ',', $egShareBarMobileServices ) );
 		$services['email']['iconClass'] = 'envelope-o';
 
-		if ( in_array( 'getlink', array_keys( $services ) ) ) {
+		if ( array_key_exists( 'getlink', $services ) ) {
 			$services[ 'getlink' ][ 'iconClass' ] = 'link';
 			$services[ 'getlink' ][ 'arbitraryhtml?' ] = [ 'html' => self::renderGetLink( $title, true ) ];
 		}
@@ -110,6 +117,8 @@ class ExtShareBar {
 	/**
 	 * @param Title $title
 	 *
+	 * @param bool $isMobile
+	 *
 	 * @return string
 	 */
 	public static function renderGetLink( $title, $isMobile = false ) {
@@ -133,10 +142,9 @@ class ExtShareBar {
 	 * @return string
 	 */
 	public static function renderTemplate( $templateName, $data ) {
-		$templateParser = new \TemplateParser( __DIR__ . '/templates' );
-		$result = $templateParser->processTemplate( $templateName, $data );
+		$templateParser = new TemplateParser( __DIR__ . '/../templates' );
 
-		return $result;
+		return $templateParser->processTemplate( $templateName, $data );
 	}
 
 	/**
@@ -151,6 +159,12 @@ class ExtShareBar {
 		return self::makeDesktopShareBar( $title );
 	}
 
+	/**
+	 * @param string $service
+	 * @param Title $title
+	 *
+	 * @return mixed|string|string[]
+	 */
 	private static function buildShareUrl( $service, Title $title ) {
 		/** Legit globals */
 		global $wgSitename;
@@ -202,9 +216,14 @@ class ExtShareBar {
 		return $url;
 	}
 
+	/**
+	 * @param Title $title
+	 *
+	 * @return mixed|string|string[]
+	 */
 	private static function getNicePageURL( Title $title ) {
 		$url = wfExpandIRI( $title->getLocalURL() );
-		$url = str_replace( [ '(', ')', '"', "'"], ['%28', '%29', '%22', '%20' ], $url );
+		$url = str_replace( [ '(', ')', '"', "'" ], [ '%28', '%29', '%22', '%20' ], $url );
 		return $url;
 	}
 

@@ -15,14 +15,14 @@
 		modalTemplate: null,
 		/* static */ basicWindowFeatures: 'menubar=no,toolbar=no,location=no,resizable=no,scrollbars=no,status=no,directories=no',
 
-		init: function() {
+		init: function () {
 			this.settings = mw.config.get( 'egShareBar' );
 			this.modalTemplate = mw.template.get( 'ext.wr.ShareBar.js', 'modal.mustache' );
 
 			this.attachClickHandlers();
 		},
 
-		attachClickHandlers: function() {
+		attachClickHandlers: function () {
 			var selectors = [
 				'.wr-share-link',
 				'.kz-nav-donation > a',
@@ -31,7 +31,7 @@
 				'.kz-footer-feedback > a'
 			];
 
-			$( 'body' ).on( 'click', selectors.join( ',' ), function( event ) {
+			$( selectors.join() ).on( 'click', function ( event ) {
 				var service = $( this ).data( 'service' ) || null,
 					action = $( this ).data( 'action' ) || null,
 					props,
@@ -39,10 +39,12 @@
 					width,
 					height;
 
+				// eslint-disable-next-line no-jquery/no-class-state
 				if ( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
 					service = 'donate';
 					action = 'modal';
 				}
+				// eslint-disable-next-line no-jquery/no-class-state
 				if ( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
 					service = 'feedback';
 					action = 'modal';
@@ -78,15 +80,18 @@
 				event.preventDefault();
 			} );
 
-			$( '.wr-sharebar-getlink' ).on( 'show.bs.dropdown', function( event ) {
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$( '.wr-sharebar-getlink' ).on( 'show.bs.dropdown', function ( event ) {
 				var $target = $( event.currentTarget ),
 					$btn = $target.find( '.btn' ),
 					originalBtnText = $btn.html(),
 					$input,
 					textLength;
 
-				$target.find( '.dropdown-menu' ).on( 'click', function( e ) { e.stopPropagation(); } );
-				mw.loader.using( 'clipboard.js', function() {
+				$target.find( '.dropdown-menu' ).on( 'click', function ( e ) {
+					e.stopPropagation();
+				} );
+				mw.loader.using( 'clipboard.js', function () {
 					var clipboard = new ClipboardJS( $btn[ 0 ] );
 					clipboard.on( 'success', function ( e ) {
 						$btn.text( mw.message( 'ext-sharebar-getlink-success' ).text() );
@@ -97,7 +102,7 @@
 						e.clearSelection();
 					} );
 
-					clipboard.on( 'error', function( e ) {
+					clipboard.on( 'error', function () {
 						$btn.text( mw.message( 'ext-sharebar-getlink-fail' ).text() );
 					} );
 				} );
@@ -107,7 +112,7 @@
 			} );
 		},
 
-		openWindow: function( url, width, height, windowName ) {
+		openWindow: function ( url, width, height, windowName ) {
 			var widthAndHeight = 'width=' + width + ',height=' + height,
 				// screen.left determines location in multi-monitor setup, supposedly
 				left = ( screen.width / 2 ) - ( width / 2 ) + screen.left,
@@ -118,7 +123,7 @@
 			window.open( url, windowName, strWindowFeatures );
 		},
 
-		openModal: function( url, width, height ) {
+		openModal: function ( url, width, height ) {
 			var templateData = {
 				modalTitle: mw.config.get( 'wgSiteName' ),
 				iframeSrc: url,
@@ -156,7 +161,7 @@
 
 		},
 
-		closeModal: function() {
+		closeModal: function () {
 			if ( mw.wrShareBar.$activeModal ) {
 				mw.wrShareBar.$activeModal.modal( 'hide' );
 			}

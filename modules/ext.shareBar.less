@@ -1,4 +1,4 @@
-@import "mediawiki.mixins";
+@import 'mediawiki.mixins';
 
 // Hide the mobile sharebar
 .wr-sharebar-mobile {
@@ -6,7 +6,7 @@
 }
 
 .wr-sharebar-modal .modal-content {
-    min-height: 500px;
+	min-height: 500px;
 }
 
 .wr-sharebar-desktop {
@@ -32,6 +32,7 @@
 	&:first-child a {
 		border-top-left-radius: 4px;
 	}
+
 	&:last-child a {
 		border-bottom-left-radius: 4px;
 		// border-bottom:0;
@@ -39,64 +40,65 @@
 }
 
 .wr-share-link {
-    background: #858585;
-    // border-bottom: 1px solid #fff;
-    margin-bottom: 1px;
+	background: #858585;
+	// border-bottom: 1px solid #fff;
+	margin-bottom: 1px;
 	padding: 10px;
-    display: inline-block;
-    max-width: 50px;
+	display: inline-block;
+	max-width: 50px;
 	min-width: 50px;
-    color: #fff;
-    transition: max-width 600ms linear;
-    text-decoration: none;
+	color: #fff;
+	transition: max-width 600ms linear;
+	text-decoration: none;
 	text-align: center;
 
-    &:hover,
-    &:focus,
-    &:active {
-        background-color: @color-green; // This comes from HelenaResourceLoaderModule
-        text-align: left;
-	    color: #fff;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        max-width: 250px; /* Just a guess, to fit any translation */
-	    text-decoration: none;
-
-	    .text {
-		    display: inline-block;
-	    }
-	    // Hide screen-reader text when displaying the regular text, which is the same
-	    .sr-only {
-		    display: none;
-	    }
-    }
-
-    .fa {
-        font-size: 1.5em;
-    }
 	.text {
 		display: none;
 		vertical-align: text-bottom;
 		margin-left: 5px;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: @color-green; // This comes from HelenaResourceLoaderModule
+		text-align: left;
+		color: #fff;
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+		max-width: 250px; /* Just a guess, to fit any translation */
+		text-decoration: none;
+
+		.text {
+			display: inline-block;
+		}
+		// Hide screen-reader text when displaying the regular text, which is the same
+		.sr-only {
+			display: none;
+		}
+	}
+
+	.fa {
+		font-size: 1.5em;
 	}
 }
 
 /* Print and Link only work with JS */
 .client-nojs .wr-sharebar-print,
 .client-nojs .wr-sharebar-getlink {
-    display: none;
+	display: none;
 }
 
 .wr-sharebar-getlink .dropdown-menu {
 	padding: 1em;
 }
 
+.wr-sharebar-getlink input {
+	min-width: 50ch;
+}
+
 /* Override direction for url field */
 .sitedir-rtl .wr-sharebar-getlink input {
 	/* @noflip */
 	direction: ltr;
-}
-
-.wr-sharebar-getlink input {
-	min-width: 50ch;
 }

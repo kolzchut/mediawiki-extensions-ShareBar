@@ -1,8 +1,8 @@
 WikiRights ShareBar extension for MediaWiki
 ===========================================
 
-This extension was developed for Kol-Zchut, and is quite dependant on
-the the non-public skin:Helena.
+This extension was developed for Kol-Zchut, and is quite dependent on
+the non-public skin:Helena.
 
 The extension adds a mobile and desktop sharebars - the mobile version
 is fixed at the bottom of the screen, while the desktop version is fixed
@@ -15,7 +15,7 @@ Services included:
 - WhatsApp
 - Telegram
 - Email
-- Getlink - shows a popup for copying a cleaner link, useful in unicode charsets (javascript-depndant)
+- Getlink - shows a popup for copying a cleaner link, useful in unicode charsets (javascript-dependant)
 
 If JavaScript is available, all of these will open either in a new pop-up window (Facebook, Twitter
 , etc.) or a modal window (note: the modal windows used are Bootstrap's, which aren't included here!).
@@ -23,8 +23,8 @@ If JavaScript is not available, these will open in a plain new window/tab.
 
 ## Usage
 To use from another extension or skin, call one of the relevant functions in PHP:
-- `ExtShareBar::makeDesktopShareBar( $this->getSkin()->getTitle() );`
-- `ExtShareBar::makeMobileShareBar( $this->getSkin()->getTitle() );`
+- `WikiRights\ShareBar\ShareBar::makeDesktopShareBar( $this->getSkin()->getTitle() );`
+- `WikiRights\ShareBar\ShareBar::makeMobileShareBar( $this->getSkin()->getTitle() );`
   You can add an HTML id to either sharebar by passing a string as a 2nd parameter.
 
 
@@ -48,6 +48,10 @@ You can set custom URLs for these by overriding `$egShareBarServicesConfig` like
 
 ## Changelog
 
+### 3.0.0 [2020-04-23]
+Restructured extension, using a namespace and everything. Breaks compatiblity with skins/extensions
+that call it using `ExtShareBar`, which must now use `WikiRights\ShareBar\ShareBar`.
+
 ### 2.0.0 [2018-11-xx]
 This release is aimed at skin:Helena version 4.0.
 - The desktop sharebar is now injected by the skin
@@ -69,7 +73,7 @@ This release is aimed at skin:Helena version 4.0.
 - Add $egShareBarMobileServicesLimit to control the number of displayed icons
 ### 1.2.0 [2017-05-26]
 - Add Google Analytics tagging to the shared links, so we estimate
-  their effect. This add "utm_source=sharebar&utm_medium={service_name}".
+  their effect. This adds "utm_source=sharebar&utm_medium={service_name}".
 
 ### 1.1.0 [2017-05-18]
 - It is now possible to configure the list of services for mobile.

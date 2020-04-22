@@ -1,4 +1,4 @@
-@import "socialButtons";
+@import 'socialButtons';
 
 // Hide desktop sharebars
 .wr-sharebar {
@@ -7,6 +7,7 @@
 
 // Functionality is JS-dependent
 .client-nojs .wr-sharebar-more {
+	/* stylelint-disable-next-line declaration-no-important */
 	display: none !important;
 }
 
@@ -32,7 +33,7 @@
 		display: table;
 		table-layout: fixed;
 		width: 100%;
-		border-top: 1px solid #EFEFEF;
+		border-top: 1px solid #efefef;
 		margin: 0;
 
 		li {
@@ -47,12 +48,29 @@
 
 		.btn-social-round( @color-green ); // Color comes from HelenaResourceLoaderModule );
 
-		&.btn-round-facebook      { .btn-social-round( @color-social-facebook ); }
-		&.btn-round-google        { .btn-social-round( @color-social-google ); }
-		&.btn-round-twitter       { .btn-social-round( @color-social-twitter ); }
-		&.btn-round-whatsapp      { .btn-social-round( @color-social-whatsapp ); }
-		&.btn-round-telegram      { .btn-social-round( @color-social-telegram ); }
-		&.btn-round-email         { .btn-social-round( @color-social-email ); }
+		&.btn-round-facebook {
+			.btn-social-round( @color-social-facebook );
+		}
+
+		&.btn-round-google {
+			.btn-social-round( @color-social-google );
+		}
+
+		&.btn-round-twitter {
+			.btn-social-round( @color-social-twitter );
+		}
+
+		&.btn-round-whatsapp {
+			.btn-social-round( @color-social-whatsapp );
+		}
+
+		&.btn-round-telegram {
+			.btn-social-round( @color-social-telegram );
+		}
+
+		&.btn-round-email {
+			.btn-social-round( @color-social-email );
+		}
 	}
 }
 
@@ -66,12 +84,13 @@
 	}
 
 	.dropdown-menu {
-		padding: .5em;
-		right: .5em;
-		left: .5em;
+		padding: 0.5em;
+		right: 0.5em;
+		left: 0.5em;
 	}
 
 	input {
+		/* stylelint-disable-next-line declaration-no-important */
 		min-width: auto !important; // Override the min-width set through JS for desktop
 		text-overflow: ellipsis;
 		direction: ltr;
@@ -88,6 +107,3 @@
 footer {
 	margin-bottom: 2.5em;
 }
-
-
-

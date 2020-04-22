@@ -1,6 +1,10 @@
 <?php
 
-class ExtShareBarHooks {
+namespace WikiRights\ShareBar;
+
+use OutputPage;
+
+class Hooks {
 	/**
 	 * ResourceLoaderGetConfigVars hook
 	 * Make extension configuration variables available in javascript
@@ -21,11 +25,10 @@ class ExtShareBarHooks {
 	 * Add the modules to the page
 	 *
 	 * @param OutputPage &$out output page
-	 * @param Skin &$skin current skin
 	 *
 	 * @return true
 	 */
-	public static function onBeforePageDisplay( OutputPage &$out, &$skin ) {
+	public static function onBeforePageDisplay( OutputPage &$out ) {
 		$out->addModuleStyles( 'ext.wr.ShareBar' );
 		$out->addModules(
 			[
