@@ -123,9 +123,14 @@
 			window.open( url, windowName, strWindowFeatures );
 		},
 
-		openModal: function ( url, width, height ) {
-			var templateData = {
-				modalTitle: mw.config.get( 'wgSiteName' ),
+		openModal: function ( url, width, height, options ) {
+			var templateData;
+
+			options = options || [];
+			options.title = options.title || mw.config.get( 'wgSiteName' );
+
+			templateData = {
+				modalTitle: options.title,
 				iframeSrc: url,
 				iframeHeight: height - 60,
 				iframeWidth: '100%',
@@ -156,6 +161,7 @@
 					// height: height,
 					width: width
 				} );
+				this.$activeModal.find( '.modal-title' ).text( options.title );
 				this.$activeModal.modal( 'show' );
 			}
 
