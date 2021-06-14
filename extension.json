@@ -1,7 +1,7 @@
 {
 	"name": "WikiRights ShareBar",
 	"version": "3.0.0",
-	"author": "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])",
+	"author": "Dror S. [FFS] ([https://www.kolzchut.org.il Kol-Zchut])",
 	"url": "https://github.com/kolzchut/mediawiki-extensions-ShareBar",
 	"descriptionmsg": "ext-sharebar-desc",
 	"license-name": "GPL-3.0",
@@ -28,15 +28,12 @@
 				"ext.shareBar.mobile.less": {
 					"media": "screen and ( max-width: 767px )"
 				}
-			},
-			"position": "top"
+			}
 		},
 		"ext.wr.ShareBar.js": {
 			"scripts": [
 				"ext.shareBar.js"
 			],
-			
-			"position": "bottom",
 			"messages": [
 				"ext-sharebar-loading",
 				"ext-sharebar-getlink-success",
@@ -50,7 +47,6 @@
 			]
 		},
 		"ext.wr.ShareBar.analytics": {
-			"position": "bottom",
 			"scripts": [
 				"ext.shareBar.analytics.js"
 			],
@@ -95,11 +91,6 @@
 			"feedback": {
 				"width": 800,
 				"height": 700,
-				"action": "modal"
-			},
-			"donate": {
-				"width": 1050,
-				"height": 750,
 				"action": "modal"
 			},
 			"email": {

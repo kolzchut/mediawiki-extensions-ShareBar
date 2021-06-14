@@ -25,8 +25,6 @@
 		attachClickHandlers: function () {
 			var selectors = [
 				'.wr-share-link',
-				'.kz-nav-donation > a',
-				'.kz-footer-donation > a',
 				'.kz-nav-feedback > a',
 				'.kz-footer-feedback > a'
 			];
@@ -40,11 +38,6 @@
 					height;
 
 				// eslint-disable-next-line no-jquery/no-class-state
-				if ( $( this ).parent().hasClass( 'kz-nav-donation' ) || $( this ).parent().hasClass( 'kz-footer-donation' ) ) {
-					service = 'donate';
-					action = 'modal';
-				}
-				// eslint-disable-next-line no-jquery/no-class-state
 				if ( $( this ).parent().hasClass( 'kz-nav-feedback' ) || $( this ).parent().hasClass( 'kz-footer-feedback' ) ) {
 					service = 'feedback';
 					action = 'modal';
@@ -56,7 +49,7 @@
 				}
 
 				url = $( this ).attr( 'href' );
-				if ( ( service === 'donate' || service === 'feedback' ) && props.url !== undefined ) {
+				if ( service === 'feedback' && props.url !== undefined ) {
 					url = props.url;
 				}
 

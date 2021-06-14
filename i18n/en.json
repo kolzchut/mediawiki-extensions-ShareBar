@@ -8,8 +8,6 @@
 	"ext-sharebar-desc": "ShareBar for for the Kol-Zchut website",
 	"ext-sharebar-loading": "Loading...",
 	"ext-sharebar-feedback-form-title": "Give us feedback",
-	"ext-sharebar-donate-form-title": "Donate to {{SITENAME}}",
-	"ext-sharebar-btn-donate": "Donate",
 	"ext-sharebar-btn-changerequest": "Change Proposal",
 	"ext-sharebar-btn-feedback": "Feedback",
 	"ext-sharebar-print": "Print",
