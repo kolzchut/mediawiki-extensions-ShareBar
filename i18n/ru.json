@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tatiana Berlin"
+		]
+	},
+
+	"ext-sharebar": "Панель инструментов \"Коль Зхут\"",
+	"ext-sharebar-desc": "Панель инструментов \"Коль Зхут\"",
+	"ext-sharebar-loading": "Загрузка...",
+	"ext-sharebar-feedback-form-title": "Отзыв по использованию сайта",
+	"ext-sharebar-btn-changerequest": "Предложить изменения",
+	"ext-sharebar-btn-feedback": "Обратная связь",
+	"ext-sharebar-print": "Печать",
+	"ext-sharebar-getlink": "Поделитесь ссылкой",
+	"ext-sharebar-getlink-label": "Ссылка",
+	"ext-sharebar-getlink-btn": "Копирование",
+	"ext-sharebar-getlink-success": "Скопировано успешно!",
+	"ext-sharebar-getlink-fail": "Не удалось скопировать...",
+	"ext-sharebar-changerequest": "{{int:ext-sharebar-btn-changerequest}}",
+	"ext-sharebar-facebook": "Поделиться в Фейсбуке",
+	"ext-sharebar-twitter": "Поделиться в Твиттере",
+	"ext-sharebar-whatsapp": "Поделиться в WhatsApp",
+	"ext-sharebar-telegram": "Поделиться в Телеграм",
+	"ext-sharebar-email": "Поделиться по электронной почте",
+	"ext-sharebar-service-name-more": "Больше",
+	"ext-sharebar-share-text": "$1 с сайта \"Коль Зхут\"",
+	"ext-sharebar-email-msg": "Вас может заинтересовать $1 на сайте \"Коль Зхут\"",
+	"ext-sharebar-twitter-msg": "$1 из #$2 — ваше право знать, ваше право получить"
+}
