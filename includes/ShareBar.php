@@ -165,7 +165,7 @@ class ShareBar {
 	 *
 	 * @return mixed|string|string[]
 	 */
-	private static function buildShareUrl( $service, Title $title ) {
+	public static function buildShareUrl( $service, Title $title ) {
 		/** Legit globals */
 		global $wgSitename;
 		/** Evil globals */
