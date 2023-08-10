@@ -13,6 +13,7 @@
 		settings: {},
 		$activeModal: null,
 		modalTemplate: null,
+		bootstrapModalEnabled: typeof $().modal == 'function',
 		/* static */ basicWindowFeatures: 'menubar=no,toolbar=no,location=no,resizable=no,scrollbars=no,status=no,directories=no',
 
 		init: function () {
@@ -70,7 +71,9 @@
 						break;
 				}
 
-				event.preventDefault();
+				if( action !== 'modal' || this.bootstrapModalEnabled ) {
+					event.preventDefault();
+				}
 			} );
 
 			// eslint-disable-next-line no-jquery/no-global-selector
@@ -118,6 +121,10 @@
 
 		openModal: function ( url, width, height, options ) {
 			var templateData;
+
+			if ( !this.bootstrapModalEnabled ) {
+				return;
+			}
 
 			options = options || [];
 			options.title = options.title || mw.config.get( 'wgSiteName' );

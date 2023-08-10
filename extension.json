@@ -41,10 +41,7 @@
 			],
 			"templates": {
 				"modal.mustache": "../templates/modal.mustache"
-			},
-			"dependencies": [
-				"skins.helena.bootstrap.js"
-			]
+			}
 		},
 		"ext.wr.ShareBar.analytics": {
 			"scripts": [
